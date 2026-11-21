@@ -192,7 +192,7 @@
 const LOJA = {
   whatsapp: "5587900000000",        // DDI + DDD + número, só dígitos (ex.: 5587999998888)
   instagram: "https://www.instagram.com/demen.loja/",
-  endereco: "Floriano P.70 — Sertânia, PE",   // confirmar endereço completo com o dono
+  endereco: "R. Floriano Peixoto, 70 — Sertânia - PE",
   horario: "Seg a Sex 8h–18h • Sáb 8h–13h",   // confirmar com o dono
   pagamento: "Pix, cartão de crédito (parcelado) e débito",   // confirmar com o dono
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
@@ -375,12 +375,12 @@ const PRODUTOS = [
         <div><div class="eyebrow">Visite</div><h2>Venha conhecer a loja</h2></div>
         <div><small>Endereço</small><span id="endereco"></span></div>
         <div><small>Horário</small><span id="horario"></span></div>
-        <div><small>Mapa</small><a href="https://www.google.com/maps/search/?api=1&query=Sert%C3%A2nia%2C%20PE" target="_blank" rel="noopener" style="border-bottom:1px solid var(--areia)">Abrir no Google Maps</a></div>
+        <div><small>Mapa</small><a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener" style="border-bottom:1px solid var(--areia)">Abrir no Google Maps</a></div>
         <div><small>Envios</small>Para todo o Brasil. Peça pelo WhatsApp.</div>
         <div><a class="btn cheio js-zap" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
       </div>
       <div class="mapa revelar">
-        <iframe loading="lazy" title="Mapa da loja" src="https://maps.google.com/maps?q=Sert%C3%A2nia%2C%20PE&z=15&output=embed"></iframe>
+        <iframe loading="lazy" title="Mapa da loja" src="https://maps.google.com/maps?q=-8.0764307,-37.2668626&z=17&output=embed"></iframe>
       </div>
     </div>
   </section>
@@ -526,7 +526,7 @@ const PRODUTOS = [
         return [`Somos revenda autorizada de:\n• ${MARCAS.map(m => m.nome).join('\n• ')}\nTudo 100% original. Quer ver alguma?`, MARCAS.map(m => m.nome)]; } },
     { chaves:["catalogo","catalogos","colecao","novidade","lancamento"], r:() => [`Temos catálogo de ${CATALOGOS.map(c => c.titulo).join(', ')}. Abri a seção de catálogos pra você.`, ["Ver marcas","Falar com atendente"], () => $('catalogos').scrollIntoView()] },
     { chaves:["horario","hora","abre","fecha","funciona","aberto"], r:() => [`🕘 ${LOJA.horario}\n📍 ${LOJA.endereco}`, ["Envio e frete","Falar com atendente"]] },
-    { chaves:["endereco","onde","localizacao","fica","loja fisica","mapa"], r:() => [`📍 ${LOJA.endereco}\n🕘 ${LOJA.horario}\n<a href="https://www.google.com/maps/search/?api=1&query=Sert%C3%A2nia%2C%20PE" target="_blank" rel="noopener">Abrir no Google Maps</a>`, ["Envio e frete","Outra dúvida"]] },
+    { chaves:["endereco","onde","localizacao","fica","loja fisica","mapa"], r:() => [`📍 ${LOJA.endereco}\n🕘 ${LOJA.horario}\n<a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener">Abrir no Google Maps</a>`, ["Envio e frete","Outra dúvida"]] },
     { chaves:["envio","frete","entrega","correio","enviam","manda","chega","prazo"], r:() => [`📦 ${LOJA.envio}\n${linkZap('Olá! Quero calcular o frete. Meu CEP é: ', 'Calcular frete no WhatsApp')}`, ["Pagamento","Outra dúvida"]] },
     { chaves:["pagamento","pagar","pix","cartao","parcela","parcelado","credito","debito","boleto"], r:() => [`💳 Aceitamos: ${LOJA.pagamento}.`, ["Envio e frete","Falar com atendente"]] },
     { chaves:["troca","trocar","devolu","devolver"], r:() => [`🔄 ${LOJA.trocas}`, ["Tamanhos","Outra dúvida"]] },
