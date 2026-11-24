@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DE men | Versão com efeitos (teste)</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="DE men: moda masculina premium em Sertânia-PE. Revenda autorizada, 100% originais. Calvin Klein, Reserva, Adidas e Ogochi. Enviamos para todo o Brasil.">
+<meta property="og:title" content="DE men | Moda Masculina Premium">
+<meta property="og:description" content="Revenda autorizada • 100% originais • Enviamos para todo o Brasil">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/logo-ig.jpg">
+<meta property="og:image" content="../img/logo-ig.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto:#0d0d0d; --grafite:#1a1a1a; --grafite2:#222; --cinza:#8a8a8a; --linha:#2a2a2a;
+    --branco:#f5f3ef; --areia:#c8b48a;
+    --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--preto);color:var(--branco);font-family:var(--sans);font-weight:300;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1180px,92%);margin:0 auto}
+  .eyebrow{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--areia);font-weight:500}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1}
+  h2{font-size:clamp(2rem,4vw,3rem);margin:.4rem 0 1rem}
+  .sub{color:var(--cinza);max-width:52ch}
+
+  /* Header */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+  header.solid{background:rgba(13,13,13,.92);backdrop-filter:blur(8px);border-color:var(--linha)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:.7rem}
+  .logo-img{height:40px;width:auto}
+  .logo span{font-size:.8rem;letter-spacing:.35em;text-transform:uppercase}
+  .menu{display:flex;gap:2rem;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+  .menu a{opacity:.75;transition:opacity .2s}
+  .menu a:hover{opacity:1}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.6rem;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border:1px solid var(--branco);transition:background .2s,color .2s;cursor:pointer;background:none;color:var(--branco);font-family:var(--sans)}
+  .btn:hover{background:var(--branco);color:var(--preto)}
+  .btn.cheio{background:var(--branco);color:var(--preto)}
+  .btn.cheio:hover{background:var(--areia);border-color:var(--areia)}
+  .burger{display:none;background:none;border:0;color:var(--branco);font-size:1.6rem;cursor:pointer}
+
+  /* Hero */
+  .hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding-bottom:9vh;
+    background:linear-gradient(180deg,rgba(13,13,13,.25) 0%,rgba(13,13,13,.55) 55%,var(--preto) 100%),
+      var(--hero-img, radial-gradient(ellipse at 70% 30%,#2b2b2b 0%,#111 60%));
+    background-size:cover;background-position:center}
+  .hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;align-items:end;gap:2rem}
+  .hero-logo{width:min(380px,100%);justify-self:center;align-self:center;opacity:.95;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+  .hero h1{font-size:clamp(2.8rem,7.5vw,6.2rem);max-width:13ch;margin:1rem 0 1.4rem}
+  .hero h1 em{font-style:italic;color:var(--areia)}
+  .hero p{max-width:46ch;color:#cfcac2;margin-bottom:2rem}
+  .hero .acoes{display:flex;gap:1rem;flex-wrap:wrap}
+  .selos{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:3rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza)}
+  .selos b{color:var(--branco);font-weight:500}
+
+  section{padding:6.5rem 0}
+
+  /* Marcas */
+  .marcas{padding:4.5rem 0;border-block:1px solid var(--linha)}
+  .marcas-grade{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha);margin-top:2rem}
+  .marca-cel{background:var(--preto);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;cursor:pointer;transition:background .25s;padding:1.5rem;border:0;color:var(--branco);font-family:var(--sans)}
+  .marca-cel:hover{background:var(--grafite)}
+  .marca-cel img{height:64px;max-width:75%;object-fit:contain;opacity:.85;transition:opacity .25s,transform .25s}
+  .marca-cel img.larga{height:34px}
+  .marca-cel:hover img{transform:scale(1.04)}
+  .marca-cel:hover img{opacity:1}
+  .marca-nome{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:.06em}
+  .marca-cel small{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza)}
+
+  /* Vitrine */
+  .topo-sec{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+  .controles{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.2rem}
+  .linha-filtro{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+  .linha-filtro .rot{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);width:80px}
+  .chip{background:none;border:1px solid var(--linha);color:var(--cinza);padding:.5rem 1rem;font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+  .chip.ativo,.chip:hover{border-color:var(--branco);color:var(--branco)}
+  .busca{background:var(--grafite);border:1px solid var(--linha);color:var(--branco);padding:.75rem 1rem;font-family:var(--sans);font-size:.9rem;min-width:260px;outline:none}
+  .busca:focus{border-color:var(--areia)}
+  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.6rem}
+  .card{background:var(--grafite);display:flex;flex-direction:column;transition:transform .3s}
+  .card:hover{transform:translateY(-4px)}
+  .foto{aspect-ratio:4/5;background:linear-gradient(135deg,#232323,#161616);display:grid;place-items:center;color:#4a4a4a;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;overflow:hidden}
+  .foto img{width:100%;height:100%;object-fit:cover}
+  .card .info{padding:1.2rem 1.2rem 1.4rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+  .card .marca{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--areia)}
+  .card h3{font-size:1.35rem}
+  .card .preco{color:#cfcac2;font-size:.92rem}
+  .tams{display:flex;gap:.3rem;flex-wrap:wrap;margin:.3rem 0 .9rem}
+  .tams span{font-size:.68rem;border:1px solid var(--linha);padding:.15rem .45rem;color:var(--cinza)}
+  .card .btn{margin-top:auto;justify-content:center;padding:.75rem 1rem}
+  .vazio{grid-column:1/-1;text-align:center;color:var(--cinza);padding:3rem 0}
+
+  /* Catálogos */
+  .catalogos{background:var(--grafite)}
+  .cat-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .cat-card{background:var(--preto);border:1px solid var(--linha);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .25s}
+  .cat-card:hover{border-color:var(--areia)}
+  .cat-card .num{font-family:var(--serif);font-size:3rem;line-height:1;color:var(--areia);opacity:.6}
+  .cat-card h3{font-size:1.7rem}
+  .cat-card p{color:var(--cinza);font-size:.9rem;flex:1}
+  .cat-card .acoes{display:flex;gap:.6rem;flex-wrap:wrap}
+  .cat-card .btn{padding:.7rem 1.1rem;font-size:.7rem}
+
+  /* Sobre */
+  .sobre .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .sobre blockquote{font-family:var(--serif);font-style:italic;font-size:1.6rem;line-height:1.3;border-left:2px solid var(--areia);padding-left:1.2rem;margin:1.6rem 0}
+  .pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+  .pilares div{border-top:1px solid var(--linha);padding-top:1rem}
+  .pilares b{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:500}
+  .pilares small{color:var(--cinza);font-size:.82rem}
+
+  /* Clientes */
+  .clientes{background:var(--grafite)}
+  .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .galeria .foto{aspect-ratio:1}
+
+  /* Visite */
+  .visite .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:stretch}
+  .dados{display:flex;flex-direction:column;gap:1.4rem}
+  .dados div small{display:block;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);margin-bottom:.2rem}
+  .mapa{min-height:360px;border:1px solid var(--linha);filter:grayscale(1) invert(.92) contrast(.9)}
+  .mapa iframe{width:100%;height:100%;border:0;min-height:360px}
+
+  footer{border-top:1px solid var(--linha);padding:2.5rem 0;color:var(--cinza);font-size:.8rem}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+  .rodape-logo{height:56px;width:auto;margin-bottom:.6rem}
+
+  /* Bot */
+  .bot-botao{position:fixed;right:22px;bottom:22px;z-index:70;height:58px;padding:0 1.2rem 0 .5rem;border-radius:30px;background:var(--branco);color:var(--preto);display:flex;align-items:center;gap:.6rem;box-shadow:0 10px 30px rgba(0,0,0,.5);border:0;cursor:pointer;font-family:var(--sans);font-weight:500;font-size:.85rem;transition:transform .2s}
+  .bot-botao:hover{transform:translateY(-2px)}
+  .bot-botao .av{width:44px;height:44px;border-radius:50%;background:var(--preto);display:grid;place-items:center}
+  .bot-botao .av img{height:26px}
+  .bot-botao .ponto{width:8px;height:8px;border-radius:50%;background:#3ccf6e;margin-left:-.2rem}
+  .bot{position:fixed;right:22px;bottom:94px;z-index:70;width:min(370px,calc(100vw - 24px));height:min(560px,calc(100vh - 120px));background:var(--grafite);border:1px solid var(--linha);display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.6);opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:opacity .25s,transform .25s}
+  .bot.aberto{opacity:1;transform:none;pointer-events:auto}
+  .bot-topo{display:flex;align-items:center;gap:.8rem;padding:1rem 1.1rem;border-bottom:1px solid var(--linha);background:var(--preto)}
+  .bot-topo img{height:30px}
+  .bot-topo b{display:block;font-weight:500;font-size:.92rem}
+  .bot-topo small{color:#3ccf6e;font-size:.72rem}
+  .bot-topo button{margin-left:auto;background:none;border:0;color:var(--cinza);font-size:1.4rem;cursor:pointer}
+  .bot-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+  .msg{max-width:85%;padding:.65rem .9rem;font-size:.88rem;line-height:1.45;white-space:pre-line}
+  .msg.bot-m{background:var(--grafite2);align-self:flex-start;border-radius:2px 14px 14px 14px}
+  .msg.user-m{background:var(--branco);color:var(--preto);align-self:flex-end;border-radius:14px 2px 14px 14px}
+  .msg a{color:var(--areia);border-bottom:1px solid var(--areia)}
+  .digitando{display:flex;gap:4px;padding:.8rem .9rem}
+  .digitando i{width:6px;height:6px;border-radius:50%;background:var(--cinza);animation:pulo 1s infinite}
+  .digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
+  @keyframes pulo{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+  .bot-opcoes{display:flex;gap:.4rem;flex-wrap:wrap;padding:0 1rem .8rem}
+  .bot-opcoes button{background:none;border:1px solid var(--linha);color:var(--branco);padding:.45rem .8rem;border-radius:20px;font-size:.76rem;cursor:pointer;font-family:var(--sans);transition:border-color .2s}
+  .bot-opcoes button:hover{border-color:var(--areia)}
+  .bot-form{display:flex;border-top:1px solid var(--linha)}
+  .bot-form input{flex:1;background:none;border:0;color:var(--branco);padding:1rem;font-family:var(--sans);font-size:.9rem;outline:none}
+  .bot-form button{background:none;border:0;color:var(--areia);padding:0 1.1rem;cursor:pointer;font-size:1.2rem}
+
+  .revelar{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+  .revelar.visivel{opacity:1;transform:none}
+
+  @media (max-width:860px){
+    .menu{position:fixed;inset:72px 0 auto 0;background:var(--preto);flex-direction:column;padding:1.5rem 4%;gap:1.2rem;border-bottom:1px solid var(--linha);display:none}
+    .menu.aberto{display:flex}
+    .burger{display:block}
+    .nav .btn{display:none}
+    .hero .wrap{grid-template-columns:1fr}
+    .hero-logo{grid-row:1;width:150px;justify-self:start;margin-top:5rem}
+    .sobre .wrap,.visite .wrap{grid-template-columns:1fr}
+    .marcas-grade{grid-template-columns:repeat(2,1fr)}
+    .galeria{grid-template-columns:repeat(2,1fr)}
+    .pilares{grid-template-columns:1fr}
+    .linha-filtro .rot{width:100%}
+    .busca{min-width:0;width:100%}
+    section{padding:4.5rem 0}
+    .bot-botao .txt{display:none}
+    .bot-botao{padding:0 .5rem}
+  }
+
+  /* ================= EFEITOS (versão teste) ================= */
+  html.lenis, html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto !important}
+  #intro{position:fixed;inset:0;z-index:300;background:var(--preto);display:grid;place-items:center;transition:opacity .9s ease,visibility .9s}
+  #intro img{width:110px;animation:pulsa 1.8s ease-in-out infinite}
+  #intro .barra{position:absolute;left:50%;bottom:22%;width:170px;height:1px;background:#2a2a2a;transform:translateX(-50%);overflow:hidden}
+  #intro .barra i{display:block;height:100%;width:0;background:var(--areia);transition:width .35s ease}
+  body.carregado #intro{opacity:0;visibility:hidden}
+  @keyframes pulsa{50%{opacity:.55;transform:scale(.96)}}
+  #progresso{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--areia),#fff);z-index:130}
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:250;border-radius:50%;transform:translate3d(-100px,-100px,0)}
+  .cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--areia)}
+  .cursor-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(200,180,138,.55);transition:width .25s,height .25s,margin .25s,background .25s}
+  .cursor-ring.grande{width:72px;height:72px;margin:-36px 0 0 -36px;background:rgba(200,180,138,.08)}
+  @media (hover:none){.cursor-dot,.cursor-ring{display:none}}
+  .hero{isolation:isolate}
+  #particulas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .hero .brilho{position:absolute;z-index:0;width:700px;height:700px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(200,180,138,.13),transparent 62%);left:var(--mx,72%);top:var(--my,42%);transform:translate(-50%,-50%);transition:left .6s ease-out,top .6s ease-out}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-3d{position:relative;width:100%;max-width:520px;aspect-ratio:1/1;justify-self:center;align-self:center}
+  .hero-3d canvas{position:absolute;inset:0;width:100% !important;height:100% !important;display:block;cursor:grab;touch-action:pan-y}
+  .hero-3d canvas:active{cursor:grabbing}
+  .hero-3d .hero-logo{position:absolute;inset:0;margin:auto !important;width:78% !important}
+  .hero-3d.ativo .hero-logo{display:none}
+  .hero-3d .legenda{position:absolute;left:0;right:0;bottom:4%;text-align:center;font-size:.68rem;letter-spacing:.5em;color:#9b9488;opacity:0;transition:opacity 1s}
+  .hero-3d.ativo .legenda{opacity:1}
+  .hero-3d::after{content:"";position:absolute;left:18%;right:18%;bottom:9%;height:22px;border-radius:50%;background:radial-gradient(ellipse,rgba(200,180,138,.25),transparent 70%);filter:blur(6px)}
+  .palavra{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+  .palavra>span{display:inline-block;transform:translateY(110%)}
+  .faixa{overflow:hidden;border-block:1px solid var(--linha);padding:1.3rem 0;background:var(--grafite)}
+  .faixa-trilho{display:flex;gap:3.5rem;width:max-content;align-items:center;animation:desliza 32s linear infinite}
+  .faixa:hover .faixa-trilho{animation-play-state:paused}
+  .faixa-trilho span{font-family:var(--serif);font-size:1.55rem;letter-spacing:.14em;white-space:nowrap;color:#c9c2b6}
+  .faixa-trilho i{color:var(--areia);font-style:normal;font-size:1rem}
+  @keyframes desliza{to{transform:translateX(-50%)}}
+  .numeros-sec{padding:4.5rem 0 0}
+  .numeros{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha)}
+  .numeros div{background:var(--preto);padding:2.3rem 1rem;text-align:center}
+  .numeros b{display:block;font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1}
+  .numeros small{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza)}
+  .grade,.marcas-grade,.cat-grade{perspective:1200px}
+  .card,.cat-card,.marca-cel{transform-style:preserve-3d;transition:transform .18s ease-out,border-color .25s,background .25s;will-change:transform;position:relative}
+  .brilho-card{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s;
+    background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.16),transparent 45%)}
+  .card:hover .brilho-card,.cat-card:hover .brilho-card,.marca-cel:hover .brilho-card{opacity:1}
+  .card .foto img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .foto img{transform:scale(1.08)}
+  .card:hover{transform:none}
+  .btn{will-change:transform;transition:background .2s,color .2s,transform .25s cubic-bezier(.2,.7,.2,1)}
+  h2 .linha-ouro{display:block;width:0;height:1px;margin-top:.9rem;background:var(--areia);transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+  h2.desenhada .linha-ouro{width:64px}
+  .teste-selo{position:fixed;left:200px;top:24px;z-index:60;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(200,180,138,.12);color:var(--areia);border:1px solid rgba(200,180,138,.35);padding:.3rem .55rem;pointer-events:none}
+  @media (max-width:860px){.teste-selo{left:165px}}
+  @media (max-width:860px){
+    .hero-3d{max-width:250px;justify-self:start;grid-row:1;margin-top:4.5rem}
+    .numeros{grid-template-columns:repeat(2,1fr)}
+    .hero .brilho{width:420px;height:420px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .faixa-trilho{animation:none}
+    .palavra>span{transform:none}
+  }
+</style>
+</head>
+<body>
+<div id="intro" aria-hidden="true"><img src="../img/monograma.svg" alt=""><div class="barra"><i></i></div></div>
+<div id="progresso"></div>
+<div class="cursor-dot"></div><div class="cursor-ring"></div>
+<div class="teste-selo">Teste</div>
+
+<!-- =========================================================
+     CONFIGURAÇÃO RÁPIDA — edite só este bloco
+     ========================================================= -->
+<script>
+const LOJA = {
+  whatsapp: "5587900000000",        // DDI + DDD + número, só dígitos (ex.: 5587999998888)
+  instagram: "https://www.instagram.com/demen.loja/",
+  endereco: "R. Floriano Peixoto, 70 — Sertânia - PE",
+  horario: "Seg a Sex 8h–18h • Sáb 8h–13h",   // confirmar com o dono
+  pagamento: "Pix, cartão de crédito (parcelado) e débito",   // confirmar com o dono
+  envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
+  trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
+  fotoCapa: "",                     // ex.: "../fotos/capa.jpg"
+  fotoSobre: "",                    // ex.: "../fotos/loja.jpg"
+  clientes: ["", "", "", "", "", "", "", ""] // até 8 fotos: "../fotos/cliente1.jpg"
+};
+
+// Marcas. Coloque em "logo" o arquivo oficial enviado pela marca/distribuidor (ex.: "../marcas/calvin-klein.png").
+// Sem arquivo, aparece o nome da marca em texto.
+const MARCAS = [
+  { nome:"Calvin Klein", logo:"../marcas/calvin-klein.png", desc:"Cuecas, jeans, polos, carteiras e perfumes" },
+  { nome:"Reserva",      logo:"../marcas/reserva.png", larga:true, desc:"Camisetas, bermudas, casacos e sandálias" },
+  { nome:"Adidas",       logo:"../marcas/adidas.png", desc:"Tênis, chinelos, meias e esportivo" },
+  { nome:"Ogochi",       logo:"../marcas/ogochi.png", desc:"Social, sapatos, cintos e alfaiataria" }
+];
+
+// Catálogos. Em "pdf", coloque o arquivo (ex.: "../catalogos/reserva-verao.pdf").
+// Sem PDF, o botão pede o catálogo pelo WhatsApp.
+const CATALOGOS = [
+  { titulo:"Calvin Klein", desc:"Cuecas, camisetas, polos, jeans, carteiras e perfumes.", marca:"Calvin Klein", pdf:"" },
+  { titulo:"Reserva",      desc:"Camisetas, bermudas, casacos, sandálias e peças de verão.", marca:"Reserva", pdf:"" },
+  { titulo:"Adidas",       desc:"Tênis, chinelos, shorts, regatas, meias e linha de treino.", marca:"Adidas", pdf:"" },
+  { titulo:"Ogochi",       desc:"Camisas sociais, calças, sapatos e cintos para o trabalho e eventos.", marca:"Ogochi", pdf:"" },
+  { titulo:"Calçados",     desc:"Sapatos, tênis e sandálias para todas as ocasiões.", cat:"Calçados", pdf:"" },
+  { titulo:"Acessórios",   desc:"Cintos, carteiras, óculos e meias para completar o visual.", cat:"Acessórios", pdf:"" },
+  { titulo:"Perfumaria",   desc:"Fragrâncias masculinas originais para presente ou uso diário.", cat:"Perfumes", pdf:"" }
+];
+
+// Produtos. Preço vazio = "Consulte o preço". Tamanhos vazios = não mostra.
+const PRODUTOS = [
+  // Calvin Klein
+  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer.jpg" },
+  { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde.jpg" },
+  { nome:"Polo Básica Azul-claro",         marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-azul-claro.jpg" },
+  { nome:"Camiseta Algodão Egípcio Preta", marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-egipcio.jpg" },
+  { nome:"Camiseta Logo Bordado Verde",    marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-logo.jpg" },
+  { nome:"Regata Logo Preta",              marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-preta.jpg" },
+  { nome:"Regata Logo Marinho",            marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-marinho.jpg" },
+  { nome:"Calça Jeans Straight",           marca:"Calvin Klein", cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ck-calca-jeans-straight.jpg" },
+  { nome:"Calça Performance Grafite",      marca:"Calvin Klein", cat:"Calças",   preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-calca-performance.jpg" },
+  { nome:"Bermuda Chino Essentials",       marca:"Calvin Klein", cat:"Bermudas", preco:"", tam:["38","40","42","44"], foto:"../fotos/ck-bermuda-essentials.jpg" },
+  { nome:"Bermuda Moletom Caqui",          marca:"Calvin Klein", cat:"Bermudas", preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-bermuda-moletom.jpg" },
+  { nome:"Boné 5 Gomos Bordado",           marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",  preco:"", tam:[], foto:"../fotos/ck-bone.jpg" },
+  { nome:"Gorro Bordado",                  marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros", preco:"", tam:[], foto:"../fotos/ck-gorro.jpg" },
+  // Reserva
+  { nome:"Perfume Reserva Preto 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-preto.jpg" },
+  { nome:"Perfume Reserva Areia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-areia.jpg" },
+  { nome:"Perfume Reserva Sépia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-sepia.jpg" },
+  { nome:"Camiseta Básica",                marca:"Reserva", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/reserva-camiseta-basica.jpg" },
+  { nome:"Calça Jeans Slim",               marca:"Reserva", cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/reserva-calca-jeans.jpg" },
+  { nome:"Bermuda Chino Comfort",          marca:"Reserva", cat:"Bermudas", preco:"", tam:["38","40","42","44"], foto:"../fotos/reserva-bermuda-chino.jpg" },
+  { nome:"Cueca Boxer Pima",               marca:"Reserva", cat:"Cuecas",   preco:"", tam:["P","M","G","GG"], foto:"../fotos/reserva-cueca-boxer.jpg" },
+  { nome:"Chinelo",                        marca:"Reserva", cat:"Sandálias",preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/reserva-chinelo.jpg" },
+  { nome:"Boné",                           marca:"Reserva", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"../fotos/reserva-bone.jpg" },
+  // Ainda sem foto
+  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
+  { nome:"Kit Meias Cano Médio",           marca:"Adidas",  cat:"Meias",    preco:"", tam:["39-42","43-46"], foto:"" },
+  { nome:"Jaqueta Verde Militar",          marca:"Ogochi",  cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Camisa Linho Azul-claro",        marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["1","2","3","4"], foto:"" },
+  { nome:"Polo Branca",                    marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Calça Sarja Areia",              marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"" },
+  { nome:"Sapato Social Couro",            marca:"Ogochi",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
+  { nome:"Cinto de Couro",                 marca:"Ogochi",  cat:"Acessórios", sub:"Cintos",    preco:"", tam:["90","95","100","105","110"], foto:"" },
+  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"" }
+];
+</script>
+
+<header id="topo">
+  <div class="wrap nav">
+    <a href="#inicio" class="logo"><img src="../img/monograma.svg" alt="DE men" class="logo-img"><span>DE men</span></a>
+    <nav class="menu" id="menu">
+      <a href="#marcas">Marcas</a>
+      <a href="#vitrine">Vitrine</a>
+      <a href="#catalogos">Catálogos</a>
+      <a href="#sobre">A loja</a>
+      <a href="#visite">Visite</a>
+    </nav>
+    <a class="btn js-zap" target="_blank" rel="noopener">Fale conosco</a>
+    <button class="burger" id="burger" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <canvas id="particulas"></canvas><div class="brilho"></div>
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Moda masculina premium • Sertânia-PE</div>
+        <h1>Elegância não precisa de esforço. Está nos <em>detalhes.</em></h1>
+        <p>Peças originais das marcas que você confia, escolhidas para o homem que se veste bem sem complicar. Na loja ou com envio para todo o Brasil.</p>
+        <div class="acoes">
+          <a href="#vitrine" class="btn cheio">Ver a vitrine</a>
+          <a href="#catalogos" class="btn">Ver catálogos</a>
+        </div>
+        <div class="selos">
+          <div><b>Revenda autorizada</b></div>
+          <div><b>100%</b> originais</div>
+          <div>Enviamos para <b>todo o Brasil</b></div>
+        </div>
+      </div>
+      <div class="hero-3d" id="hero3d"><img src="../img/logo.svg" alt="Logo DE men" class="hero-logo"><div class="legenda">DE&nbsp;MEN</div></div>
+    </div>
+  </section>
+
+  <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>CALVIN KLEIN</span><i>✦</i><span>RESERVA</span><i>✦</i><span>ADIDAS</span><i>✦</i><span>OGOCHI</span><i>✦</i><span>100% ORIGINAIS</span><i>✦</i><span>REVENDA AUTORIZADA</span><i>✦</i><span>ENVIAMOS PARA TODO O BRASIL</span><i>✦</i><span>CALVIN KLEIN</span><i>✦</i><span>RESERVA</span><i>✦</i><span>ADIDAS</span><i>✦</i><span>OGOCHI</span><i>✦</i><span>100% ORIGINAIS</span><i>✦</i><span>REVENDA AUTORIZADA</span><i>✦</i><span>ENVIAMOS PARA TODO O BRASIL</span><i>✦</i></div></div>
+
+  <section class="numeros-sec">
+    <div class="wrap numeros">
+      <div><b data-conta="4">4</b><small>Marcas oficiais</small></div>
+      <div><b data-conta="100" data-suf="%">100%</b><small>Peças originais</small></div>
+      <div><b data-conta="3400" data-suf="+">3.400+</b><small>Seguidores no Instagram</small></div>
+      <div><b data-conta="0" id="numPecas">—</b><small>Peças na vitrine</small></div>
+    </div>
+  </section>
+
+  <section class="marcas" id="marcas">
+    <div class="wrap">
+      <div class="revelar">
+        <div class="eyebrow">Marcas que trabalhamos</div>
+        <h2>Revenda autorizada</h2>
+        <p class="sub">Todas as peças vêm direto das marcas. Clique numa marca para ver os produtos dela.</p>
+      </div>
+      <div class="marcas-grade revelar" id="marcasGrade"></div>
+    </div>
+  </section>
+
+  <section id="vitrine">
+    <div class="wrap">
+      <div class="topo-sec revelar">
+        <div>
+          <div class="eyebrow">Vitrine</div>
+          <h2>Escolha a sua peça</h2>
+        </div>
+        <input class="busca" id="busca" type="search" placeholder="Buscar: polo, cinto, óculos, perfume...">
+      </div>
+      <div class="controles revelar">
+        <div class="linha-filtro" id="filtroMarca"><span class="rot">Marca</span></div>
+        <div class="linha-filtro" id="filtroCat"><span class="rot">Categoria</span></div>
+      </div>
+      <div class="grade" id="grade"></div>
+    </div>
+  </section>
+
+  <section class="catalogos" id="catalogos">
+    <div class="wrap">
+      <div class="revelar">
+        <div class="eyebrow">Catálogos</div>
+        <h2>Veja as coleções completas</h2>
+        <p class="sub">Abra o catálogo de cada marca ou peça pelo WhatsApp que a gente te manda a coleção atualizada, com preços e tamanhos disponíveis.</p>
+      </div>
+      <div class="cat-grade" id="catGrade"></div>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <div class="wrap">
+      <div class="foto revelar" id="fotoSobre">Foto da loja</div>
+      <div class="revelar">
+        <div class="eyebrow">A loja</div>
+        <h2>Estilo e sofisticação em cada escolha</h2>
+        <p>A DE men nasceu em Sertânia para trazer ao Sertão a moda masculina das grandes marcas, com a garantia de quem é revenda autorizada. Aqui você é atendido de perto, recebe dica de tamanho e combinação, e leva só produto original.</p>
+        <blockquote>“Você encontra aqui na DE men.”</blockquote>
+        <div class="pilares">
+          <div><b>Originais</b><small>Procedência garantida em todas as peças</small></div>
+          <div><b>Atendimento</b><small>Ajuda com tamanho, caimento e combinação</small></div>
+          <div><b>Envio</b><small>Mandamos para qualquer lugar do Brasil</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="clientes" id="clientes">
+    <div class="wrap">
+      <div class="revelar" style="text-align:center;margin-bottom:2.5rem">
+        <div class="eyebrow">Clientes DE men</div>
+        <h2>Quem veste, recomenda</h2>
+      </div>
+      <div class="galeria" id="galeria"></div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a class="btn js-insta" target="_blank" rel="noopener">Siga @demen.loja</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="visite" id="visite">
+    <div class="wrap">
+      <div class="dados revelar">
+        <div><div class="eyebrow">Visite</div><h2>Venha conhecer a loja</h2></div>
+        <div><small>Endereço</small><span id="endereco"></span></div>
+        <div><small>Horário</small><span id="horario"></span></div>
+        <div><small>Mapa</small><a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener" style="border-bottom:1px solid var(--areia)">Abrir no Google Maps</a></div>
+        <div><small>Envios</small>Para todo o Brasil. Peça pelo WhatsApp.</div>
+        <div><a class="btn cheio js-zap" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
+      </div>
+      <div class="mapa revelar">
+        <iframe loading="lazy" title="Mapa da loja" src="https://maps.google.com/maps?q=-8.0764307,-37.2668626&z=17&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><img src="../img/logo.svg" alt="DE men" class="rodape-logo"><br>© <span id="ano"></span> DE men | Moda Masculina • Sertânia-PE</div>
+    <span>Revenda autorizada • 100% originais</span>
+  </div>
+</footer>
+
+<!-- Assistente virtual -->
+<button class="bot-botao" id="botBotao" aria-label="Abrir atendimento">
+  <span class="av"><img src="../img/monograma.svg" alt=""></span>
+  <span class="ponto"></span><span class="txt">Posso ajudar?</span>
+</button>
+<div class="bot" id="bot" role="dialog" aria-label="Atendimento DE men">
+  <div class="bot-topo">
+    <img src="../img/monograma.svg" alt="">
+    <div><b>Atendimento DE men</b><small>● online</small></div>
+    <button id="botFechar" aria-label="Fechar">×</button>
+  </div>
+  <div class="bot-msgs" id="botMsgs"></div>
+  <div class="bot-opcoes" id="botOpcoes"></div>
+  <form class="bot-form" id="botForm">
+    <input id="botInput" placeholder="Digite sua pergunta..." autocomplete="off">
+    <button type="submit" aria-label="Enviar">➤</button>
+  </form>
+</div>
+
+<script>
+  const zap = (msg) => `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
+  const msgPadrao = "Olá, DE men! Vim pelo site e gostaria de mais informações.";
+  const $ = id => document.getElementById(id);
+
+  document.querySelectorAll('.js-zap').forEach(a => a.href = zap(msgPadrao));
+  document.querySelectorAll('.js-insta').forEach(a => a.href = LOJA.instagram);
+  $('endereco').textContent = LOJA.endereco;
+  $('horario').textContent = LOJA.horario;
+  $('ano').textContent = new Date().getFullYear();
+  if (LOJA.fotoCapa) document.querySelector('.hero').style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`);
+  if (LOJA.fotoSobre) $('fotoSobre').innerHTML = `<img src="${LOJA.fotoSobre}" alt="Loja DE men">`;
+  const foto = (src, alt, rotulo) => src ? `<img src="${src}" alt="${alt}" loading="lazy">` : rotulo;
+
+  /* ---------- Marcas ---------- */
+  $('marcasGrade').innerHTML = MARCAS.map(m => `
+    <button class="marca-cel" data-marca="${m.nome}">
+      ${m.logo ? `<img src="${m.logo}" alt="${m.nome}" class="${m.larga ? 'larga' : ''}">` : `<span class="marca-nome">${m.nome}</span>`}
+      <small>${m.desc}</small>
+    </button>`).join('');
+  $('marcasGrade').addEventListener('click', e => {
+    const b = e.target.closest('[data-marca]'); if (!b) return;
+    filtro.marca = b.dataset.marca; filtro.cat = "Todas"; atualizarChips(); render();
+    $('vitrine').scrollIntoView();
+  });
+
+  /* ---------- Vitrine ---------- */
+  const filtro = { marca:"Todas", cat:"Todas", texto:"" };
+  const marcasLista = ["Todas", ...MARCAS.map(m => m.nome)];
+  const ORDEM = ["Camisas","Casacos","Calças","Bermudas","Cuecas","Meias","Calçados","Sandálias","Acessórios","Perfumes"];
+  const catsLista = ["Todas", ...ORDEM.filter(c => PRODUTOS.some(p => p.cat === c)), ...new Set(PRODUTOS.map(p => p.cat).filter(c => !ORDEM.includes(c)))];
+  $('filtroMarca').insertAdjacentHTML('beforeend', marcasLista.map(m => `<button class="chip" data-tipo="marca" data-v="${m}">${m}</button>`).join(''));
+  $('filtroCat').insertAdjacentHTML('beforeend', catsLista.map(c => `<button class="chip" data-tipo="cat" data-v="${c}">${c}</button>`).join(''));
+  function atualizarChips(){
+    document.querySelectorAll('.chip').forEach(c => c.classList.toggle('ativo', filtro[c.dataset.tipo] === c.dataset.v));
+  }
+  document.querySelector('.controles').addEventListener('click', e => {
+    const c = e.target.closest('.chip'); if (!c) return;
+    filtro[c.dataset.tipo] = c.dataset.v; atualizarChips(); render();
+  });
+  $('busca').addEventListener('input', e => { filtro.texto = e.target.value.toLowerCase(); render(); });
+  const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+
+  function render(){
+    const t = norm(filtro.texto);
+    const lista = [...PRODUTOS].sort((x,y) => (y.foto?1:0) - (x.foto?1:0)).filter(p =>
+      (filtro.marca === "Todas" || p.marca === filtro.marca) &&
+      (filtro.cat === "Todas" || p.cat === filtro.cat) &&
+      (!t || norm(`${p.nome} ${p.marca} ${p.cat} ${p.sub || ''}`).includes(t)));
+    $('grade').innerHTML = lista.length ? lista.map(p => `
+      <article class="card">
+        <div class="foto">${foto(p.foto, p.nome, "Foto do produto")}</div>
+        <div class="info">
+          <div class="marca">${p.marca}</div>
+          <h3>${p.nome}</h3>
+          <div class="preco">${p.preco || "Consulte o preço"}</div>
+          ${p.tam.length ? `<div class="tams">${p.tam.map(x => `<span>${x}</span>`).join('')}</div>` : '<div class="tams"></div>'}
+          <a class="btn" target="_blank" rel="noopener"
+             href="${zap(`Olá, DE men! Tenho interesse em: ${p.nome} (${p.marca}). Tem disponível?`)}">Quero este</a>
+        </div>
+      </article>`).join('')
+      : `<div class="vazio">Nenhuma peça encontrada aqui no site. <a class="btn" style="margin-top:1rem" target="_blank" rel="noopener" href="${zap('Olá, DE men! Procuro: ' + (filtro.texto || filtro.marca + ' ' + filtro.cat))}">Perguntar no WhatsApp</a></div>`;
+  }
+  atualizarChips(); render();
+
+  /* ---------- Catálogos ---------- */
+  $('catGrade').innerHTML = CATALOGOS.map((c,i) => `
+    <div class="cat-card revelar">
+      <div class="num">${String(i+1).padStart(2,'0')}</div>
+      <h3>${c.titulo}</h3>
+      <p>${c.desc}</p>
+      <div class="acoes">
+        ${c.pdf ? `<a class="btn cheio" href="${c.pdf}" target="_blank" rel="noopener">Abrir catálogo</a>`
+                : `<a class="btn cheio" target="_blank" rel="noopener" href="${zap(`Olá, DE men! Pode me enviar o catálogo ${c.titulo}?`)}">Pedir catálogo</a>`}
+        ${c.marca ? `<button class="btn" data-ver="${c.marca}">Ver no site</button>` : c.cat ? `<button class="btn" data-vercat="${c.cat}">Ver no site</button>` : ''}
+      </div>
+    </div>`).join('');
+  $('catGrade').addEventListener('click', e => {
+    const b = e.target.closest('[data-ver],[data-vercat]'); if (!b) return;
+    filtro.marca = b.dataset.ver || "Todas"; filtro.cat = b.dataset.vercat || "Todas"; filtro.texto = ""; $('busca').value = "";
+    atualizarChips(); render(); $('vitrine').scrollIntoView();
+  });
+
+  /* ---------- Galeria ---------- */
+  $('galeria').innerHTML = LOJA.clientes.map(src => `<div class="foto revelar">${foto(src, "Cliente DE men", "Foto cliente")}</div>`).join('');
+
+  /* ---------- Assistente (bot) ---------- */
+  const botEl = $('bot'), msgs = $('botMsgs'), opc = $('botOpcoes');
+  const historico = [];
+  const OPCOES_INICIAIS = ["O que vocês vendem?", "Ver marcas", "Catálogos", "Horário e endereço", "Envio e frete", "Pagamento", "Trocas", "Tamanhos", "Falar com atendente"];
+
+  function addMsg(texto, quem){
+    const d = document.createElement('div');
+    d.className = 'msg ' + (quem === 'user' ? 'user-m' : 'bot-m');
+    d.innerHTML = texto; msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+    historico.push((quem === 'user' ? 'Cliente: ' : 'Bot: ') + d.textContent);
+  }
+  function opcoes(lista){ opc.innerHTML = lista.map(o => `<button>${o}</button>`).join(''); }
+  function botDiz(texto, prox){
+    const t = document.createElement('div'); t.className = 'msg bot-m digitando'; t.innerHTML = '<i></i><i></i><i></i>';
+    msgs.appendChild(t); msgs.scrollTop = msgs.scrollHeight; opc.innerHTML = '';
+    setTimeout(() => { t.remove(); addMsg(texto, 'bot'); opcoes(prox || ["Outra dúvida", "Falar com atendente"]); }, 650);
+  }
+  const linkZap = (txt, label) => `<a href="${zap(txt)}" target="_blank" rel="noopener">${label}</a>`;
+
+  const RESPOSTAS = [
+    { chaves:["oi","ola","bom dia","boa tarde","boa noite","eae","opa"], r:() => ["Olá! Seja bem-vindo à DE men 👋\nComo posso te ajudar?", OPCOES_INICIAIS] },
+    { chaves:["marca","marcas","calvin","ck","reserva","adidas","ogochi"], r:(t) => {
+        const m = MARCAS.find(m => norm(t).includes(norm(m.nome).split(' ')[0]) || (norm(t).includes('ck') && m.nome === 'Calvin Klein'));
+        if (m) { filtro.marca = m.nome; filtro.cat="Todas"; atualizarChips(); render();
+          return [`Trabalhamos com <b>${m.nome}</b>: ${m.desc.toLowerCase()}.\nJá filtrei a vitrine pra você 👇 ${linkZap(`Olá! Quero ver as peças ${m.nome} disponíveis.`, `Ou peça as novidades ${m.nome} no WhatsApp`)}`, ["Catálogos","Tamanhos","Falar com atendente"]]; }
+        return [`Somos revenda autorizada de:\n• ${MARCAS.map(m => m.nome).join('\n• ')}\nTudo 100% original. Quer ver alguma?`, MARCAS.map(m => m.nome)]; } },
+    { chaves:["catalogo","catalogos","colecao","novidade","lancamento"], r:() => [`Temos catálogo de ${CATALOGOS.map(c => c.titulo).join(', ')}. Abri a seção de catálogos pra você.`, ["Ver marcas","Falar com atendente"], () => $('catalogos').scrollIntoView()] },
+    { chaves:["horario","hora","abre","fecha","funciona","aberto"], r:() => [`🕘 ${LOJA.horario}\n📍 ${LOJA.endereco}`, ["Envio e frete","Falar com atendente"]] },
+    { chaves:["endereco","onde","localizacao","fica","loja fisica","mapa"], r:() => [`📍 ${LOJA.endereco}\n🕘 ${LOJA.horario}\n<a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener">Abrir no Google Maps</a>`, ["Envio e frete","Outra dúvida"]] },
+    { chaves:["envio","frete","entrega","correio","enviam","manda","chega","prazo"], r:() => [`📦 ${LOJA.envio}\n${linkZap('Olá! Quero calcular o frete. Meu CEP é: ', 'Calcular frete no WhatsApp')}`, ["Pagamento","Outra dúvida"]] },
+    { chaves:["pagamento","pagar","pix","cartao","parcela","parcelado","credito","debito","boleto"], r:() => [`💳 Aceitamos: ${LOJA.pagamento}.`, ["Envio e frete","Falar com atendente"]] },
+    { chaves:["troca","trocar","devolu","devolver"], r:() => [`🔄 ${LOJA.trocas}`, ["Tamanhos","Outra dúvida"]] },
+    { chaves:["tamanho","numero","numeracao","medida","veste","forma","p m g"], r:() => [`Camisas, casacos e cuecas: P ao GG\nCalças e bermudas: 38 ao 46\nSapatos, tênis e sandálias: 38 ao 44\nCintos: 90 ao 110 cm\nCada marca tem um caimento diferente. Me conta sua altura e peso no WhatsApp que a gente indica o tamanho certo 😉\n${linkZap('Olá! Preciso de ajuda com tamanho. Minha altura é __ e meu peso é __.', 'Pedir ajuda com tamanho')}`, ["Trocas","Outra dúvida"]] },
+    { chaves:["original","falsific","replica","verdadeir","autentic"], r:() => ["✅ Sim! A DE men é revenda autorizada e todas as peças são 100% originais, direto das marcas.", ["Ver marcas","Outra dúvida"]] },
+    { chaves:["preco","valor","quanto","custa","promo","desconto"], r:() => [`Os preços mudam conforme a coleção e o estoque. Me diz qual peça te interessou que o atendente te passa o valor na hora:\n${linkZap('Olá! Quero saber o preço de: ', 'Consultar preço no WhatsApp')}`, ["Catálogos","Pagamento"]] },
+    { chaves:["o que vende","o que voces vendem","produtos","que tem","tipo de roupa","vendem"], r:() => ["Na DE men você encontra:\n👕 Camisas, camisetas e polos\n🧥 Casacos e jaquetas\n👖 Calças e bermudas\n🩲 Cuecas e meias\n👞 Sapatos, tênis e sandálias\n👜 Cintos, carteiras e óculos\n🧴 Perfumes\nO que você procura?", ["Calçados","Acessórios","Perfumes","Cuecas"]] },
+    ...[
+      ["Perfumes",   ["perfume","fragrancia","colonia"], "Temos perfumes masculinos originais 🧴"],
+      ["Cuecas",     ["cueca","boxer","underwear"], "Temos cuecas originais, avulsas e em kit 🩲"],
+      ["Meias",      ["meia","meias"], "Temos meias esportivas e sociais, em kit 🧦"],
+      ["Casacos",    ["casaco","jaqueta","moletom","blusa de frio","agasalho"], "Temos casacos, jaquetas e moletons 🧥"],
+      ["Calçados",   ["sapato","tenis","calcado","sapatenis"], "Temos sapatos sociais e tênis 👞"],
+      ["Calças",     ["calca","jeans","jogger"], "Temos calças jeans, sociais e jogger 👖"],
+      ["Bermudas",   ["bermuda","short"], "Temos bermudas e shorts 🩳"],
+      ["Sandálias",  ["sandalia","chinelo","slide"], "Temos chinelos 🩴"],
+      ["Acessórios", ["cinto","carteira","oculos","acessorio","bone","gorro"], "Temos bonés, gorros, cintos, carteiras e óculos 🧢"],
+      ["Camisas",    ["camisa","camiseta","polo","regata"], "Temos camisas, camisetas, polos e regatas 👕"]
+    ].map(([cat, chaves, frase]) => ({ chaves, r:(t) => {
+        const subs = { cinto:"cinto", carteira:"carteira", oculos:"oculos", bone:"bone", gorro:"gorro" };
+        const sub = Object.keys(subs).find(k => norm(t).includes(k));
+        filtro.marca="Todas"; filtro.cat=cat; filtro.texto = sub || ""; $('busca').value = sub ? sub : "";
+        atualizarChips(); render();
+        return [`${frase} Filtrei a vitrine pra você, é só rolar a página.\nQuer o preço ou ver outras opções? ${linkZap(`Olá, DE men! Quero ver opções de ${cat.toLowerCase()}.`, 'Pedir no WhatsApp')}`, ["Tamanhos","Catálogos","Falar com atendente"]];
+      } })),
+    { chaves:["atendente","humano","pessoa","whatsapp","zap","vendedor","falar"], r:() => {
+        const resumo = historico.filter(h => h.startsWith('Cliente')).slice(-4).map(h => h.replace('Cliente: ','• ')).join('\n');
+        return [`Claro! É só tocar aqui que um atendente continua com você no WhatsApp:\n${linkZap(`Olá, DE men! Vim pelo site.${resumo ? '\nMinhas dúvidas:\n' + resumo : ''}`, '💬 Falar com atendente agora')}`, ["Outra dúvida"]]; } },
+    { chaves:["obrigad","valeu","vlw","brigad"], r:() => ["Por nada! Qualquer coisa é só chamar. A DE men agradece 🖤", ["Outra dúvida"]] }
+  ];
+
+  function responder(texto){
+    const t = norm(texto);
+    if (t === 'outra duvida') return botDiz("Sobre o que mais você quer saber?", OPCOES_INICIAIS);
+    const casa = k => k.length <= 4 ? new RegExp(`(^|[^a-z])${k}([^a-z]|$)`).test(t) : t.includes(k);
+    const item = RESPOSTAS.find(r => r.chaves.some(casa));
+    if (item){ const [txt, prox, acao] = item.r(texto); botDiz(txt, prox); if (acao) setTimeout(acao, 700); return; }
+    botDiz(`Não tenho essa resposta aqui, mas o atendente te ajuda rapidinho:\n${linkZap(`Olá, DE men! ${texto}`, '💬 Perguntar no WhatsApp')}`, OPCOES_INICIAIS);
+  }
+  function enviar(texto){ if (!texto.trim()) return; addMsg(texto.replace(/</g,'&lt;'), 'user'); responder(texto); }
+
+  let iniciado = false;
+  function abrirBot(){
+    botEl.classList.add('aberto');
+    if (!iniciado){ iniciado = true; botDiz("Olá! Sou o assistente da DE men 👋\nPosso te mostrar nossos produtos, marcas, catálogos, tamanhos, frete e pagamento. Como posso ajudar?", OPCOES_INICIAIS); }
+    setTimeout(() => $('botInput').focus(), 300);
+  }
+  $('botBotao').onclick = () => botEl.classList.contains('aberto') ? botEl.classList.remove('aberto') : abrirBot();
+  $('botFechar').onclick = () => botEl.classList.remove('aberto');
+  opc.addEventListener('click', e => { if (e.target.tagName === 'BUTTON') enviar(e.target.textContent); });
+  $('botForm').addEventListener('submit', e => { e.preventDefault(); enviar($('botInput').value); $('botInput').value = ''; });
+
+  /* ---------- Menu, header e animações ---------- */
+  const menu = $('menu');
+  $('burger').onclick = () => menu.classList.toggle('aberto');
+  menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('aberto'));
+  addEventListener('scroll', () => $('topo').classList.toggle('solid', scrollY > 40));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visivel'); io.unobserve(e.target);} }), {threshold:.1});
+  document.querySelectorAll('.revelar').forEach(el => io.observe(el));
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+/* ================= EFEITOS ================= */
+(() => {
+  const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const toque = matchMedia('(hover: none)').matches;
+  const temGsap = !!window.gsap;
+  if (temGsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+  // número de peças na vitrine
+  const np = document.getElementById('numPecas');
+  if (np) { np.dataset.conta = PRODUTOS.length; np.textContent = PRODUTOS.length; }
+
+  /* ---- título palavra por palavra ---- */
+  const h1 = document.querySelector('.hero h1');
+  (function quebra(el){
+    [...el.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { f.appendChild(document.createTextNode(w)); return; }
+          const o = document.createElement('span'); o.className = 'palavra';
+          const i = document.createElement('span'); i.textContent = w; o.appendChild(i); f.appendChild(o);
+        });
+        n.replaceWith(f);
+      } else if (n.nodeType === 1) quebra(n);
+    });
+  })(h1);
+
+  /* ---- intro ---- */
+  const barra = document.querySelector('#intro .barra i');
+  let p = 0; const tk = setInterval(() => { p = Math.min(92, p + Math.random() * 22); barra.style.width = p + '%'; }, 160);
+  let feito = false;
+  function pronto(){
+    if (feito) return; feito = true; clearInterval(tk); barra.style.width = '100%';
+    setTimeout(() => { document.body.classList.add('carregado'); animaCapa(); }, 380);
+  }
+  addEventListener('load', pronto); setTimeout(pronto, 3500);
+
+  function animaCapa(){
+    if (!temGsap || reduz) { document.querySelectorAll('.palavra>span').forEach(s => s.style.transform = 'none'); return; }
+    gsap.to('.palavra>span', { y: 0, duration: 1.15, ease: 'power4.out', stagger: .06 });
+    gsap.from(['.hero .eyebrow', '.hero p', '.hero .acoes', '.hero .selos'], { opacity: 0, y: 30, duration: 1, ease: 'power3.out', stagger: .12, delay: .35 });
+    gsap.from('#hero3d', { opacity: 0, scale: .75, duration: 1.8, ease: 'power3.out', delay: .15 });
+  }
+
+  /* ---- rolagem suave (Lenis) ---- */
+  let lenis = null;
+  if (window.Lenis && !reduz && !toque) {
+    lenis = new Lenis({ lerp: .09, smoothWheel: true });
+    if (window.ScrollTrigger) { lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+    else { const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]'); if (!a) return;
+      const id = a.getAttribute('href'); if (id.length < 2 || !document.querySelector(id)) return;
+      e.preventDefault(); lenis.scrollTo(id, { offset: -70 });
+    });
+    const nativo = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function(){ try { lenis.scrollTo(this, { offset: -70 }); } catch(_) { nativo.call(this); } };
+  }
+
+  /* ---- barra de progresso ---- */
+  const prog = document.getElementById('progresso');
+  const atualizaProg = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%'; };
+  addEventListener('scroll', atualizaProg, { passive: true }); atualizaProg();
+
+  /* ---- cursor personalizado ---- */
+  if (!toque) {
+    const dot = document.querySelector('.cursor-dot'), ring = document.querySelector('.cursor-ring');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate3d(${mx}px,${my}px,0)`; });
+    (function loop(){ rx += (mx - rx) * .18; ry += (my - ry) * .18; ring.style.transform = `translate3d(${rx}px,${ry}px,0)`; requestAnimationFrame(loop); })();
+    document.addEventListener('mouseover', e => { ring.classList.toggle('grande', !!e.target.closest('a,button,.card,.cat-card,.marca-cel,.chip,canvas')); });
+  }
+
+  /* ---- brilho dourado seguindo o mouse na capa ---- */
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mousemove', e => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (e.clientX - r.left) + 'px'); hero.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+
+  /* ---- partículas douradas na capa ---- */
+  (function particulas(){
+    const cv = document.getElementById('particulas'); if (!cv || reduz) return;
+    const ctx = cv.getContext('2d'); let W, H, pts = [], visivel = true, px = 0, py = 0;
+    const N = innerWidth < 860 ? 35 : 80, dpr = Math.min(devicePixelRatio, 2);
+    function tam(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    tam(); addEventListener('resize', tam);
+    for (let i = 0; i < N; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.6 + .3, v: Math.random() * .35 + .08, a: Math.random() * .6 + .15, z: Math.random() * 1 + .3 });
+    hero.addEventListener('mousemove', e => { px = (e.clientX / innerWidth - .5); py = (e.clientY / innerHeight - .5); });
+    new IntersectionObserver(([en]) => visivel = en.isIntersecting).observe(hero);
+    (function anda(){
+      if (visivel) {
+        ctx.clearRect(0, 0, W, H);
+        for (const q of pts) {
+          q.y -= q.v; if (q.y < -5) { q.y = H + 5; q.x = Math.random() * W; }
+          ctx.beginPath(); ctx.arc(q.x - px * 30 * q.z, q.y - py * 20 * q.z, q.r, 0, 7);
+          ctx.fillStyle = `rgba(200,180,138,${q.a})`; ctx.fill();
+        }
+      }
+      requestAnimationFrame(anda);
+    })();
+  })();
+
+  /* ---- inclinação 3D + brilho nos cards ---- */
+  if (!toque && !reduz) {
+    const SEL = '.card,.cat-card,.marca-cel';
+    document.addEventListener('mousemove', e => {
+      const c = e.target.closest(SEL); if (!c) return;
+      const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      const forca = c.classList.contains('marca-cel') ? 8 : 10;
+      c.style.transform = `rotateY(${(x - .5) * forca}deg) rotateX(${(.5 - y) * forca}deg)`;
+      c.style.setProperty('--gx', x * 100 + '%'); c.style.setProperty('--gy', y * 100 + '%');
+      if (!c.querySelector(':scope > .brilho-card')) { const b = document.createElement('div'); b.className = 'brilho-card'; c.appendChild(b); }
+    });
+    document.addEventListener('mouseout', e => { const c = e.target.closest(SEL); if (c && !c.contains(e.relatedTarget)) c.style.transform = ''; });
+  }
+
+  /* ---- botões magnéticos ---- */
+  if (!toque && !reduz) {
+    document.addEventListener('mousemove', e => {
+      const b = e.target.closest('.btn,.bot-botao'); if (!b) return;
+      const r = b.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      b.style.transform = `translate(${dx * .22}px,${dy * .3}px)`;
+    });
+    document.addEventListener('mouseout', e => { const b = e.target.closest('.btn,.bot-botao'); if (b && !b.contains(e.relatedTarget)) b.style.transform = ''; });
+  }
+
+  /* ---- animações ao rolar ---- */
+  document.querySelectorAll('section h2').forEach(h => { const l = document.createElement('span'); l.className = 'linha-ouro'; h.appendChild(l); });
+  const ioH2 = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('desenhada'); ioH2.unobserve(en.target); } }), { threshold: .6 });
+  document.querySelectorAll('section h2').forEach(h => ioH2.observe(h));
+
+  if (temGsap && window.ScrollTrigger && !reduz) {
+    // parallax da capa
+    gsap.to('.hero .wrap > div:first-child', { yPercent: -16, opacity: .25, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    gsap.to('#hero3d', { yPercent: 22, scale: .82, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    // contadores
+    document.querySelectorAll('[data-conta]').forEach(el => {
+      const fim = +el.dataset.conta, suf = el.dataset.suf || '', o = { v: 0 };
+      el.textContent = '0' + suf;
+      ScrollTrigger.create({ trigger: el, start: 'top 92%', once: true, onEnter: () =>
+        gsap.to(o, { v: fim, duration: 2.2, ease: 'power2.out', onUpdate: () => el.textContent = Math.round(o.v).toLocaleString('pt-BR') + suf }) });
+    });
+    // marcas e catálogos
+    gsap.fromTo('#marcasGrade', { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.2, ease: 'power4.out', scrollTrigger: { trigger: '#marcasGrade', start: 'top 88%' } });
+    gsap.fromTo('.marca-cel > *', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .9, stagger: .08, delay: .3, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#marcasGrade', start: 'top 88%' } });
+    document.querySelectorAll('.cat-card,.galeria .foto').forEach(e => e.classList.remove('revelar'));
+    gsap.fromTo('.cat-card', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1, stagger: .1, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#catGrade', start: 'top 88%' } });
+    gsap.fromTo('.numeros > div > *', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: .9, stagger: .06, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '.numeros', start: 'top 90%' } });
+    gsap.fromTo('.galeria .foto', { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .9, stagger: .07, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#galeria', start: 'top 88%' } });
+
+    // cards da vitrine: revelam a foto de baixo pra cima (inclusive depois de filtrar)
+    const grade = document.getElementById('grade');
+    const animaCards = () => {
+      const cards = grade.querySelectorAll('.card:not(.animado)');
+      cards.forEach(c => c.classList.add('animado'));
+      ScrollTrigger.batch(cards, { start: 'top 92%', once: true, onEnter: lote => {
+        gsap.fromTo(lote, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: .9, stagger: .08, ease: 'power3.out' });
+        gsap.fromTo(lote.map(c => c.querySelector('.foto')), { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1.1, stagger: .08, ease: 'power4.out' });
+      }});
+      ScrollTrigger.refresh();
+    };
+    animaCards();
+    new MutationObserver(animaCards).observe(grade, { childList: true });
+  }
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+/* ================= LOGO 3D (Three.js) ================= */
+import * as THREE from 'three';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const caixa = document.getElementById('hero3d');
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+try {
+  const canvas = document.createElement('canvas');
+  if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) throw new Error('sem WebGL');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 860 ? 1.5 : 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const cena = new THREE.Scene();
+  const pm = new THREE.PMREMGenerator(renderer);
+  cena.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+  camera.position.set(0, 0, 10);
+
+  const svg = (await (await fetch('../img/monograma.svg')).text()).replaceAll('url(#prata)', '#dddddd');
+  const dados = new SVGLoader().parse(svg);
+  const grupo = new THREE.Group();
+  const metal = new THREE.MeshPhysicalMaterial({ color: 0xe9e9e9, metalness: 1, roughness: .2, clearcoat: 1, clearcoatRoughness: .12 });
+  dados.paths.forEach(path => SVGLoader.createShapes(path).forEach(forma => {
+    const g = new THREE.ExtrudeGeometry(forma, { depth: 9, bevelEnabled: true, bevelThickness: 1.6, bevelSize: 1, bevelSegments: 4, curveSegments: 28 });
+    grupo.add(new THREE.Mesh(g, metal));
+  }));
+  const bb = new THREE.Box3().setFromObject(grupo), tam = bb.getSize(new THREE.Vector3()), centro = bb.getCenter(new THREE.Vector3());
+  grupo.children.forEach(m => m.geometry.translate(-centro.x, -centro.y, -centro.z));
+  const esc = 4.6 / Math.max(tam.x, tam.y);
+  grupo.scale.set(esc, -esc, esc);
+  cena.add(grupo);
+
+  const luzOuro = new THREE.PointLight(0xc8b48a, 60, 40); luzOuro.position.set(-4, 3, 5); cena.add(luzOuro);
+  const luzBranca = new THREE.DirectionalLight(0xffffff, 1.4); luzBranca.position.set(3, 4, 6); cena.add(luzBranca);
+
+  caixa.appendChild(canvas);
+  caixa.classList.add('ativo');
+  const ajusta = () => { const w = caixa.clientWidth, h = caixa.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+  ajusta(); addEventListener('resize', ajusta);
+
+  // segue o mouse; no celular, gira arrastando com o dedo
+  let alvoX = 0, alvoY = 0, arrastando = false, ultX = 0, giro = 0, vel = 0;
+  addEventListener('pointermove', e => { if (e.pointerType === 'mouse') { alvoY = (e.clientX / innerWidth - .5) * .9; alvoX = (e.clientY / innerHeight - .5) * .5; } });
+  canvas.addEventListener('pointerdown', e => { arrastando = true; ultX = e.clientX; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => { if (!arrastando) return; vel = (e.clientX - ultX) * .012; ultX = e.clientX; giro += vel; });
+  addEventListener('pointerup', () => arrastando = false);
+
+  let visivel = true;
+  new IntersectionObserver(([en]) => visivel = en.isIntersecting).observe(caixa);
+  const relogio = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    if (!visivel) return;
+    const t = relogio.getElapsedTime();
+    if (!arrastando) { vel *= .95; giro += vel; }
+    const balanco = reduz ? 0 : Math.sin(t * .5) * .38;
+    grupo.rotation.y += ((balanco + alvoY + giro) - grupo.rotation.y) * .06;
+    grupo.rotation.x += (alvoX - grupo.rotation.x) * .06;
+    grupo.position.y = reduz ? 0 : Math.sin(t * 1.1) * .09;
+    luzOuro.position.x = Math.sin(t * .7) * 5;
+    renderer.render(cena, camera);
+  });
+  window.__logo3d = true;
+} catch (erro) {
+  console.warn('Logo 3D indisponível — usando a logo normal.', erro);
+}
+</script>
+</body>
+</html>
