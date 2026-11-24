@@ -198,7 +198,7 @@ const LOJA = {
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
   trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
   fotoCapa: "",                     // ex.: "fotos/capa.jpg"
-  fotoSobre: "fotos/loja-look-ogochi.jpg",
+  fotoSobre: "",                    // ex.: "fotos/loja.jpg"
   clientes: ["", "", "", "", "", "", "", ""] // até 8 fotos: "fotos/cliente1.jpg"
 };
 
@@ -225,19 +225,17 @@ const CATALOGOS = [
 
 // Produtos. Preço vazio = "Consulte o preço". Tamanhos vazios = não mostra.
 const PRODUTOS = [
-  // ===== Com foto real da loja =====
-  { nome:"Jaqueta Corta-vento com Capuz Preta", marca:"Calvin Klein", cat:"Casacos", preco:"", tam:["P","M","G","GG"], foto:"fotos/jaqueta-ck-capuz-preta.jpg" },
-  { nome:"Jaqueta Puffer Azul-marinho",        marca:"Calvin Klein", cat:"Casacos", preco:"", tam:["P","M","G","GG"], foto:"fotos/jaqueta-puffer-ck-marinho.jpg" },
-  { nome:"Jaqueta Verde Militar",              marca:"Ogochi",       cat:"Casacos", preco:"", tam:["P","M","G","GG"], foto:"fotos/jaqueta-ogochi-verde.jpg" },
-  { nome:"Polo Azul-bebê",                     marca:"Calvin Klein", cat:"Camisas", preco:"", tam:["P","M","G","GG"], foto:"fotos/polo-ck-azul-bebe.jpg" },
-  { nome:"Calça Sarja Areia",                  marca:"Ogochi",       cat:"Calças",  preco:"", tam:["38","40","42","44","46"], foto:"fotos/calca-sarja-ogochi-areia.jpg" },
-  { nome:"Tênis Samba Preto",                  marca:"Adidas",       cat:"Calçados",preco:"", tam:["38","39","40","41","42","43","44"], foto:"fotos/tenis-adidas-samba.jpg" },
-  { nome:"Boné Preto",                         marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",     preco:"", tam:[], foto:"fotos/bone-ck-preto.jpg" },
-  { nome:"Gorro Preto",                        marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros",    preco:"", tam:[], foto:"fotos/gorro-ck-preto.jpg" },
-  { nome:"Carteira Preta",                     marca:"Ogochi",       cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"fotos/carteira-ogochi-preta.jpg" },
-  { nome:"Perfume Preto",                      marca:"Reserva",      cat:"Perfumes", preco:"", tam:[], foto:"fotos/perfume-reserva-preto.jpg" },
+  { nome:"Jaqueta Corta-vento com Capuz Preta", marca:"Calvin Klein", cat:"Casacos", preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Jaqueta Puffer Azul-marinho",        marca:"Calvin Klein", cat:"Casacos", preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Jaqueta Verde Militar",              marca:"Ogochi",       cat:"Casacos", preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Polo Azul-bebê",                     marca:"Calvin Klein", cat:"Camisas", preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Calça Sarja Areia",                  marca:"Ogochi",       cat:"Calças",  preco:"", tam:["38","40","42","44","46"], foto:"" },
+  { nome:"Tênis Samba Preto",                  marca:"Adidas",       cat:"Calçados",preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
+  { nome:"Boné Preto",                         marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",     preco:"", tam:[], foto:"" },
+  { nome:"Gorro Preto",                        marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros",    preco:"", tam:[], foto:"" },
+  { nome:"Carteira Preta",                     marca:"Ogochi",       cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"" },
+  { nome:"Perfume Preto",                      marca:"Reserva",      cat:"Perfumes", preco:"", tam:[], foto:"" },
 
-  // ===== Ainda sem foto (trocar quando tiver) =====
   { nome:"Camiseta Básica",      marca:"Reserva",      cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
   { nome:"Camiseta Estampada",   marca:"Reserva",      cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
   { nome:"Regata Esportiva",     marca:"Adidas",       cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
