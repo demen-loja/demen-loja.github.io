@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /teste/
+Sitemap: https://demen-loja.github.io/sitemap.xml
