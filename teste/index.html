@@ -356,6 +356,11 @@ const CATALOGOS = [
 
 // Produtos. Preço vazio = "Consulte o preço". Tamanhos vazios = não mostra.
 const PRODUTOS = [
+  // Fotos da própria loja
+  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca.jpg" },
+  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/loja-mochila-ogochi.jpg" },
+  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/tenis-adidas-samba.jpg" },
+  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"../fotos/carteira-ogochi-preta.jpg" },
   // Calvin Klein
   { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer.jpg" },
   { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde.jpg" },
@@ -381,15 +386,16 @@ const PRODUTOS = [
   { nome:"Chinelo",                        marca:"Reserva", cat:"Sandálias",preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/reserva-chinelo.jpg" },
   { nome:"Boné",                           marca:"Reserva", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"../fotos/reserva-bone.jpg" },
   // Ainda sem foto
-  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
-  { nome:"Kit Meias Cano Médio",           marca:"Adidas",  cat:"Meias",    preco:"", tam:["39-42","43-46"], foto:"" },
+  { nome:"Boné New York",                  marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"" },
+  { nome:"Camisa Olive Heritage",          marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
+  { nome:"Calça Jeans Slim",               marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"" },
+  { nome:"Kit 3 Pares de Meias",           marca:"Ogochi",  cat:"Meias",    preco:"", tam:["39-43"], foto:"" },
   { nome:"Jaqueta Verde Militar",          marca:"Ogochi",  cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"" },
   { nome:"Camisa Linho Azul-claro",        marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["1","2","3","4"], foto:"" },
   { nome:"Polo Branca",                    marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
   { nome:"Calça Sarja Areia",              marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"" },
   { nome:"Sapato Social Couro",            marca:"Ogochi",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
-  { nome:"Cinto de Couro",                 marca:"Ogochi",  cat:"Acessórios", sub:"Cintos",    preco:"", tam:["90","95","100","105","110"], foto:"" },
-  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"" }
+  { nome:"Cinto de Couro",                 marca:"Ogochi",  cat:"Acessórios", sub:"Cintos",    preco:"", tam:["90","95","100","105","110"], foto:"" }
 ];
 </script>
 
@@ -756,10 +762,10 @@ const PRODUTOS = [
       ["Calças",     ["calca","jeans","jogger"], "Temos calças jeans, sociais e jogger 👖"],
       ["Bermudas",   ["bermuda","short"], "Temos bermudas e shorts 🩳"],
       ["Sandálias",  ["sandalia","chinelo","slide"], "Temos chinelos 🩴"],
-      ["Acessórios", ["cinto","carteira","oculos","acessorio","bone","gorro"], "Temos bonés, gorros, cintos, carteiras e óculos 🧢"],
+      ["Acessórios", ["cinto","carteira","oculos","acessorio","bone","gorro","mochila","bolsa"], "Temos mochilas, bonés, gorros, cintos e carteiras 🎒"],
       ["Camisas",    ["camisa","camiseta","polo","regata"], "Temos camisas, camisetas, polos e regatas 👕"]
     ].map(([cat, chaves, frase]) => ({ chaves, r:(t) => {
-        const subs = { cinto:"cinto", carteira:"carteira", oculos:"oculos", bone:"bone", gorro:"gorro" };
+        const subs = { cinto:"cinto", carteira:"carteira", oculos:"oculos", bone:"bone", gorro:"gorro", mochila:"mochila", bolsa:"mochila" };
         const sub = Object.keys(subs).find(k => norm(t).includes(k));
         filtro.marca="Todas"; filtro.cat=cat; filtro.texto = sub || ""; $('busca').value = sub ? sub : "";
         atualizarChips(); render();
