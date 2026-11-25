@@ -90,6 +90,9 @@
   .card:hover{transform:translateY(-4px)}
   .foto{aspect-ratio:4/5;background:linear-gradient(135deg,#232323,#161616);display:grid;place-items:center;color:#4a4a4a;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;overflow:hidden}
   .foto img{width:100%;height:100%;object-fit:cover}
+  .card .foto{position:relative}
+  .card .foto img.foto2{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
+  .card:hover .foto img.foto2{opacity:1}
   .card .info{padding:1.2rem 1.2rem 1.4rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
   .card .marca{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--areia)}
   .card h3{font-size:1.35rem}
@@ -357,9 +360,9 @@ const CATALOGOS = [
 // Produtos. Preço vazio = "Consulte o preço". Tamanhos vazios = não mostra.
 const PRODUTOS = [
   // Fotos da própria loja
-  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca.jpg" },
-  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/loja-mochila-ogochi.jpg" },
-  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/tenis-adidas-samba.jpg" },
+  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.jpg" },
+  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/ogochi-mochila-frente.jpg", foto2:"../fotos/ogochi-mochila-lateral.jpg" },
+  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto.jpg" },
   { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"../fotos/carteira-ogochi-preta.jpg" },
   // Calvin Klein
   { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer.jpg" },
@@ -682,7 +685,7 @@ const PRODUTOS = [
       (!t || norm(`${p.nome} ${p.marca} ${p.cat} ${p.sub || ''}`).includes(t)));
     $('grade').innerHTML = lista.length ? lista.map(p => `
       <article class="card">
-        <div class="foto">${foto(p.foto, p.nome, "Foto do produto")}<button class="fav" data-fav="${p.nome}" aria-label="Salvar nos favoritos"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="foto">${foto(p.foto, p.nome, "Foto do produto")}${p.foto2 ? `<img class="foto2" src="${p.foto2}" alt="${p.nome} — outro ângulo" loading="lazy">` : ""}<button class="fav" data-fav="${p.nome}" aria-label="Salvar nos favoritos"><i class="fa-regular fa-heart"></i></button></div>
         <div class="info">
           <div class="marca">${p.marca}</div>
           <h3>${p.nome}</h3>
