@@ -6,11 +6,22 @@
 <title>DE men | Versão com efeitos (teste)</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="DE men: moda masculina premium em Sertânia-PE. Revenda autorizada, 100% originais. Calvin Klein, Reserva, Adidas e Ogochi. Enviamos para todo o Brasil.">
+<link rel="canonical" href="https://demen-loja.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="DE men">
+<meta property="og:url" content="https://demen-loja.github.io/">
 <meta property="og:title" content="DE men | Moda Masculina Premium">
 <meta property="og:description" content="Revenda autorizada • 100% originais • Enviamos para todo o Brasil">
 <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../img/logo-ig.jpg">
-<meta property="og:image" content="../img/logo-ig.jpg">
+<meta property="og:image" content="https://demen-loja.github.io/img/og-demen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ClothingStore","name":"DE men","description":"Moda masculina premium em Sertânia-PE. Revenda autorizada Calvin Klein, Reserva, Adidas e Ogochi.","url":"https://demen-loja.github.io/","image":"https://demen-loja.github.io/img/og-demen.jpg","logo":"https://demen-loja.github.io/img/logo-ig.jpg","address":{"@type":"PostalAddress","streetAddress":"Rua Floriano Peixoto, 70","addressLocality":"Sertânia","addressRegion":"PE","postalCode":"56600-000","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-8.0764307,"longitude":-37.2668626},"sameAs":["https://www.instagram.com/demen.loja/"],"brand":[{"@type":"Brand","name":"Calvin Klein"},{"@type":"Brand","name":"Reserva"},{"@type":"Brand","name":"Adidas"},{"@type":"Brand","name":"Ogochi"}]}
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -378,6 +389,40 @@
   .toast button{background:none;border:0;border-bottom:1px solid currentColor;font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:600}
   body.travado{overflow:hidden}
   .toast{width:max-content;max-width:calc(100vw - 32px)}
+  /* Revisão visual */
+  a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--areia);outline-offset:3px}
+  .hero.com-foto{background:
+      linear-gradient(90deg,var(--preto) 0%,var(--preto) 56%,rgba(13,13,13,.55) 68%,rgba(13,13,13,.12) 100%),
+      linear-gradient(180deg,rgba(13,13,13,.1) 60%,var(--preto) 100%),
+      var(--hero-img) right center/auto 100% no-repeat, var(--preto)}
+  .hero.com-foto .hero-logo{display:none}
+  .mais-pecas{display:flex;justify-content:center;margin-top:2.4rem}
+  .mais-pecas[hidden]{display:none}
+  .insta .insta-topo{margin-bottom:0}
+  .insta h2{margin:.2rem 0 .6rem}
+  .loja-fotos.n3{grid-template-columns:2fr 1fr}
+  .loja-fotos.n4 .foto:nth-child(4){grid-column:span 2}
+  @media (max-width:860px){
+    .hero.com-foto{background:
+      linear-gradient(180deg,rgba(13,13,13,.55) 0%,rgba(13,13,13,.75) 45%,var(--preto) 100%),
+      var(--hero-img) center top/cover no-repeat, var(--preto)}
+    .grade{grid-template-columns:1fr 1fr;gap:.8rem}
+    .card .info{padding:.8rem .8rem 1rem}
+    .card h3{font-size:1.08rem}
+    .card .marca{font-size:.58rem}
+    .card .tams{display:none}
+    .card .preco{font-size:.8rem;margin-bottom:.6rem}
+    .card-acoes .btn svg{display:none}
+    .btn-sacola{width:42px}
+    .cat-grade{grid-template-columns:1fr 1fr;gap:.7rem}
+    .cat-card{padding:1.2rem 1rem}
+    .cat-card .num{font-size:2rem}
+    .cat-card h3{font-size:1.25rem}
+    .cat-card p{display:none}
+    .cat-card .btn{padding:.55rem .6rem;font-size:.6rem;letter-spacing:.1em}
+    .loja-fotos.n3{grid-template-columns:1fr 1fr}
+    .loja-fotos.n3 .foto:first-child{grid-column:span 2;grid-row:auto}
+  }
   .hero{padding-top:150px}
 
   @media (max-width:860px){
@@ -542,8 +587,8 @@ const LOJA = {
   pagamento: "Pix, cartão de crédito (parcelado) e débito",   // confirmar com o dono
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
   trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
-  fotoCapa: "",                     // ex.: "../fotos/capa.jpg"
-  fotoSobre: "../fotos/loja-vitrine-jaqueta-verde.jpg",
+  fotoCapa: "../fotos/loja-vitrine-preto.jpg",   // foto do topo do site
+  fotoSobre: "../fotos/loja-fachada.jpg",
   clientes: [],                     // (não usado mais — veja AVALIACOES e INSTAGRAM abaixo)
 
   // Faixa de promoção no topo. ativo:false some com ela.
@@ -554,13 +599,13 @@ const LOJA = {
 
   // Planilha do Google com os produtos (Arquivo > Compartilhar > Publicar na Web > CSV).
   // Cole o link aqui e o site passa a ler os produtos da planilha. Vazio = usa a lista PRODUTOS abaixo.
-  planilha: "",
+  planilha: "https://docs.google.com/spreadsheets/d/1VWFZIFpnznrHHtYhtUktJtUOXHq1HdnsDt3p0HhpBNw/gviz/tq?tqx=out:csv&headers=1&sheet=Produtos",
 
   // Contador de cliques (GoatCounter, grátis). Crie uma conta em goatcounter.com e coloque só o código, ex.: "demen".
   goatcounter: "",
 
   // Fotos da loja por dentro (a 1ª fica grande). fotoEquipe aparece junto se preenchida.
-  fotosLoja: ["../fotos/loja-vitrine-preto.jpg", "../fotos/loja-vitrine-puffer.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg"],
+  fotosLoja: ["../fotos/loja-vitrine-puffer.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg"],
   fotoEquipe: ""                    // ex.: "../fotos/equipe.jpg"
 };
 
@@ -634,7 +679,7 @@ const PRODUTOS = [
 const LOOKS = [
   { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"../fotos/look-soft-elegance.jpg",
     itens:["Polo Básica Azul-claro", "Calça Sarja Areia"] },
-  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/loja-vitrine-preto.jpg",
+  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/ck-camiseta-egipcio-v1.jpg",
     itens:["Camiseta Algodão Egípcio Preta", "Calça Jeans Straight", "Tênis Samba OG Preto", "Boné 5 Gomos Bordado"] },
   { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"../fotos/loja-vitrine-puffer.jpg",
     itens:["Jaqueta Puffer Light Matelassê", "Gorro Bordado", "Carteira Preta"] },
@@ -649,7 +694,7 @@ const LOOKBOOK = [
   { foto:"../fotos/loja-vitrine-preto.jpg", titulo:"All Black", marca:"Na vitrine da DE men", produto:"Tênis Samba OG Preto" },
   { foto:"../fotos/ck-polo-verde.jpg", titulo:"Polo Premium", marca:"Calvin Klein", produto:"Polo Premium Verde" },
   { foto:"../fotos/reserva-camiseta-basica.jpg", titulo:"Básico bem feito", marca:"Reserva", produto:"Camiseta Básica" },
-  { foto:"../fotos/loja-vitrine-jaqueta-verde.jpg", titulo:"Verde militar", marca:"Na vitrine da DE men", produto:"Jaqueta Verde Militar" },
+  { foto:"../fotos/loja-vitrine-jaqueta-verde.jpg", titulo:"Verde militar", marca:"Na vitrine da DE men" },
   { foto:"../fotos/ck-camiseta-egipcio.jpg", titulo:"Algodão egípcio", marca:"Calvin Klein", produto:"Camiseta Algodão Egípcio Preta" },
   { foto:"../fotos/ogochi-mochila-frente.jpg", titulo:"Premium Label", marca:"Ogochi", produto:"Mochila Premium Label" },
   { foto:"../fotos/reserva-bermuda-chino.jpg", titulo:"Fim de semana", marca:"Reserva", produto:"Bermuda Chino Comfort" },
@@ -746,13 +791,14 @@ const INSTAGRAM = {
           <div class="eyebrow">Vitrine</div>
           <h2>Escolha a sua peça</h2>
         </div>
-        <input class="busca" id="busca" type="search" placeholder="Buscar: polo, cinto, óculos, perfume...">
+        <input class="busca" id="busca" type="search" aria-label="Buscar produtos" placeholder="Buscar: polo, cinto, óculos, perfume...">
       </div>
       <div class="controles revelar">
         <div class="linha-filtro" id="filtroMarca"><span class="rot">Marca</span></div>
         <div class="linha-filtro" id="filtroCat"><span class="rot">Categoria</span></div>
       </div>
       <div class="grade" id="grade"></div>
+      <div class="mais-pecas" id="maisPecas" hidden><button class="btn" id="btnMais">Ver mais peças</button></div>
     </div>
   </section>
 
@@ -841,7 +887,8 @@ const INSTAGRAM = {
   <section class="insta" id="instagram">
     <div class="wrap">
       <div class="insta-topo revelar">
-        <div class="insta-perfil"><img src="../img/logo-ig.jpg" alt="@demen.loja"><div><b id="instaUser">@demen.loja</b><small>Novidades, looks e bastidores</small></div></div>
+        <div><div class="eyebrow">Instagram</div><h2>Novidades toda semana</h2>
+        <div class="insta-perfil"><img src="../img/logo-ig.jpg" alt="@demen.loja"><div><b id="instaUser">@demen.loja</b><small>Lançamentos, looks e bastidores da loja</small></div></div></div>
         <a class="btn js-insta" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
       <div class="insta-grade" id="instaGrade"></div>
@@ -889,12 +936,12 @@ const INSTAGRAM = {
   <div class="gaveta-topo"><h3>Sua sacola</h3><button class="fechar" data-fechar aria-label="Fechar">×</button></div>
   <div class="sacola-itens" id="sacolaItens"></div>
   <div class="sacola-rodape" id="sacolaRodape">
-    <input class="campo" id="sacNome" placeholder="Seu nome (opcional)" autocomplete="name">
+    <input class="campo" id="sacNome" aria-label="Seu nome" placeholder="Seu nome (opcional)" autocomplete="name">
     <div class="opcoes-entrega">
       <label><input type="radio" name="entrega" value="Retirar na loja" checked><span>Retirar na loja</span></label>
       <label><input type="radio" name="entrega" value="Receber em casa"><span>Receber em casa</span></label>
     </div>
-    <input class="campo" id="sacCidade" placeholder="Cidade / CEP para o frete" hidden>
+    <input class="campo" id="sacCidade" aria-label="Cidade ou CEP para o frete" placeholder="Cidade / CEP para o frete" hidden>
     <a class="btn zap" id="sacEnviar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Enviar pedido pelo WhatsApp</a>
     <p class="nota">Você não paga nada agora. A DE men confirma estoque, valor e frete pelo WhatsApp.</p>
   </div>
@@ -1020,7 +1067,7 @@ const INSTAGRAM = {
   <div class="bot-msgs" id="botMsgs"></div>
   <div class="bot-opcoes" id="botOpcoes"></div>
   <form class="bot-form" id="botForm">
-    <input id="botInput" placeholder="Digite sua pergunta..." autocomplete="off">
+    <input id="botInput" aria-label="Sua pergunta" placeholder="Digite sua pergunta..." autocomplete="off">
     <button type="submit" aria-label="Enviar">➤</button>
   </form>
 </div>
@@ -1035,7 +1082,7 @@ const INSTAGRAM = {
   $('endereco').textContent = LOJA.endereco;
   $('horario').textContent = LOJA.horario;
   $('ano').textContent = new Date().getFullYear();
-  if (LOJA.fotoCapa) document.querySelector('.hero').style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`);
+  if (LOJA.fotoCapa) { const h = document.querySelector('.hero'); h.style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`); h.classList.add('com-foto'); }
   if (LOJA.fotoSobre) $('fotoSobre').innerHTML = `<img src="${LOJA.fotoSobre}" alt="Loja DE men">`;
   const foto = (src, alt, rotulo) => src ? `<img src="${src}" alt="${alt}" loading="lazy">` : rotulo;
   const ICON = {
@@ -1076,7 +1123,8 @@ const INSTAGRAM = {
   });
 
   /* ---------- Vitrine ---------- */
-  const filtro = { marca:"Todas", cat:"Todas", texto:"" };
+  const filtro = { marca:"Todas", cat:"Todas", texto:"", limite:12 };
+  const POR_PAGINA = 12;
   const marcasLista = ["Todas", ...MARCAS.map(m => m.nome)];
   const ORDEM = ["Camisas","Casacos","Calças","Bermudas","Cuecas","Meias","Calçados","Sandálias","Acessórios","Perfumes"];
   function montarFiltros(){
@@ -1092,20 +1140,23 @@ const INSTAGRAM = {
   }
   document.querySelector('.controles').addEventListener('click', e => {
     const c = e.target.closest('.chip'); if (!c) return;
-    filtro[c.dataset.tipo] = c.dataset.v; atualizarChips(); render();
+    filtro[c.dataset.tipo] = c.dataset.v; filtro.limite = POR_PAGINA; atualizarChips(); render();
   });
-  $('busca').addEventListener('input', e => { filtro.texto = e.target.value.toLowerCase(); render(); });
+  $('busca').addEventListener('input', e => { filtro.texto = e.target.value.toLowerCase(); filtro.limite = POR_PAGINA; render(); });
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 
   function render(){
     const t = norm(filtro.texto);
-    const lista = [...PRODUTOS].sort((x,y) => (y.foto?1:0) - (x.foto?1:0)).filter(p =>
+    const lista = PRODUTOS.filter(p => p.foto).filter(p =>
       (filtro.marca === "Todas" || p.marca === filtro.marca) &&
       (filtro.cat === "Todas" || p.cat === filtro.cat) &&
       (!t || norm(`${p.nome} ${p.marca} ${p.cat} ${p.sub || ''}`).includes(t)));
-    $('grade').innerHTML = lista.length ? lista.map(cardHTML).join('')
+    $('maisPecas').hidden = lista.length <= filtro.limite;
+    $('btnMais').textContent = `Ver mais peças (${lista.length - filtro.limite})`;
+    $('grade').innerHTML = lista.length ? lista.slice(0, filtro.limite).map(cardHTML).join('')
       : `<div class="vazio">Nenhuma peça encontrada aqui no site. <a class="btn" style="margin-top:1rem" target="_blank" rel="noopener" href="${zap('Olá, DE men! Procuro: ' + (filtro.texto || filtro.marca + ' ' + filtro.cat))}">Perguntar no WhatsApp</a></div>`;
   }
+  $('btnMais').addEventListener('click', () => { filtro.limite += POR_PAGINA; render(); });
   atualizarChips(); render();
 
   /* ---------- Catálogos ---------- */
@@ -1458,7 +1509,8 @@ const INSTAGRAM = {
   const fotosLoja = (LOJA.fotosLoja || []).filter(Boolean);
   const LOJA_LB = fotosLoja.map((f, i) => ({ foto: f, titulo: 'DE men por dentro', marca: `Foto ${i + 1}` }));
   $('lojaFotos').innerHTML = fotosLoja.map((f, i) => `<div class="foto" data-lb="${i}">${foto(f, 'Loja DE men em Sertânia', '')}</div>`).join('')
-    + (LOJA.fotoEquipe ? `<div class="foto" data-lb="${fotosLoja.length}">${foto(LOJA.fotoEquipe, 'Equipe DE men', '')}</div>` : `<div class="foto">Foto da equipe em breve</div>`);
+    + (LOJA.fotoEquipe ? `<div class="foto" data-lb="${fotosLoja.length}">${foto(LOJA.fotoEquipe, 'Equipe DE men', '')}</div>` : '');
+  $('lojaFotos').classList.add('n' + Math.min(4, fotosLoja.length + (LOJA.fotoEquipe ? 1 : 0)));
   if (LOJA.fotoEquipe) LOJA_LB.push({ foto: LOJA.fotoEquipe, titulo: 'Nossa equipe', marca: 'DE men' });
   if (!fotosLoja.length) $('porDentro').hidden = true;
 
@@ -1475,7 +1527,8 @@ const INSTAGRAM = {
 
   /* ---------- 13. Instagram ---------- */
   $('instaUser').textContent = '@' + INSTAGRAM.usuario;
-  if (INSTAGRAM.posts && INSTAGRAM.posts.length) {
+  if (!(INSTAGRAM.posts && INSTAGRAM.posts.length)) $('instaGrade').hidden = true;
+  else if (INSTAGRAM.posts && INSTAGRAM.posts.length) {
     $('instaGrade').className = 'insta-embeds';
     $('instaGrade').innerHTML = INSTAGRAM.posts.map(u => `<blockquote class="instagram-media" data-instgrm-permalink="${esc(u)}" data-instgrm-version="14" style="background:#fff;margin:0;min-width:280px;width:100%"></blockquote>`).join('');
     const sc = document.createElement('script'); sc.async = true; sc.src = 'https://www.instagram.com/embed.js'; document.body.appendChild(sc);
@@ -1610,6 +1663,7 @@ const INSTAGRAM = {
           sub: pega(l, 'subcategoria', 'sub'), preco: pega(l, 'preco', 'valor'),
           tam: pega(l, 'tamanhos', 'tamanho', 'tam').split(/[,;\/|]/).map(x => x.trim()).filter(Boolean),
           foto: caminhoFoto(pega(l, 'foto', 'foto-1', 'imagem')), foto2: caminhoFoto(pega(l, 'foto-2', 'foto2')),
+          fotos: pega(l, 'mais-fotos', 'fotos-extras').split(/[,;\s]+/).filter(Boolean).map(caminhoFoto),
           selo: selo.startsWith('ult') ? 'ultimas' : selo.startsWith('nov') ? 'novo' : '',
           desc: pega(l, 'descricao', 'desc'), ativo: pega(l, 'ativo', 'mostrar')
         };
