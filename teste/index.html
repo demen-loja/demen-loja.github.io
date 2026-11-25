@@ -187,6 +187,217 @@
     .bot-botao{padding:0 .5rem}
   }
 
+  /* ===== Melhorias v2 ===== */
+  .nav{justify-content:flex-start;gap:1.2rem}
+  .menu{margin:0 auto}
+  .icone-btn{position:relative;background:none;border:0;color:var(--branco);cursor:pointer;width:42px;height:42px;display:grid;place-items:center;flex:none}
+  .icone-btn svg{width:22px;height:22px}
+  .contador{position:absolute;top:1px;right:-1px;min-width:18px;height:18px;border-radius:9px;background:var(--areia);color:var(--preto);font-size:.64rem;font-weight:600;display:grid;place-items:center;padding:0 4px;line-height:1}
+  .contador[data-n="0"]{display:none}
+  .contador.pulo{animation:pulo-cont .5s}
+  @keyframes pulo-cont{40%{transform:scale(1.45)}}
+
+  /* Faixa de promoção */
+  .promo{position:fixed;inset:0 0 auto 0;height:36px;z-index:60;background:var(--areia);color:var(--preto);display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:0 2.8rem}
+  .promo a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .promo a b{font-weight:600;border-bottom:1px solid currentColor;margin-left:.5rem}
+  .promo button{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);background:none;border:0;font-size:1.2rem;cursor:pointer;color:inherit;width:32px;height:32px}
+  body.com-promo header{top:36px}
+
+  /* Cards */
+  .card .foto{cursor:pointer}
+  .selo{position:absolute;top:.7rem;left:.7rem;z-index:2;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:.32rem .6rem;background:var(--branco);color:var(--preto);pointer-events:none}
+  .selo.ultimas{background:#a63a2a;color:#fff}
+  .card h3{cursor:pointer}
+  .card-acoes{display:flex;gap:.5rem;margin-top:auto}
+  .card-acoes .btn{flex:1;margin:0!important;font-size:.7rem;letter-spacing:.14em}
+  .btn-sacola{width:48px;flex:none;border:1px solid var(--linha);background:none;color:var(--branco);cursor:pointer;display:grid;place-items:center;transition:border-color .2s,color .2s}
+  .btn-sacola:hover{border-color:var(--areia);color:var(--areia)}
+  .btn-sacola svg{width:20px;height:20px}
+  .btn svg{width:16px;height:16px;flex:none}
+
+  /* Fundo escuro + gaveta da sacola */
+  .fundo{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:86;opacity:0;pointer-events:none;transition:opacity .3s}
+  .fundo.aberto{opacity:1;pointer-events:auto}
+  .gaveta{position:fixed;top:0;right:0;bottom:0;width:min(430px,100vw);background:var(--grafite);z-index:87;transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;border-left:1px solid var(--linha)}
+  .gaveta.aberto{transform:none}
+  .gaveta-topo{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.4rem;border-bottom:1px solid var(--linha)}
+  .gaveta-topo h3{font-size:1.6rem}
+  .fechar{background:none;border:0;color:var(--cinza);font-size:1.7rem;cursor:pointer;line-height:1;width:40px;height:40px}
+  .fechar:hover{color:var(--branco)}
+  .sacola-itens{flex:1;overflow-y:auto;padding:1rem 1.4rem;display:flex;flex-direction:column;gap:1rem}
+  .item-s{display:grid;grid-template-columns:72px 1fr auto;gap:.9rem;align-items:center;border-bottom:1px solid var(--linha);padding-bottom:1rem}
+  .item-s .mini{width:72px;height:90px;background:#1f1f1f;overflow:hidden;display:grid;place-items:center;font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.1em}
+  .item-s .mini img{width:100%;height:100%;object-fit:cover}
+  .item-s small{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--areia)}
+  .item-s b{font-family:var(--serif);font-weight:500;font-size:1.1rem;line-height:1.15;display:block}
+  .item-s .det{font-size:.78rem;color:var(--cinza)}
+  .qtd{display:flex;align-items:center;border:1px solid var(--linha);margin-top:.4rem;width:max-content}
+  .qtd button{background:none;border:0;color:var(--branco);width:28px;height:28px;cursor:pointer;font-size:1rem}
+  .qtd span{min-width:24px;text-align:center;font-size:.85rem}
+  .remover{background:none;border:0;color:var(--cinza);cursor:pointer;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;align-self:start}
+  .remover:hover{color:var(--branco)}
+  .sacola-vazia{text-align:center;color:var(--cinza);padding:3rem 1rem}
+  .sacola-vazia svg{width:42px;height:42px;opacity:.4;margin:0 auto 1rem}
+  .sacola-rodape{border-top:1px solid var(--linha);padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:.7rem}
+  .campo{background:var(--preto);border:1px solid var(--linha);color:var(--branco);padding:.75rem .9rem;font-family:var(--sans);font-size:.88rem;outline:none;width:100%}
+  .campo:focus{border-color:var(--areia)}
+  .opcoes-entrega{display:flex;gap:.5rem}
+  .opcoes-entrega label{flex:1;border:1px solid var(--linha);padding:.6rem;text-align:center;font-size:.74rem;letter-spacing:.08em;cursor:pointer;color:var(--cinza)}
+  .opcoes-entrega input{display:none}
+  .opcoes-entrega input:checked+span{color:var(--branco)}
+  .opcoes-entrega label:has(input:checked){border-color:var(--areia)}
+  .nota{font-size:.74rem;color:var(--cinza);line-height:1.45}
+  .btn.zap{background:#25d366;border-color:#25d366;color:#0b1f12;justify-content:center}
+  .btn.zap:hover{background:#1fb457;border-color:#1fb457;color:#0b1f12}
+
+  /* Página do produto */
+  .pp{position:fixed;inset:0;z-index:85;background:var(--preto);overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
+  .pp.aberto{opacity:1;pointer-events:auto}
+  .pp-topo{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;height:64px;background:rgba(13,13,13,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+  .pp-topo .voltar{background:none;border:0;color:var(--branco);cursor:pointer;font-family:var(--sans);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:.6rem}
+  .pp-corpo{display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;padding:2.5rem 0 4rem}
+  .pp-galeria .principal{aspect-ratio:4/5;background:linear-gradient(135deg,#232323,#161616);display:grid;place-items:center;overflow:hidden;position:relative;color:#4a4a4a;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+  .pp-galeria .principal img{width:100%;height:100%;object-fit:cover}
+  .pp-miniaturas{display:flex;gap:.6rem;margin-top:.7rem}
+  .pp-miniaturas button{width:74px;height:92px;padding:0;border:1px solid var(--linha);background:#1a1a1a;cursor:pointer;overflow:hidden;opacity:.6}
+  .pp-miniaturas button.ativo{border-color:var(--areia);opacity:1}
+  .pp-miniaturas img{width:100%;height:100%;object-fit:cover}
+  .pp-info{display:flex;flex-direction:column;gap:1rem;align-self:start;position:sticky;top:90px}
+  .pp-info .marca{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--areia)}
+  .pp-info h1{font-size:clamp(2.2rem,4vw,3.2rem)}
+  .pp-info .preco{font-size:1.1rem;color:#cfcac2}
+  .pp-info .desc{color:#bdb8b0;font-size:.95rem}
+  .rotulo{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);display:flex;justify-content:space-between;align-items:center}
+  .rotulo button{background:none;border:0;color:var(--areia);font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-bottom:1px solid var(--areia)}
+  .tam-op{display:flex;gap:.45rem;flex-wrap:wrap}
+  .tam-op button{min-width:48px;height:44px;padding:0 .8rem;background:none;border:1px solid var(--linha);color:var(--branco);cursor:pointer;font-family:var(--sans);font-size:.85rem}
+  .tam-op button.ativo{border-color:var(--branco);background:var(--branco);color:var(--preto)}
+  .tam-op.erro button{border-color:#a63a2a}
+  .pp-acoes{display:flex;flex-direction:column;gap:.6rem;margin-top:.4rem}
+  .pp-acoes .btn{justify-content:center}
+  .garantias{display:grid;gap:.7rem;border-top:1px solid var(--linha);padding-top:1.2rem;margin-top:.4rem}
+  .garantias div{display:flex;gap:.8rem;align-items:flex-start;font-size:.86rem;color:#cfcac2}
+  .garantias svg{width:20px;height:20px;flex:none;color:var(--areia);margin-top:.1rem}
+  .relacionados{border-top:1px solid var(--linha);padding:3rem 0 5rem}
+  .relacionados .grade{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  /* Modais (guia de tamanhos, cupom) */
+  .modal{position:fixed;left:50%;top:50%;z-index:88;width:min(560px,94vw);max-height:90vh;overflow-y:auto;background:var(--grafite);border:1px solid var(--linha);padding:2rem;transform:translate(-50%,-46%);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+  .modal.aberto{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+  .modal .fechar{position:absolute;top:.6rem;right:.6rem}
+  .modal h3{font-size:2rem;margin-bottom:.6rem}
+  .abas{display:flex;gap:.4rem;margin:1rem 0;flex-wrap:wrap}
+  .tabela{width:100%;border-collapse:collapse;font-size:.85rem}
+  .tabela th,.tabela td{border-bottom:1px solid var(--linha);padding:.6rem .4rem;text-align:left}
+  .tabela th{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);font-weight:500}
+  .cupom-modal{text-align:center;padding:2.6rem 2rem}
+  .cupom-modal .eyebrow{margin-bottom:.4rem}
+  .cupom-codigo{display:inline-block;border:1px dashed var(--areia);color:var(--areia);font-family:var(--serif);font-size:1.9rem;letter-spacing:.18em;padding:.4rem 1.4rem;margin:1rem 0 1.2rem}
+  .cupom-modal .btn{margin:0 auto}
+
+  /* Seção: originalidade */
+  .original{background:var(--grafite)}
+  .original .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:center}
+  .selo-grande{width:min(260px,70%);aspect-ratio:1;border:1px solid var(--areia);border-radius:50%;display:grid;place-items:center;text-align:center;position:relative;margin:0 auto}
+  .selo-grande::before{content:"";position:absolute;inset:10px;border:1px dashed rgba(200,180,138,.5);border-radius:50%}
+  .selo-grande b{display:block;font-family:var(--serif);font-size:3.4rem;font-weight:500;color:var(--areia);line-height:1}
+  .selo-grande span{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase}
+  .provas{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;margin-top:1.8rem}
+  .provas div{border-top:1px solid var(--linha);padding-top:1rem}
+  .provas svg{width:24px;height:24px;color:var(--areia);margin-bottom:.5rem}
+  .provas b{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:500}
+  .provas small{color:var(--cinza);font-size:.85rem}
+
+  /* Seção: looks */
+  .looks-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.6rem;margin-top:2.5rem}
+  .look{background:var(--grafite);display:flex;flex-direction:column}
+  .look .foto{aspect-ratio:4/5}
+  .look .info{padding:1.3rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+  .look h3{font-size:1.6rem}
+  .look p{color:var(--cinza);font-size:.88rem}
+  .look ul{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin:.3rem 0 .8rem}
+  .look li button{background:none;border:0;color:#cfcac2;font-family:var(--sans);font-size:.84rem;cursor:pointer;text-align:left;padding:0}
+  .look li button:hover{color:var(--areia)}
+  .look li::before{content:"— ";color:var(--areia)}
+  .look .btn{margin-top:auto;justify-content:center}
+
+  /* Seção: a loja por dentro */
+  .loja-fotos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:220px;gap:1rem;margin-top:2.5rem}
+  .loja-fotos .foto{aspect-ratio:auto;cursor:zoom-in}
+  .loja-fotos .foto:first-child{grid-row:span 2}
+  .loja-fotos .foto img{transition:transform .8s}
+  .loja-fotos .foto:hover img{transform:scale(1.05)}
+
+  /* Seção: avaliações */
+  .aval-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .aval{background:var(--preto);border:1px solid var(--linha);padding:1.8rem;display:flex;flex-direction:column;gap:1rem;position:relative}
+  .aval .estrelas{color:var(--areia);letter-spacing:.2em}
+  .aval p{font-family:var(--serif);font-size:1.25rem;font-style:italic;line-height:1.35;flex:1}
+  .aval .quem{display:flex;align-items:center;gap:.8rem;font-size:.82rem}
+  .aval .quem i{width:40px;height:40px;border-radius:50%;background:var(--grafite2);display:grid;place-items:center;font-style:normal;font-family:var(--serif);font-size:1.1rem;color:var(--areia);overflow:hidden}
+  .aval .quem i img{width:100%;height:100%;object-fit:cover}
+  .aval .quem small{display:block;color:var(--cinza)}
+  .tag-exemplo{position:absolute;top:.8rem;right:.8rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza);border:1px solid var(--linha);padding:.2rem .45rem}
+  .aval-cta{text-align:center;margin-top:2.4rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+
+  /* Seção: Instagram */
+  .insta-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+  .insta-perfil{display:flex;align-items:center;gap:1rem}
+  .insta-perfil img{width:64px;height:64px;border-radius:50%;border:2px solid var(--areia);padding:2px;object-fit:cover}
+  .insta-perfil b{display:block;font-size:1rem;font-weight:500}
+  .insta-perfil small{color:var(--cinza)}
+  .insta-grade{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem}
+  .insta-grade a{aspect-ratio:1;position:relative;overflow:hidden;background:#1a1a1a;display:block}
+  .insta-grade img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .insta-grade a::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6'%3E%3Crect x='3' y='3' width='18' height='18' rx='5'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Ccircle cx='17.5' cy='6.5' r='.6' fill='white'/%3E%3C/svg%3E") center/34px no-repeat;opacity:0;transition:opacity .3s}
+  .insta-grade a:hover::after{opacity:1}
+  .insta-grade a:hover img{transform:scale(1.06)}
+  .insta-embeds{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+
+  /* Lookbook / visualizador em tela cheia */
+  .lb{position:fixed;inset:0;z-index:90;background:#050505;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
+  .lb.aberto{opacity:1;pointer-events:auto}
+  .lb-topo{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.4rem;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cinza)}
+  .lb-palco{flex:1;position:relative;display:grid;place-items:center;overflow:hidden;min-height:0}
+  .lb-palco img{max-width:92vw;max-height:100%;object-fit:contain;transition:opacity .35s,transform .6s}
+  .lb-palco img.saindo{opacity:0;transform:scale(.98)}
+  .lb-seta{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.4);color:#fff;font-size:1.4rem;cursor:pointer;z-index:2}
+  .lb-seta:hover{border-color:var(--areia);color:var(--areia)}
+  .lb-seta.ant{left:1.2rem}.lb-seta.prox{right:1.2rem}
+  .lb-legenda{padding:1rem 1.4rem 1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;min-height:84px}
+  .lb-legenda h3{font-size:1.7rem}
+  .lb-legenda small{color:var(--areia);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
+  .lb-pontos{display:flex;gap:.35rem;justify-content:center;padding-bottom:1rem}
+  .lb-pontos i{width:22px;height:2px;background:#333}
+  .lb-pontos i.ativo{background:var(--areia)}
+
+  /* Avisos rápidos */
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);z-index:95;background:var(--branco);color:var(--preto);padding:.85rem 1.3rem;font-size:.85rem;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;display:flex;gap:1rem;align-items:center}
+  .toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+  .toast button{background:none;border:0;border-bottom:1px solid currentColor;font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:600}
+  body.travado{overflow:hidden}
+  .toast{width:max-content;max-width:calc(100vw - 32px)}
+  .hero{padding-top:150px}
+
+  @media (max-width:860px){
+    body.com-promo .menu{top:108px}
+    .promo{font-size:.62rem;letter-spacing:.08em}
+    .nav{gap:.4rem}
+    .menu{margin:0}
+    .icone-btn{margin-left:auto}
+    .pp-corpo{grid-template-columns:1fr;gap:1.6rem;padding-top:1rem}
+    .pp-info{position:static}
+    .original .wrap{grid-template-columns:1fr;gap:2rem}
+    .provas{grid-template-columns:1fr}
+    .loja-fotos{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+    .loja-fotos .foto:first-child{grid-column:span 2}
+    .insta-grade{grid-template-columns:repeat(3,1fr)}
+    .lb-seta{width:42px;height:42px}
+    .lb-seta.ant{left:.4rem}.lb-seta.prox{right:.4rem}
+    .card-acoes .btn{font-size:.62rem;letter-spacing:.08em;padding:.7rem .4rem}
+  }
+
   /* ================= EFEITOS (versão teste) ================= */
   html.lenis, html.lenis body{height:auto}
   .lenis.lenis-smooth{scroll-behavior:auto !important}
@@ -332,8 +543,25 @@ const LOJA = {
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
   trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
   fotoCapa: "",                     // ex.: "../fotos/capa.jpg"
-  fotoSobre: "",                    // ex.: "../fotos/loja.jpg"
-  clientes: ["", "", "", "", "", "", "", ""] // até 8 fotos: "../fotos/cliente1.jpg"
+  fotoSobre: "../fotos/loja-vitrine-jaqueta-verde.jpg",
+  clientes: [],                     // (não usado mais — veja AVALIACOES e INSTAGRAM abaixo)
+
+  // Faixa de promoção no topo. ativo:false some com ela.
+  promo: { ativo:true, texto:"Novidades Calvin Klein, Adidas e Ogochi na loja", chamada:"Ver vitrine", link:"#vitrine" },
+
+  // Cupom que aparece uma vez para quem entra pela 1ª vez. CONFIRMAR COM O DONO antes de divulgar.
+  cupom: { ativo:true, titulo:"Ganhe 10% OFF na primeira compra", codigo:"PRIMEIRA10", texto:"Mostre este código no WhatsApp ou na loja. Válido na primeira compra.", depoisDeSegundos:15 },
+
+  // Planilha do Google com os produtos (Arquivo > Compartilhar > Publicar na Web > CSV).
+  // Cole o link aqui e o site passa a ler os produtos da planilha. Vazio = usa a lista PRODUTOS abaixo.
+  planilha: "",
+
+  // Contador de cliques (GoatCounter, grátis). Crie uma conta em goatcounter.com e coloque só o código, ex.: "demen".
+  goatcounter: "",
+
+  // Fotos da loja por dentro (a 1ª fica grande). fotoEquipe aparece junto se preenchida.
+  fotosLoja: ["../fotos/loja-vitrine-preto.jpg", "../fotos/loja-vitrine-puffer.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg"],
+  fotoEquipe: ""                    // ex.: "../fotos/equipe.jpg"
 };
 
 // Marcas. Coloque em "logo" o arquivo oficial enviado pela marca/distribuidor (ex.: "../marcas/calvin-klein.png").
@@ -360,12 +588,12 @@ const CATALOGOS = [
 // Produtos. Preço vazio = "Consulte o preço". Tamanhos vazios = não mostra.
 const PRODUTOS = [
   // Fotos da própria loja
-  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.jpg" },
-  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/ogochi-mochila-frente.jpg", foto2:"../fotos/ogochi-mochila-lateral.jpg" },
-  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto.jpg" },
-  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"../fotos/carteira-ogochi-preta-v2.jpg" },
+  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.jpg", selo:"novo" },
+  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/ogochi-mochila-frente.jpg", foto2:"../fotos/ogochi-mochila-lateral.jpg", fotos:["../fotos/ogochi-mochila-costas.jpg"], selo:"novo", desc:"Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas." },
+  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto.jpg", selo:"novo", desc:"O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda." },
+  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"../fotos/carteira-ogochi-preta-v2.jpg", desc:"Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente." },
   // Calvin Klein
-  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer.jpg" },
+  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer.jpg", selo:"ultimas" },
   { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde.jpg" },
   { nome:"Polo Básica Azul-claro",         marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-azul-claro.jpg" },
   { nome:"Camiseta Algodão Egípcio Preta", marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-egipcio.jpg" },
@@ -400,6 +628,50 @@ const PRODUTOS = [
   { nome:"Sapato Social Couro",            marca:"Ogochi",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
   { nome:"Cinto de Couro",                 marca:"Ogochi",  cat:"Acessórios", sub:"Cintos",    preco:"", tam:["90","95","100","105","110"], foto:"" }
 ];
+// Selos: selo:"novo" ou selo:"ultimas". desc: texto da página do produto. fotos:[...] = fotos extras.
+
+// Looks prontos. Os itens são os NOMES dos produtos acima.
+const LOOKS = [
+  { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"../fotos/look-soft-elegance.jpg",
+    itens:["Polo Básica Azul-claro", "Calça Sarja Areia"] },
+  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/loja-vitrine-preto.jpg",
+    itens:["Camiseta Algodão Egípcio Preta", "Calça Jeans Straight", "Tênis Samba OG Preto", "Boné 5 Gomos Bordado"] },
+  { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"../fotos/loja-vitrine-puffer.jpg",
+    itens:["Jaqueta Puffer Light Matelassê", "Gorro Bordado", "Carteira Preta"] },
+  { nome:"Verão Reserva", desc:"Camiseta, bermuda chino, chinelo e o perfume Areia. Pronto para o fim de semana.", foto:"../fotos/reserva-bermuda-chino.jpg",
+    itens:["Camiseta Básica", "Bermuda Chino Comfort", "Chinelo", "Perfume Reserva Areia 100 ml"] }
+];
+
+// Lookbook (galeria em tela cheia). produto = nome do produto ligado à foto (opcional).
+const LOOKBOOK = [
+  { foto:"../fotos/look-soft-elegance.jpg", titulo:"Soft Elegance", marca:"Calvin Klein + Ogochi", produto:"Polo Básica Azul-claro" },
+  { foto:"../fotos/ck-jaqueta-puffer.jpg", titulo:"Puffer Light", marca:"Calvin Klein", produto:"Jaqueta Puffer Light Matelassê" },
+  { foto:"../fotos/loja-vitrine-preto.jpg", titulo:"All Black", marca:"Na vitrine da DE men", produto:"Tênis Samba OG Preto" },
+  { foto:"../fotos/ck-polo-verde.jpg", titulo:"Polo Premium", marca:"Calvin Klein", produto:"Polo Premium Verde" },
+  { foto:"../fotos/reserva-camiseta-basica.jpg", titulo:"Básico bem feito", marca:"Reserva", produto:"Camiseta Básica" },
+  { foto:"../fotos/loja-vitrine-jaqueta-verde.jpg", titulo:"Verde militar", marca:"Na vitrine da DE men", produto:"Jaqueta Verde Militar" },
+  { foto:"../fotos/ck-camiseta-egipcio.jpg", titulo:"Algodão egípcio", marca:"Calvin Klein", produto:"Camiseta Algodão Egípcio Preta" },
+  { foto:"../fotos/ogochi-mochila-frente.jpg", titulo:"Premium Label", marca:"Ogochi", produto:"Mochila Premium Label" },
+  { foto:"../fotos/reserva-bermuda-chino.jpg", titulo:"Fim de semana", marca:"Reserva", produto:"Bermuda Chino Comfort" },
+  { foto:"../fotos/loja-vitrine-puffer.jpg", titulo:"Inverno leve", marca:"Na vitrine da DE men", produto:"Jaqueta Puffer Light Matelassê" }
+];
+
+// Avaliações. Troque pelas avaliações REAIS dos clientes (com permissão deles).
+// Entradas com exemplo:true aparecem marcadas como "exemplo" — apague-as quando tiver as reais.
+const AVALIACOES = [
+  { nome:"Nome do cliente", cidade:"Sertânia-PE", texto:"Espaço para o depoimento de um cliente real: atendimento, qualidade das peças, entrega.", foto:"", exemplo:true },
+  { nome:"Nome do cliente", cidade:"Arcoverde-PE", texto:"Aqui entra outro depoimento real, de preferência de quem comprou pelo WhatsApp e recebeu em casa.", foto:"", exemplo:true },
+  { nome:"Nome do cliente", cidade:"Custódia-PE", texto:"Mais um espaço para avaliação real. Prints do Instagram e do WhatsApp funcionam muito bem aqui.", foto:"", exemplo:true }
+];
+
+// Instagram: fotos da grade (levam para o perfil). Para mostrar posts de verdade,
+// cole os links dos posts em "posts" (ex.: "https://www.instagram.com/p/XXXX/").
+const INSTAGRAM = {
+  usuario: "demen.loja",
+  fotos: ["../fotos/loja-vitrine-preto.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-puffer.jpg",
+          "../fotos/carteira-ogochi-preta-v2.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg", "../fotos/ogochi-mochila-frente.jpg"],
+  posts: []
+};
 </script>
 
 <header id="topo">
@@ -408,10 +680,12 @@ const PRODUTOS = [
     <nav class="menu" id="menu">
       <a href="#marcas">Marcas</a>
       <a href="#vitrine">Vitrine</a>
+      <a href="#looks">Looks</a>
       <a href="#catalogos">Catálogos</a>
       <a href="#sobre">A loja</a>
       <a href="#visite">Visite</a>
     </nav>
+    <button class="icone-btn" id="btnSacola" aria-label="Abrir sacola"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="contador" id="contSacola" data-n="0">0</span></button>
     <div class="topo-acoes">
       <a class="ico js-insta" target="_blank" rel="noopener" aria-label="Instagram da DE men"><i class="fa-brands fa-instagram"></i></a>
       <a class="ico js-zap" target="_blank" rel="noopener" aria-label="WhatsApp da DE men"><i class="fa-brands fa-whatsapp"></i></a>
@@ -431,7 +705,7 @@ const PRODUTOS = [
         <p>Peças originais das marcas que você confia, escolhidas para o homem que se veste bem sem complicar. Na loja ou com envio para todo o Brasil.</p>
         <div class="acoes">
           <a href="#vitrine" class="btn cheio">Ver a vitrine</a>
-          <a href="#catalogos" class="btn">Ver catálogos</a>
+          <button class="btn" id="abrirLookbook">Ver lookbook</button>
         </div>
         <div class="selos">
           <div><b>Revenda autorizada</b></div>
@@ -482,6 +756,36 @@ const PRODUTOS = [
     </div>
   </section>
 
+  <section class="original" id="original">
+    <div class="wrap">
+      <div class="selo-grande revelar"><div><b>100%</b><span>Originais</span></div></div>
+      <div class="revelar">
+        <div class="eyebrow">Garantia DE men</div>
+        <h2>Revenda autorizada: você leva o original</h2>
+        <p class="sub">Calvin Klein, Reserva, Adidas e Ogochi chegam à DE men por canais oficiais. Veja como reconhecer uma peça original.</p>
+        <div class="provas">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><b>Procedência oficial</b><small>Peças compradas direto das marcas e distribuidores autorizados.</small></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><b>Etiquetas e tags</b><small>Tag da marca, etiqueta interna com composição e código do produto.</small></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b>Nota fiscal</b><small>Peça a nota da sua compra: ela comprova a origem da peça.</small></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg><b>Acabamento</b><small>Costuras, tecidos e embalagens no padrão da marca. Na dúvida, pergunte.</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="looks">
+    <div class="wrap">
+      <div class="topo-sec revelar">
+        <div>
+          <div class="eyebrow">Monte seu look</div>
+          <h2>Combinações prontas</h2>
+          <p class="sub">Gostou do conjunto? Coloque o look inteiro na sacola e peça tudo de uma vez.</p>
+        </div>
+      </div>
+      <div class="looks-grade" id="looksGrade"></div>
+    </div>
+  </section>
+
   <section class="catalogos" id="catalogos">
     <div class="wrap">
       <div class="revelar">
@@ -510,16 +814,37 @@ const PRODUTOS = [
     </div>
   </section>
 
+  <section id="porDentro">
+    <div class="wrap">
+      <div class="revelar">
+        <div class="eyebrow">A loja por dentro</div>
+        <h2>Venha ver de perto</h2>
+        <p class="sub">Uma loja de verdade em Sertânia, com as peças expostas e gente para te atender. Clique nas fotos para ampliar.</p>
+      </div>
+      <div class="loja-fotos" id="lojaFotos"></div>
+    </div>
+  </section>
+
   <section class="clientes" id="clientes">
     <div class="wrap">
-      <div class="revelar" style="text-align:center;margin-bottom:2.5rem">
+      <div class="revelar" style="text-align:center">
         <div class="eyebrow">Clientes DE men</div>
         <h2>Quem veste, recomenda</h2>
       </div>
-      <div class="galeria" id="galeria"></div>
-      <div style="text-align:center;margin-top:2.5rem">
-        <a class="btn js-insta" target="_blank" rel="noopener">Siga @demen.loja</a>
+      <div class="aval-grade" id="avalGrade"></div>
+      <div class="aval-cta">
+        <a class="btn" id="btnAvaliar" target="_blank" rel="noopener">Já comprou? Conte como foi</a>
       </div>
+    </div>
+  </section>
+
+  <section class="insta" id="instagram">
+    <div class="wrap">
+      <div class="insta-topo revelar">
+        <div class="insta-perfil"><img src="../img/logo-ig.jpg" alt="@demen.loja"><div><b id="instaUser">@demen.loja</b><small>Novidades, looks e bastidores</small></div></div>
+        <a class="btn js-insta" target="_blank" rel="noopener">Seguir no Instagram</a>
+      </div>
+      <div class="insta-grade" id="instaGrade"></div>
     </div>
   </section>
 
@@ -553,6 +878,72 @@ const PRODUTOS = [
     </div>
   </div>
 </footer>
+
+<!-- Faixa de promoção -->
+<div class="promo" id="promo" hidden><a id="promoLink" href="#vitrine"><span id="promoTxt"></span><b id="promoCta"></b></a><button id="promoFechar" aria-label="Fechar aviso">×</button></div>
+
+<div class="fundo" id="fundo"></div>
+
+<!-- Sacola -->
+<aside class="gaveta" id="sacola" aria-label="Sacola">
+  <div class="gaveta-topo"><h3>Sua sacola</h3><button class="fechar" data-fechar aria-label="Fechar">×</button></div>
+  <div class="sacola-itens" id="sacolaItens"></div>
+  <div class="sacola-rodape" id="sacolaRodape">
+    <input class="campo" id="sacNome" placeholder="Seu nome (opcional)" autocomplete="name">
+    <div class="opcoes-entrega">
+      <label><input type="radio" name="entrega" value="Retirar na loja" checked><span>Retirar na loja</span></label>
+      <label><input type="radio" name="entrega" value="Receber em casa"><span>Receber em casa</span></label>
+    </div>
+    <input class="campo" id="sacCidade" placeholder="Cidade / CEP para o frete" hidden>
+    <a class="btn zap" id="sacEnviar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Enviar pedido pelo WhatsApp</a>
+    <p class="nota">Você não paga nada agora. A DE men confirma estoque, valor e frete pelo WhatsApp.</p>
+  </div>
+</aside>
+
+<!-- Página do produto -->
+<div class="pp" id="pp" role="dialog" aria-label="Detalhes do produto">
+  <div class="pp-topo"><div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+    <button class="voltar" data-fechar>← Voltar à vitrine</button>
+    <button class="icone-btn" data-abrir-sacola aria-label="Abrir sacola"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="contador" data-n="0">0</span></button>
+  </div></div>
+  <div class="wrap" id="ppConteudo"></div>
+</div>
+
+<!-- Guia de tamanhos -->
+<div class="modal" id="guia" role="dialog" aria-label="Guia de tamanhos">
+  <button class="fechar" data-fechar aria-label="Fechar">×</button>
+  <div class="eyebrow">Guia de tamanhos</div>
+  <h3>Qual é o seu tamanho?</h3>
+  <p class="nota">Medidas aproximadas, em centímetros. Variam um pouco entre marcas e modelos. Na dúvida, chame no WhatsApp que a gente mede a peça para você.</p>
+  <div class="abas" id="guiaAbas"></div>
+  <div id="guiaTabela"></div>
+  <p class="nota" style="margin-top:1rem" id="guiaDica"></p>
+</div>
+
+<!-- Cupom de primeira compra -->
+<div class="modal cupom-modal" id="cupom" role="dialog" aria-label="Cupom">
+  <button class="fechar" data-fechar aria-label="Fechar">×</button>
+  <img src="../img/monograma.svg" alt="" style="height:46px;margin:0 auto 1rem">
+  <div class="eyebrow">Bem-vindo à DE men</div>
+  <h3 id="cupomTitulo"></h3>
+  <div class="cupom-codigo" id="cupomCodigo"></div>
+  <p class="nota" id="cupomTexto" style="margin-bottom:1.4rem"></p>
+  <a class="btn zap" id="cupomBtn" target="_blank" rel="noopener">Usar no WhatsApp</a>
+</div>
+
+<!-- Lookbook / fotos em tela cheia -->
+<div class="lb" id="lb" role="dialog" aria-label="Lookbook">
+  <div class="lb-topo"><span id="lbTitulo">Lookbook DE men</span><span id="lbConta"></span><button class="fechar" data-fechar aria-label="Fechar">×</button></div>
+  <div class="lb-palco" id="lbPalco">
+    <button class="lb-seta ant" id="lbAnt" aria-label="Anterior">‹</button>
+    <img id="lbImg" alt="">
+    <button class="lb-seta prox" id="lbProx" aria-label="Próxima">›</button>
+  </div>
+  <div class="lb-legenda" id="lbLegenda"></div>
+  <div class="lb-pontos" id="lbPontos"></div>
+</div>
+
+<div class="toast" id="toast"><span id="toastTxt"></span><button id="toastBtn">Ver sacola</button></div>
 
 <!-- Conta do cliente -->
 <div class="modal" id="modalConta" hidden>
@@ -647,6 +1038,30 @@ const PRODUTOS = [
   if (LOJA.fotoCapa) document.querySelector('.hero').style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`);
   if (LOJA.fotoSobre) $('fotoSobre').innerHTML = `<img src="${LOJA.fotoSobre}" alt="Loja DE men">`;
   const foto = (src, alt, rotulo) => src ? `<img src="${src}" alt="${alt}" loading="lazy">` : rotulo;
+  const ICON = {
+    sacola:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/><path d="M12 11v5M9.5 13.5h5"/></svg>',
+    zap:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>'
+  };
+  const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  function prepararProdutos(){ PRODUTOS.forEach(p => { p.id = slug(p.marca + ' ' + p.nome); p.tam = p.tam || []; }); }
+  prepararProdutos();
+  const porId = id => PRODUTOS.find(p => p.id === id);
+  const porNome = n => PRODUTOS.find(p => p.nome === n);
+  const seloHTML = p => p.selo === 'novo' ? '<span class="selo">Novidade</span>' : p.selo === 'ultimas' ? '<span class="selo ultimas">Últimas unidades</span>' : '';
+  function cardHTML(p){
+    return `
+      <article class="card" data-id="${p.id}">
+        <div class="foto" data-abrir="${p.id}">${seloHTML(p)}${foto(p.foto, p.nome, "Foto do produto")}${p.foto2 ? `<img class="foto2" src="${p.foto2}" alt="${p.nome} — outro ângulo" loading="lazy">` : ""}<button class="fav" data-fav="${p.nome}" aria-label="Salvar nos favoritos"><i class="fa-regular fa-heart"></i></button></div>
+        <div class="info">
+          <div class="marca">${p.marca}</div>
+          <h3 data-abrir="${p.id}">${p.nome}</h3>
+          <div class="preco">${p.preco || "Consulte o preço"}</div>
+          ${p.tam.length ? `<div class="tams">${p.tam.map(x => `<span>${x}</span>`).join('')}</div>` : '<div class="tams"></div>'}
+          <div class="card-acoes"><a class="btn js-quero" data-produto="${p.nome}" data-marca="${p.marca}" target="_blank" rel="noopener"
+             href="${zap(`Olá, DE men! Tenho interesse em: ${p.nome} (${p.marca}). Tem disponível?`)}">${ICON.zap}Pedir</a><button class="btn-sacola" data-add="${p.id}" aria-label="Adicionar à sacola" title="Adicionar à sacola">${ICON.sacola}</button></div>
+        </div>
+      </article>`;
+  }
 
   /* ---------- Marcas ---------- */
   $('marcasGrade').innerHTML = MARCAS.map(m => `
@@ -664,9 +1079,14 @@ const PRODUTOS = [
   const filtro = { marca:"Todas", cat:"Todas", texto:"" };
   const marcasLista = ["Todas", ...MARCAS.map(m => m.nome)];
   const ORDEM = ["Camisas","Casacos","Calças","Bermudas","Cuecas","Meias","Calçados","Sandálias","Acessórios","Perfumes"];
-  const catsLista = ["Todas", ...ORDEM.filter(c => PRODUTOS.some(p => p.cat === c)), ...new Set(PRODUTOS.map(p => p.cat).filter(c => !ORDEM.includes(c)))];
-  $('filtroMarca').insertAdjacentHTML('beforeend', marcasLista.map(m => `<button class="chip" data-tipo="marca" data-v="${m}">${m}</button>`).join(''));
-  $('filtroCat').insertAdjacentHTML('beforeend', catsLista.map(c => `<button class="chip" data-tipo="cat" data-v="${c}">${c}</button>`).join(''));
+  function montarFiltros(){
+    const catsLista = ["Todas", ...ORDEM.filter(c => PRODUTOS.some(p => p.cat === c)), ...new Set(PRODUTOS.map(p => p.cat).filter(c => !ORDEM.includes(c)))];
+    $('filtroMarca').querySelectorAll('.chip').forEach(c => c.remove());
+    $('filtroCat').querySelectorAll('.chip').forEach(c => c.remove());
+    $('filtroMarca').insertAdjacentHTML('beforeend', marcasLista.map(m => `<button class="chip" data-tipo="marca" data-v="${m}">${m}</button>`).join(''));
+    $('filtroCat').insertAdjacentHTML('beforeend', catsLista.map(c => `<button class="chip" data-tipo="cat" data-v="${c}">${c}</button>`).join(''));
+  }
+  montarFiltros();
   function atualizarChips(){
     document.querySelectorAll('.chip').forEach(c => c.classList.toggle('ativo', filtro[c.dataset.tipo] === c.dataset.v));
   }
@@ -683,18 +1103,7 @@ const PRODUTOS = [
       (filtro.marca === "Todas" || p.marca === filtro.marca) &&
       (filtro.cat === "Todas" || p.cat === filtro.cat) &&
       (!t || norm(`${p.nome} ${p.marca} ${p.cat} ${p.sub || ''}`).includes(t)));
-    $('grade').innerHTML = lista.length ? lista.map(p => `
-      <article class="card">
-        <div class="foto">${foto(p.foto, p.nome, "Foto do produto")}${p.foto2 ? `<img class="foto2" src="${p.foto2}" alt="${p.nome} — outro ângulo" loading="lazy">` : ""}<button class="fav" data-fav="${p.nome}" aria-label="Salvar nos favoritos"><i class="fa-regular fa-heart"></i></button></div>
-        <div class="info">
-          <div class="marca">${p.marca}</div>
-          <h3>${p.nome}</h3>
-          <div class="preco">${p.preco || "Consulte o preço"}</div>
-          ${p.tam.length ? `<div class="tams">${p.tam.map(x => `<span>${x}</span>`).join('')}</div>` : '<div class="tams"></div>'}
-          <a class="btn js-quero" data-produto="${p.nome}" data-marca="${p.marca}" target="_blank" rel="noopener"
-             href="${zap(`Olá, DE men! Tenho interesse em: ${p.nome} (${p.marca}). Tem disponível?`)}">Quero este</a>
-        </div>
-      </article>`).join('')
+    $('grade').innerHTML = lista.length ? lista.map(cardHTML).join('')
       : `<div class="vazio">Nenhuma peça encontrada aqui no site. <a class="btn" style="margin-top:1rem" target="_blank" rel="noopener" href="${zap('Olá, DE men! Procuro: ' + (filtro.texto || filtro.marca + ' ' + filtro.cat))}">Perguntar no WhatsApp</a></div>`;
   }
   atualizarChips(); render();
@@ -718,7 +1127,7 @@ const PRODUTOS = [
   });
 
   /* ---------- Galeria ---------- */
-  $('galeria').innerHTML = LOJA.clientes.map(src => `<div class="foto revelar">${foto(src, "Cliente DE men", "Foto cliente")}</div>`).join('');
+  /* (galeria de clientes substituída por avaliações + Instagram — ver script de melhorias) */
 
   /* ---------- Assistente (bot) ---------- */
   const botEl = $('bot'), msgs = $('botMsgs'), opc = $('botOpcoes');
@@ -809,6 +1218,418 @@ const PRODUTOS = [
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visivel'); io.unobserve(e.target);} }), {threshold:.1});
   document.querySelectorAll('.revelar').forEach(el => io.observe(el));
 </script>
+<script>
+/* =========================================================
+   Melhorias v2: sacola, página do produto, looks, lookbook,
+   guia de tamanhos, avaliações, Instagram, promoção, cupom,
+   planilha do Google e contador de cliques.
+   ========================================================= */
+(() => {
+  const $ = id => document.getElementById(id);
+  const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+  const lerLS = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v ?? d; } catch { return d; } };
+  const gravarLS = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+  const naPastaTeste = /\/teste\//.test(location.pathname);
+  const SVG = {
+    escudo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+    caixa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>',
+    troca:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9h13l-3-3M20 15H7l3 3"/></svg>',
+    vazia:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>'
+  };
+
+  /* ---------- 11. Contador de cliques (GoatCounter) ---------- */
+  if (LOJA.goatcounter) {
+    const sc = document.createElement('script');
+    sc.async = true; sc.src = 'https://gc.zgo.at/count.js';
+    sc.dataset.goatcounter = `https://${LOJA.goatcounter}.goatcounter.com/count`;
+    document.head.appendChild(sc);
+  }
+  function rastrear(evento, rotulo) {
+    try {
+      if (window.goatcounter && window.goatcounter.count)
+        window.goatcounter.count({ path: `${evento}/${slug(String(rotulo || ''))}`, title: `${evento}: ${rotulo || ''}`, event: true });
+    } catch {}
+  }
+  window.rastrear = rastrear;
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href*="wa.me"]');
+    if (a) rastrear('whatsapp', a.closest('[data-id]')?.dataset.id || a.id || a.textContent.trim().slice(0, 40));
+    if (e.target.closest('a[href*="instagram.com"]')) rastrear('instagram', 'perfil');
+  }, true);
+
+  /* ---------- Abrir / fechar painéis ---------- */
+  const fundo = $('fundo'), pp = $('pp'), lb = $('lb'), sac = $('sacola');
+  [pp, lb, $('sacolaItens'), $('guia'), $('cupom')].forEach(el => el && el.setAttribute('data-lenis-prevent', ''));
+  let abertos = [];
+  const comFundo = el => el.classList.contains('modal') || el.classList.contains('gaveta');
+  function abrir(el) {
+    el.classList.add('aberto');
+    abertos = abertos.filter(x => x !== el); abertos.push(el);
+    if (comFundo(el)) fundo.classList.add('aberto');
+    document.body.classList.add('travado');
+  }
+  function fechar(el) {
+    if (!el) return;
+    el.classList.remove('aberto');
+    abertos = abertos.filter(x => x !== el);
+    if (!abertos.some(comFundo)) fundo.classList.remove('aberto');
+    if (!abertos.length) document.body.classList.remove('travado');
+  }
+  fundo.addEventListener('click', () => { const ult = [...abertos].reverse().find(comFundo); fechar(ult); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && abertos.length) { const ult = abertos[abertos.length - 1]; ult === pp ? fecharProduto() : fechar(ult); }
+    if (lb.classList.contains('aberto')) { if (e.key === 'ArrowRight') lbIr(1); if (e.key === 'ArrowLeft') lbIr(-1); }
+  });
+
+  /* ---------- Aviso rápido ---------- */
+  let toastT;
+  function aviso(txt, comBotao) {
+    $('toastTxt').textContent = txt;
+    $('toastBtn').style.display = comBotao ? '' : 'none';
+    $('toast').classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => $('toast').classList.remove('on'), 3200);
+  }
+  $('toastBtn').addEventListener('click', () => { $('toast').classList.remove('on'); abrirSacola(); });
+
+  /* ---------- 2. Sacola ---------- */
+  let sacola = lerLS('demen_sacola', []);
+  if (!Array.isArray(sacola)) sacola = [];
+  function salvarSacola() { gravarLS('demen_sacola', sacola); atualizarSacola(); }
+  function addSacola(p, tam, qtd = 1, silencioso = false) {
+    const k = p.id + '|' + (tam || '');
+    const it = sacola.find(i => i.k === k);
+    if (it) it.qtd += qtd;
+    else sacola.push({ k, id: p.id, nome: p.nome, marca: p.marca, foto: p.foto || '', tam: tam || '', qtd });
+    salvarSacola();
+    document.querySelectorAll('.contador').forEach(c => { c.classList.remove('pulo'); void c.offsetWidth; c.classList.add('pulo'); });
+    if (!silencioso) aviso(`${p.nome}${tam ? ' (' + tam + ')' : ''} foi para a sacola`, true);
+    rastrear('sacola', p.id);
+  }
+  function mensagemPedido() {
+    const linhas = sacola.map((i, n) => `${n + 1}. ${i.qtd}x ${i.nome} (${i.marca})${i.tam ? ' — tam. ' + i.tam : ' — tamanho a combinar'}`);
+    const nome = $('sacNome').value.trim();
+    const entrega = document.querySelector('input[name="entrega"]:checked')?.value || '';
+    const cidade = $('sacCidade').value.trim();
+    return ['Olá, DE men! Quero fazer este pedido pelo site:', '', ...linhas, '',
+      nome ? `Nome: ${nome}` : '',
+      `Entrega: ${entrega}${entrega === 'Receber em casa' && cidade ? ' — ' + cidade : ''}`,
+      '', 'Pode confirmar a disponibilidade e os valores?'].filter((l, i, a) => l !== '' || a[i - 1] !== '').join('\n');
+  }
+  function atualizarLinkPedido() { $('sacEnviar').href = sacola.length ? zap(mensagemPedido()) : '#'; }
+  function atualizarSacola() {
+    const n = sacola.reduce((t, i) => t + i.qtd, 0);
+    document.querySelectorAll('.contador').forEach(c => { c.textContent = n; c.dataset.n = n; });
+    $('sacolaRodape').style.display = sacola.length ? '' : 'none';
+    $('sacolaItens').innerHTML = sacola.length ? sacola.map(i => `
+      <div class="item-s">
+        <div class="mini" data-abrir="${esc(i.id)}" style="cursor:pointer">${i.foto ? `<img src="${esc(i.foto)}" alt="">` : 'sem foto'}</div>
+        <div>
+          <small>${esc(i.marca)}</small><b>${esc(i.nome)}</b>
+          <div class="det">${i.tam ? 'Tamanho ' + esc(i.tam) : 'Tamanho a combinar'}</div>
+          <div class="qtd"><button data-menos="${esc(i.k)}" aria-label="Diminuir">−</button><span>${i.qtd}</span><button data-mais="${esc(i.k)}" aria-label="Aumentar">+</button></div>
+        </div>
+        <button class="remover" data-rem="${esc(i.k)}">Remover</button>
+      </div>`).join('')
+      : `<div class="sacola-vazia">${SVG.vazia}<p>Sua sacola está vazia.</p><p class="nota" style="margin-top:.4rem">Toque no ícone de sacola nos produtos para juntar as peças e pedir tudo de uma vez.</p><button class="btn" style="margin-top:1.4rem" data-fechar-ir="vitrine">Ver a vitrine</button></div>`;
+    atualizarLinkPedido();
+  }
+  function abrirSacola() { atualizarSacola(); abrir(sac); }
+  document.querySelectorAll('input[name="entrega"]').forEach(r => r.addEventListener('change', () => {
+    $('sacCidade').hidden = document.querySelector('input[name="entrega"]:checked').value !== 'Receber em casa';
+    atualizarLinkPedido();
+  }));
+  ['sacNome', 'sacCidade'].forEach(id => $(id).addEventListener('input', atualizarLinkPedido));
+  $('sacEnviar').addEventListener('click', e => { if (!sacola.length) e.preventDefault(); else rastrear('pedido', sacola.length + ' itens'); });
+
+  /* ---------- 8. Guia de tamanhos ---------- */
+  const GUIA = {
+    'Camisas e casacos': { cols:['Tamanho','Tórax','Comprimento','Ombro'], linhas:[['P','96–100','70','44'],['M','100–106','72','46'],['G','106–112','74','48'],['GG','112–118','76','50']], dica:'Meça o tórax na altura das axilas, com a fita reta e sem apertar.' },
+    'Calças e bermudas': { cols:['Tamanho','Cintura','Quadril'], linhas:[['38','76–80','94–98'],['40','80–84','98–102'],['42','84–88','102–106'],['44','88–92','106–110'],['46','92–96','110–114']], dica:'Meça a cintura na altura do umbigo. Se ficar entre dois tamanhos, prefira o maior.' },
+    'Calçados': { cols:['Número','Comprimento do pé'], linhas:[['38','24,5'],['39','25,2'],['40','25,9'],['41','26,6'],['42','27,3'],['43','28,0'],['44','28,7']], dica:'Meça o pé do calcanhar até a ponta do dedo maior, de preferência no fim do dia.' },
+    'Cintos': { cols:['Tamanho','Cintura'], linhas:[['90','até 80'],['95','80–85'],['100','85–90'],['105','90–95'],['110','95–100']], dica:'O tamanho do cinto costuma ser uns 10 cm a mais que a medida da cintura.' }
+  };
+  const abaDoProduto = p => !p ? 'Camisas e casacos'
+    : ['Calças','Bermudas'].includes(p.cat) ? 'Calças e bermudas'
+    : ['Calçados','Sandálias'].includes(p.cat) ? 'Calçados'
+    : p.sub === 'Cintos' ? 'Cintos' : 'Camisas e casacos';
+  const temGuia = p => ['Camisas','Casacos','Calças','Bermudas','Cuecas','Calçados','Sandálias'].includes(p.cat) || p.sub === 'Cintos';
+  function mostrarAba(nome) {
+    const g = GUIA[nome];
+    $('guiaAbas').innerHTML = Object.keys(GUIA).map(k => `<button class="chip ${k === nome ? 'ativo' : ''}" data-aba="${k}">${k}</button>`).join('');
+    $('guiaTabela').innerHTML = `<table class="tabela"><thead><tr>${g.cols.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${g.linhas.map(l => `<tr>${l.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    $('guiaDica').textContent = g.dica;
+  }
+  function abrirGuia(p) { mostrarAba(abaDoProduto(p)); abrir($('guia')); rastrear('guia', p ? p.id : 'geral'); }
+
+  /* ---------- 15. Página do produto ---------- */
+  const DESC = {
+    Camisas:'Peça versátil para o dia a dia, fácil de combinar com jeans, sarja ou bermuda.',
+    Casacos:'Para os dias mais frios e as noites do Sertão, com o acabamento que a marca é conhecida por ter.',
+    Calças:'Modelagem pensada para o caimento certo, do trabalho ao fim de semana.',
+    Bermudas:'Conforto para o calor sem perder a elegância.',
+    Cuecas:'Conforto o dia todo, com o tecido e o elástico de qualidade da marca.',
+    Meias:'Básico indispensável, com conforto e durabilidade.',
+    Calçados:'Calçado para usar muito: confortável, resistente e fácil de combinar.',
+    Sandálias:'Leve e confortável para o dia a dia e o fim de semana.',
+    Acessórios:'O detalhe que completa o visual.',
+    Perfumes:'Fragrância masculina original, ótima para uso diário ou para presentear.'
+  };
+  const descPadrao = p => `${p.nome} ${p.marca}, original e com procedência garantida pela DE men. ${DESC[p.cat] || ''} Chame no WhatsApp para confirmar cores e tamanhos disponíveis.`;
+  let ppAtual = null, ppTam = null;
+  function atualizarZapPP() {
+    const p = ppAtual; if (!p) return;
+    $('ppZap').href = zap(`Olá, DE men! Quero: ${p.nome} (${p.marca})${ppTam ? ', tamanho ' + ppTam : ''}. Tem disponível?`);
+  }
+  function mostrarProduto(id) {
+    const p = porId(id); if (!p) return false;
+    ppAtual = p; ppTam = p.tam.length === 1 ? p.tam[0] : null;
+    const fotos = [p.foto, p.foto2, ...(p.fotos || [])].filter(Boolean);
+    const rel = PRODUTOS.filter(x => x !== p && x.foto && (x.cat === p.cat || x.marca === p.marca))
+      .sort((a, b) => (b.cat === p.cat) - (a.cat === p.cat)).slice(0, 4);
+    $('ppConteudo').innerHTML = `
+      <div class="pp-corpo">
+        <div class="pp-galeria">
+          <div class="principal">${seloHTML(p)}${fotos.length ? `<img id="ppImg" src="${esc(fotos[0])}" alt="${esc(p.nome)}">` : 'Foto em breve'}</div>
+          ${fotos.length > 1 ? `<div class="pp-miniaturas">${fotos.map((f, i) => `<button class="${i ? '' : 'ativo'}" data-foto="${esc(f)}" aria-label="Foto ${i + 1}"><img src="${esc(f)}" alt=""></button>`).join('')}</div>` : ''}
+        </div>
+        <div class="pp-info">
+          <div class="marca">${esc(p.marca)} • ${esc(p.sub || p.cat)}</div>
+          <h1>${esc(p.nome)}</h1>
+          <div class="preco">${esc(p.preco || 'Consulte o preço no WhatsApp')}</div>
+          <p class="desc">${esc(p.desc || descPadrao(p))}</p>
+          ${p.tam.length ? `<div>
+            <div class="rotulo"><span>Tamanho</span>${temGuia(p) ? '<button data-guia>Guia de tamanhos</button>' : ''}</div>
+            <div class="tam-op" id="ppTams" style="margin-top:.6rem">${p.tam.map(t => `<button data-tam="${esc(t)}" class="${t === ppTam ? 'ativo' : ''}">${esc(t)}</button>`).join('')}</div>
+          </div>` : ''}
+          <div class="pp-acoes">
+            <button class="btn cheio" id="ppAdd">${ICON.sacola} Adicionar à sacola</button>
+            <a class="btn zap" id="ppZap" target="_blank" rel="noopener">${ICON.zap} Pedir pelo WhatsApp</a>
+          </div>
+          <div class="garantias">
+            <div>${SVG.escudo}<span><b>Original.</b> Revenda autorizada ${esc(p.marca)}, com procedência garantida.</span></div>
+            <div>${SVG.caixa}<span>${esc(LOJA.envio)}</span></div>
+            <div>${SVG.troca}<span>${esc(LOJA.trocas)}</span></div>
+          </div>
+        </div>
+      </div>
+      ${rel.length ? `<div class="relacionados"><div class="eyebrow">Quem viu também gostou</div><h2>Combina com esta peça</h2><div class="grade">${rel.map(cardHTML).join('')}</div></div>` : ''}`;
+    atualizarZapPP();
+    abrir(pp); pp.scrollTop = 0;
+    document.title = `${p.nome} | DE men`;
+    rastrear('produto', p.id);
+    return true;
+  }
+  const tituloOriginal = document.title;
+  function abrirProduto(id) {
+    if (!porId(id)) return;
+    history.pushState({ pp: id }, '', '#p/' + id);
+    mostrarProduto(id);
+  }
+  function esconderProduto() { fechar(pp); document.title = tituloOriginal; }
+  function fecharProduto() {
+    if (history.state && history.state.pp) history.back();
+    else { esconderProduto(); history.replaceState(null, '', location.pathname + location.search); }
+  }
+  window.addEventListener('popstate', () => {
+    const m = location.hash.match(/^#p\/(.+)$/);
+    if (m) mostrarProduto(decodeURIComponent(m[1])); else if (pp.classList.contains('aberto')) esconderProduto();
+  });
+  window.abrirProduto = abrirProduto;
+
+  /* ---------- 4. Looks ---------- */
+  function renderLooks() {
+    $('looksGrade').innerHTML = LOOKS.map((l, i) => {
+      const itens = l.itens.map(porNome).filter(Boolean);
+      return `<article class="look">
+        <div class="foto">${foto(l.foto, l.nome, 'Foto do look')}</div>
+        <div class="info">
+          <div class="eyebrow">Look ${String(i + 1).padStart(2, '0')}</div>
+          <h3>${esc(l.nome)}</h3>
+          <p>${esc(l.desc)}</p>
+          <ul>${itens.map(p => `<li><button data-abrir="${p.id}">${esc(p.nome)} <span style="color:var(--cinza)">· ${esc(p.marca)}</span></button></li>`).join('')}</ul>
+          <button class="btn cheio" data-look="${i}">${ICON.sacola} Look completo na sacola</button>
+        </div>
+      </article>`;
+    }).join('');
+  }
+  renderLooks();
+
+  /* ---------- 9. A loja por dentro ---------- */
+  const fotosLoja = (LOJA.fotosLoja || []).filter(Boolean);
+  const LOJA_LB = fotosLoja.map((f, i) => ({ foto: f, titulo: 'DE men por dentro', marca: `Foto ${i + 1}` }));
+  $('lojaFotos').innerHTML = fotosLoja.map((f, i) => `<div class="foto" data-lb="${i}">${foto(f, 'Loja DE men em Sertânia', '')}</div>`).join('')
+    + (LOJA.fotoEquipe ? `<div class="foto" data-lb="${fotosLoja.length}">${foto(LOJA.fotoEquipe, 'Equipe DE men', '')}</div>` : `<div class="foto">Foto da equipe em breve</div>`);
+  if (LOJA.fotoEquipe) LOJA_LB.push({ foto: LOJA.fotoEquipe, titulo: 'Nossa equipe', marca: 'DE men' });
+  if (!fotosLoja.length) $('porDentro').hidden = true;
+
+  /* ---------- 6. Avaliações ---------- */
+  const estrelas = n => '★★★★★'.slice(0, n || 5) + '☆☆☆☆☆'.slice(0, 5 - (n || 5));
+  $('avalGrade').innerHTML = AVALIACOES.map(a => `
+    <figure class="aval">
+      ${a.exemplo ? '<span class="tag-exemplo">exemplo</span>' : ''}
+      <div class="estrelas">${estrelas(a.nota)}</div>
+      <p>“${esc(a.texto)}”</p>
+      <figcaption class="quem"><i>${a.foto ? `<img src="${esc(a.foto)}" alt="">` : esc((a.nome || '?')[0])}</i><span>${esc(a.nome)}<small>${esc(a.cidade || '')}</small></span></figcaption>
+    </figure>`).join('');
+  $('btnAvaliar').href = zap('Olá, DE men! Comprei com vocês e quero deixar minha avaliação: ');
+
+  /* ---------- 13. Instagram ---------- */
+  $('instaUser').textContent = '@' + INSTAGRAM.usuario;
+  if (INSTAGRAM.posts && INSTAGRAM.posts.length) {
+    $('instaGrade').className = 'insta-embeds';
+    $('instaGrade').innerHTML = INSTAGRAM.posts.map(u => `<blockquote class="instagram-media" data-instgrm-permalink="${esc(u)}" data-instgrm-version="14" style="background:#fff;margin:0;min-width:280px;width:100%"></blockquote>`).join('');
+    const sc = document.createElement('script'); sc.async = true; sc.src = 'https://www.instagram.com/embed.js'; document.body.appendChild(sc);
+  } else {
+    $('instaGrade').innerHTML = INSTAGRAM.fotos.map(f => `<a href="${esc(LOJA.instagram)}" target="_blank" rel="noopener" aria-label="Ver no Instagram">${foto(f, 'Post da DE men no Instagram', '')}</a>`).join('');
+  }
+
+  /* ---------- 16. Lookbook (visualizador em tela cheia) ---------- */
+  let lbLista = [], lbI = 0;
+  function lbMostrar() {
+    const it = lbLista[lbI], img = $('lbImg');
+    img.classList.add('saindo');
+    setTimeout(() => { img.src = it.foto; img.alt = it.titulo || ''; img.classList.remove('saindo'); }, 180);
+    const p = it.produto ? porNome(it.produto) : null;
+    $('lbLegenda').innerHTML = `<div><small>${esc(it.marca || '')}</small><h3>${esc(it.titulo || '')}</h3></div>`
+      + (p ? `<button class="btn" data-lb-produto="${p.id}">Ver a peça</button>` : '');
+    $('lbConta').textContent = `${lbI + 1} / ${lbLista.length}`;
+    $('lbPontos').innerHTML = lbLista.map((_, i) => `<i class="${i === lbI ? 'ativo' : ''}"></i>`).join('');
+    const prox = lbLista[(lbI + 1) % lbLista.length]; if (prox) new Image().src = prox.foto;
+  }
+  function lbIr(d) { lbI = (lbI + d + lbLista.length) % lbLista.length; lbMostrar(); }
+  function abrirLB(lista, i = 0, titulo = 'Lookbook DE men') {
+    if (!lista.length) return;
+    lbLista = lista; lbI = i; $('lbTitulo').textContent = titulo;
+    lbMostrar(); abrir(lb); rastrear('lookbook', titulo);
+  }
+  $('lbAnt').addEventListener('click', () => lbIr(-1));
+  $('lbProx').addEventListener('click', () => lbIr(1));
+  let toqueX = null;
+  $('lbPalco').addEventListener('touchstart', e => { toqueX = e.touches[0].clientX; }, { passive: true });
+  $('lbPalco').addEventListener('touchend', e => { if (toqueX === null) return; const dx = e.changedTouches[0].clientX - toqueX; if (Math.abs(dx) > 40) lbIr(dx < 0 ? 1 : -1); toqueX = null; });
+  $('abrirLookbook').addEventListener('click', () => abrirLB(LOOKBOOK, 0, 'Lookbook DE men'));
+
+  /* ---------- Cliques (tudo num lugar só) ---------- */
+  document.addEventListener('click', e => {
+    const t = e.target;
+    if (t.closest('.fav')) return;                                   // coração do site de teste
+    const ab = t.closest('[data-abrir]');
+    if (ab) { e.preventDefault(); if (sac.classList.contains('aberto')) fechar(sac); abrirProduto(ab.dataset.abrir); return; }
+    const ad = t.closest('[data-add]');
+    if (ad) {
+      const p = porId(ad.dataset.add); if (!p) return;
+      if (p.tam.length > 1) { abrirProduto(p.id); setTimeout(() => aviso('Escolha o tamanho e toque em "Adicionar à sacola"'), 350); }
+      else addSacola(p, p.tam[0] || '');
+      return;
+    }
+    const lk = t.closest('[data-look]');
+    if (lk) {
+      const l = LOOKS[+lk.dataset.look]; const itens = l.itens.map(porNome).filter(Boolean);
+      itens.forEach(p => addSacola(p, p.tam.length === 1 ? p.tam[0] : '', 1, true));
+      aviso(`Look ${l.nome} na sacola. Os tamanhos você combina no WhatsApp.`, true);
+      rastrear('look', l.nome); return;
+    }
+    if (t.closest('#btnSacola,[data-abrir-sacola]')) { abrirSacola(); return; }
+    const ir = t.closest('[data-fechar-ir]');
+    if (ir) { fechar(sac); if (pp.classList.contains('aberto')) fecharProduto(); $(ir.dataset.fecharIr).scrollIntoView(); return; }
+    const fe = t.closest('[data-fechar]');
+    if (fe) { const alvo = fe.closest('.gaveta,.modal,.pp,.lb'); alvo === pp ? fecharProduto() : fechar(alvo); return; }
+    if (t.closest('[data-guia]')) { abrirGuia(ppAtual); return; }
+    const ab2 = t.closest('[data-aba]'); if (ab2) { mostrarAba(ab2.dataset.aba); return; }
+    const ft = t.closest('[data-foto]');
+    if (ft) { $('ppImg').src = ft.dataset.foto; ft.parentElement.querySelectorAll('button').forEach(b => b.classList.toggle('ativo', b === ft)); return; }
+    const tb = t.closest('[data-tam]');
+    if (tb) { ppTam = tb.dataset.tam; $('ppTams').classList.remove('erro'); $('ppTams').querySelectorAll('button').forEach(b => b.classList.toggle('ativo', b === tb)); atualizarZapPP(); return; }
+    if (t.closest('#ppAdd')) {
+      if (ppAtual.tam.length && !ppTam) { $('ppTams').classList.add('erro'); aviso('Escolha um tamanho primeiro'); return; }
+      addSacola(ppAtual, ppTam || ''); return;
+    }
+    const k = t.closest('[data-mais],[data-menos],[data-rem]');
+    if (k) {
+      const chave = k.dataset.mais || k.dataset.menos || k.dataset.rem;
+      const it = sacola.find(i => i.k === chave); if (!it) return;
+      if (k.dataset.mais) it.qtd++; else if (k.dataset.menos) it.qtd--; else it.qtd = 0;
+      sacola = sacola.filter(i => i.qtd > 0); salvarSacola(); return;
+    }
+    const lbb = t.closest('[data-lb]'); if (lbb) { abrirLB(LOJA_LB, +lbb.dataset.lb, 'DE men por dentro'); return; }
+    const lbp = t.closest('[data-lb-produto]'); if (lbp) { fechar(lb); abrirProduto(lbp.dataset.lbProduto); return; }
+  });
+
+  /* ---------- 5. Faixa de promoção ---------- */
+  const pr = LOJA.promo;
+  let promoFechada = false; try { promoFechada = sessionStorage.getItem('demen_promo') === '1'; } catch {}
+  if (pr && pr.ativo && pr.texto && !promoFechada) {
+    $('promoTxt').textContent = pr.texto; $('promoCta').textContent = pr.chamada || '';
+    $('promoLink').href = pr.link || '#vitrine';
+    $('promo').hidden = false; document.body.classList.add('com-promo');
+    $('promoFechar').addEventListener('click', () => {
+      $('promo').hidden = true; document.body.classList.remove('com-promo');
+      try { sessionStorage.setItem('demen_promo', '1'); } catch {}
+    });
+  }
+
+  /* ---------- 14. Cupom de primeira compra ---------- */
+  const cp = LOJA.cupom;
+  if (cp && cp.ativo && cp.codigo && !lerLS('demen_cupom_visto', false)) {
+    $('cupomTitulo').textContent = cp.titulo; $('cupomCodigo').textContent = cp.codigo; $('cupomTexto').textContent = cp.texto || '';
+    $('cupomBtn').href = zap(`Olá, DE men! Quero usar o cupom ${cp.codigo} na minha primeira compra.`);
+    setTimeout(function tentar() {
+      if (abertos.length || $('bot').classList.contains('aberto')) return setTimeout(tentar, 8000);
+      abrir($('cupom')); gravarLS('demen_cupom_visto', true); rastrear('cupom', 'mostrado');
+    }, (cp.depoisDeSegundos || 15) * 1000);
+  }
+
+  /* ---------- 10. Produtos vindos da planilha do Google ---------- */
+  function lerCSV(txt) {
+    const linhas = []; let linha = [], campo = '', aspas = false;
+    for (let i = 0; i < txt.length; i++) {
+      const c = txt[i];
+      if (aspas) { if (c === '"') { if (txt[i + 1] === '"') { campo += '"'; i++; } else aspas = false; } else campo += c; }
+      else if (c === '"') aspas = true;
+      else if (c === ',') { linha.push(campo); campo = ''; }
+      else if (c === '\n' || c === '\r') { if (c === '\r' && txt[i + 1] === '\n') i++; linha.push(campo); linhas.push(linha); linha = []; campo = ''; }
+      else campo += c;
+    }
+    if (campo || linha.length) { linha.push(campo); linhas.push(linha); }
+    return linhas;
+  }
+  const limpar = v => String(v || '').replace(/[<>"`]/g, '').trim();
+  const caminhoFoto = f => !f ? '' : (/^(https?:)?\/\//.test(f) || f.startsWith('/') || !naPastaTeste) ? f : '../' + f;
+  async function carregarPlanilha() {
+    if (!LOJA.planilha) return;
+    try {
+      const r = await fetch(LOJA.planilha, { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const linhas = lerCSV(await r.text());
+      const cab = (linhas.shift() || []).map(h => slug(h));
+      const pega = (l, ...nomes) => { for (const n of nomes) { const i = cab.indexOf(n); if (i >= 0) return limpar(l[i]); } return ''; };
+      const novos = linhas.filter(l => l.some(c => c.trim())).map(l => {
+        const selo = pega(l, 'selo').toLowerCase();
+        return {
+          nome: pega(l, 'nome', 'produto'), marca: pega(l, 'marca'), cat: pega(l, 'categoria', 'cat') || 'Outros',
+          sub: pega(l, 'subcategoria', 'sub'), preco: pega(l, 'preco', 'valor'),
+          tam: pega(l, 'tamanhos', 'tamanho', 'tam').split(/[,;\/|]/).map(x => x.trim()).filter(Boolean),
+          foto: caminhoFoto(pega(l, 'foto', 'foto-1', 'imagem')), foto2: caminhoFoto(pega(l, 'foto-2', 'foto2')),
+          selo: selo.startsWith('ult') ? 'ultimas' : selo.startsWith('nov') ? 'novo' : '',
+          desc: pega(l, 'descricao', 'desc'), ativo: pega(l, 'ativo', 'mostrar')
+        };
+      }).filter(p => p.nome && !/^(nao|não|n|0|false)$/i.test(p.ativo));
+      if (!novos.length) return;
+      PRODUTOS.length = 0; PRODUTOS.push(...novos);
+      prepararProdutos(); montarFiltros(); atualizarChips(); render(); renderLooks();
+      const m = location.hash.match(/^#p\/(.+)$/); if (m) mostrarProduto(decodeURIComponent(m[1]));
+    } catch (err) { console.warn('Planilha não carregou; usando a lista do site.', err); }
+  }
+
+  /* ---------- Início ---------- */
+  atualizarSacola();
+  carregarPlanilha().then(() => {
+    const m = location.hash.match(/^#p\/(.+)$/);
+    if (m && !pp.classList.contains('aberto')) mostrarProduto(decodeURIComponent(m[1]));
+  });
+})();
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
@@ -863,6 +1684,7 @@ const PRODUTOS = [
   let lenis = null;
   if (window.Lenis && !reduz && !toque) {
     lenis = new Lenis({ lerp: .09, smoothWheel: true });
+    new MutationObserver(() => document.body.classList.contains('travado') ? lenis.stop() : lenis.start()).observe(document.body, { attributes: true, attributeFilter: ['class'] });
     if (window.ScrollTrigger) { lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
     else { const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
     document.addEventListener('click', e => {
@@ -958,10 +1780,13 @@ const PRODUTOS = [
     // marcas e catálogos
     gsap.fromTo('#marcasGrade', { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.2, ease: 'power4.out', scrollTrigger: { trigger: '#marcasGrade', start: 'top 88%' } });
     gsap.fromTo('.marca-cel > *', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .9, stagger: .08, delay: .3, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#marcasGrade', start: 'top 88%' } });
-    document.querySelectorAll('.cat-card,.galeria .foto').forEach(e => e.classList.remove('revelar'));
+    document.querySelectorAll('.cat-card').forEach(e => e.classList.remove('revelar'));
     gsap.fromTo('.cat-card', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1, stagger: .1, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#catGrade', start: 'top 88%' } });
     gsap.fromTo('.numeros > div > *', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: .9, stagger: .06, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '.numeros', start: 'top 90%' } });
-    gsap.fromTo('.galeria .foto', { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .9, stagger: .07, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#galeria', start: 'top 88%' } });
+    [['.look', '#looksGrade'], ['#lojaFotos .foto', '#lojaFotos'], ['.aval', '#avalGrade'], ['#instaGrade > *', '#instaGrade'], ['.provas > div', '.provas']].forEach(([alvo, gatilho]) => {
+      if (!document.querySelector(alvo)) return;
+      gsap.fromTo(alvo, { opacity: 0, y: 50, scale: .96 }, { opacity: 1, y: 0, scale: 1, duration: .9, stagger: .08, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: gatilho, start: 'top 88%' } });
+    });
 
     // cards da vitrine: revelam a foto de baixo pra cima (inclusive depois de filtrar)
     const grade = document.getElementById('grade');
