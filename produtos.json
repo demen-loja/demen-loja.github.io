@@ -1,0 +1,578 @@
+{
+ "geradoEm": "2026-11-25T19:06:44.216Z",
+ "loja": {
+  "nome": "DE men",
+  "site": "https://demen-loja.github.io/",
+  "endereco": "R. Floriano Peixoto, 70 — Sertânia - PE",
+  "horario": "Seg a Sex 8h–18h • Sáb 8h–13h",
+  "pagamento": "Pix, cartão de crédito à vista ou parcelado, débito e dinheiro na loja",
+  "pagamentos": {
+   "pix": {
+    "ativo": true,
+    "desconto": ""
+   },
+   "credito": {
+    "ativo": true,
+    "parcelas": 0,
+    "semJuros": true,
+    "parcelaMinima": ""
+   },
+   "debito": {
+    "ativo": true
+   },
+   "dinheiro": {
+    "ativo": true
+   }
+  },
+  "envio": "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.",
+  "trocas": "Trocas em até 7 dias, com a etiqueta e a peça sem uso.",
+  "fretes": [
+   {
+    "nome": "Retirar na loja",
+    "desc": "R. Floriano Peixoto, 70 — Sertânia. Pronto no mesmo dia.",
+    "preco": "Grátis",
+    "endereco": false
+   },
+   {
+    "nome": "Entrega em Sertânia",
+    "desc": "A loja leva até você na cidade.",
+    "preco": "A combinar",
+    "endereco": true,
+    "local": true
+   },
+   {
+    "nome": "Correios PAC",
+    "desc": "Para todo o Brasil, mais econômico.",
+    "preco": "Calculado pelo CEP",
+    "endereco": true
+   },
+   {
+    "nome": "Correios SEDEX",
+    "desc": "Para todo o Brasil, mais rápido.",
+    "preco": "Calculado pelo CEP",
+    "endereco": true
+   }
+  ],
+  "instagram": "https://www.instagram.com/demen.loja/",
+  "cupom": {
+   "ativo": true,
+   "titulo": "Ganhe 10% OFF na primeira compra",
+   "codigo": "PRIMEIRA10",
+   "texto": "Mostre este código no WhatsApp ou na loja. Válido na primeira compra.",
+   "depoisDeSegundos": 20
+  }
+ },
+ "produtos": [
+  {
+   "id": "calvin-klein-camiseta-assinatura-branca",
+   "nome": "Camiseta Assinatura Branca",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "novo",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/loja-camiseta-ck-branca-v2.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-camiseta-assinatura-branca"
+  },
+  {
+   "id": "ogochi-mochila-premium-label",
+   "nome": "Mochila Premium Label",
+   "marca": "Ogochi",
+   "cat": "Acessórios",
+   "sub": "Mochilas",
+   "preco": "",
+   "tam": [],
+   "selo": "novo",
+   "desc": "Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas.",
+   "foto": "https://demen-loja.github.io/fotos/ogochi-mochila-frente.jpg",
+   "link": "https://demen-loja.github.io/#p/ogochi-mochila-premium-label"
+  },
+  {
+   "id": "adidas-tenis-samba-og-preto",
+   "nome": "Tênis Samba OG Preto",
+   "marca": "Adidas",
+   "cat": "Calçados",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
+   ],
+   "selo": "novo",
+   "desc": "O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda.",
+   "foto": "https://demen-loja.github.io/fotos/adidas-samba-og-preto-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/adidas-tenis-samba-og-preto"
+  },
+  {
+   "id": "ogochi-carteira-preta",
+   "nome": "Carteira Preta",
+   "marca": "Ogochi",
+   "cat": "Acessórios",
+   "sub": "Carteiras",
+   "preco": "",
+   "tam": [],
+   "selo": "",
+   "desc": "Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente.",
+   "foto": "https://demen-loja.github.io/fotos/carteira-ogochi-preta-v2.jpg",
+   "link": "https://demen-loja.github.io/#p/ogochi-carteira-preta"
+  },
+  {
+   "id": "calvin-klein-jaqueta-puffer-light-matelasse",
+   "nome": "Jaqueta Puffer Light Matelassê",
+   "marca": "Calvin Klein",
+   "cat": "Casacos",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "ultimas",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-jaqueta-puffer-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-jaqueta-puffer-light-matelasse"
+  },
+  {
+   "id": "calvin-klein-polo-premium-verde",
+   "nome": "Polo Premium Verde",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-polo-verde-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-polo-premium-verde"
+  },
+  {
+   "id": "calvin-klein-polo-basica-azul-claro",
+   "nome": "Polo Básica Azul-claro",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-polo-azul-claro-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-polo-basica-azul-claro"
+  },
+  {
+   "id": "calvin-klein-camiseta-algodao-egipcio-preta",
+   "nome": "Camiseta Algodão Egípcio Preta",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-camiseta-egipcio-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-camiseta-algodao-egipcio-preta"
+  },
+  {
+   "id": "calvin-klein-camiseta-logo-bordado-verde",
+   "nome": "Camiseta Logo Bordado Verde",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-camiseta-logo-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-camiseta-logo-bordado-verde"
+  },
+  {
+   "id": "calvin-klein-regata-logo-preta",
+   "nome": "Regata Logo Preta",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-regata-preta-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-regata-logo-preta"
+  },
+  {
+   "id": "calvin-klein-regata-logo-marinho",
+   "nome": "Regata Logo Marinho",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-regata-marinho-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-regata-logo-marinho"
+  },
+  {
+   "id": "calvin-klein-calca-jeans-straight",
+   "nome": "Calça Jeans Straight",
+   "marca": "Calvin Klein",
+   "cat": "Calças",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-calca-jeans-straight-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-calca-jeans-straight"
+  },
+  {
+   "id": "calvin-klein-calca-performance-grafite",
+   "nome": "Calça Performance Grafite",
+   "marca": "Calvin Klein",
+   "cat": "Calças",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-calca-performance-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-calca-performance-grafite"
+  },
+  {
+   "id": "calvin-klein-bermuda-chino-essentials",
+   "nome": "Bermuda Chino Essentials",
+   "marca": "Calvin Klein",
+   "cat": "Bermudas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-bermuda-essentials-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-bermuda-chino-essentials"
+  },
+  {
+   "id": "calvin-klein-bermuda-moletom-caqui",
+   "nome": "Bermuda Moletom Caqui",
+   "marca": "Calvin Klein",
+   "cat": "Bermudas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-bermuda-moletom-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-bermuda-moletom-caqui"
+  },
+  {
+   "id": "calvin-klein-bone-5-gomos-bordado",
+   "nome": "Boné 5 Gomos Bordado",
+   "marca": "Calvin Klein",
+   "cat": "Acessórios",
+   "sub": "Bonés",
+   "preco": "",
+   "tam": [],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-bone-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-bone-5-gomos-bordado"
+  },
+  {
+   "id": "calvin-klein-gorro-bordado",
+   "nome": "Gorro Bordado",
+   "marca": "Calvin Klein",
+   "cat": "Acessórios",
+   "sub": "Gorros",
+   "preco": "",
+   "tam": [],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-gorro-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-gorro-bordado"
+  },
+  {
+   "id": "calvin-klein-bone-ny-city",
+   "nome": "Boné NY City",
+   "marca": "Calvin Klein",
+   "cat": "Acessórios",
+   "sub": "Bonés",
+   "preco": "",
+   "tam": [],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ck-bone-ny-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/calvin-klein-bone-ny-city"
+  },
+  {
+   "id": "reserva-perfume-reserva-preto-100-ml",
+   "nome": "Perfume Reserva Preto 100 ml",
+   "marca": "Reserva",
+   "cat": "Perfumes",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "100 ml"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-perfume-preto-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-perfume-reserva-preto-100-ml"
+  },
+  {
+   "id": "reserva-perfume-reserva-areia-100-ml",
+   "nome": "Perfume Reserva Areia 100 ml",
+   "marca": "Reserva",
+   "cat": "Perfumes",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "100 ml"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-perfume-areia-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-perfume-reserva-areia-100-ml"
+  },
+  {
+   "id": "reserva-perfume-reserva-sepia-100-ml",
+   "nome": "Perfume Reserva Sépia 100 ml",
+   "marca": "Reserva",
+   "cat": "Perfumes",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "100 ml"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-perfume-sepia-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-perfume-reserva-sepia-100-ml"
+  },
+  {
+   "id": "reserva-camiseta-basica",
+   "nome": "Camiseta Básica",
+   "marca": "Reserva",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-camiseta-basica-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-camiseta-basica"
+  },
+  {
+   "id": "reserva-calca-jeans-slim",
+   "nome": "Calça Jeans Slim",
+   "marca": "Reserva",
+   "cat": "Calças",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-calca-jeans-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-calca-jeans-slim"
+  },
+  {
+   "id": "reserva-bermuda-chino-comfort",
+   "nome": "Bermuda Chino Comfort",
+   "marca": "Reserva",
+   "cat": "Bermudas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-bermuda-chino-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-bermuda-chino-comfort"
+  },
+  {
+   "id": "reserva-cueca-boxer-pima",
+   "nome": "Cueca Boxer Pima",
+   "marca": "Reserva",
+   "cat": "Cuecas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-cueca-boxer-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-cueca-boxer-pima"
+  },
+  {
+   "id": "reserva-chinelo",
+   "nome": "Chinelo",
+   "marca": "Reserva",
+   "cat": "Sandálias",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-chinelo.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-chinelo"
+  },
+  {
+   "id": "reserva-bone",
+   "nome": "Boné",
+   "marca": "Reserva",
+   "cat": "Acessórios",
+   "sub": "Bonés",
+   "preco": "",
+   "tam": [],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/reserva-bone-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/reserva-bone"
+  },
+  {
+   "id": "ogochi-calca-jeans-slim",
+   "nome": "Calça Jeans Slim",
+   "marca": "Ogochi",
+   "cat": "Calças",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ogochi-calca-jeans-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/ogochi-calca-jeans-slim"
+  },
+  {
+   "id": "ogochi-polo-branca",
+   "nome": "Polo Branca",
+   "marca": "Ogochi",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ogochi-polo-branca-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/ogochi-polo-branca"
+  },
+  {
+   "id": "ogochi-calca-sarja-areia",
+   "nome": "Calça Sarja Areia",
+   "marca": "Ogochi",
+   "cat": "Calças",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+   ],
+   "selo": "",
+   "desc": "",
+   "foto": "https://demen-loja.github.io/fotos/ogochi-calca-sarja-v1.jpg",
+   "link": "https://demen-loja.github.io/#p/ogochi-calca-sarja-areia"
+  }
+ ]
+}
