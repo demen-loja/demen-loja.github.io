@@ -1,2 +1,4 @@
+# Site em construção: bloqueado para buscadores.
+# Para liberar, rode:  LIBERAR_GOOGLE=1 python3 montar.py
 User-agent: *
 Disallow: /
