@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-11-26T01:45:29.548Z",
+ "geradoEm": "2026-11-26T03:41:33.933Z",
  "loja": {
   "nome": "DE men",
   "site": "https://demen-loja.github.io/",
@@ -82,6 +82,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/loja-camiseta-ck-branca-v2.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-camiseta-assinatura-branca.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/loja-camiseta-ck-branca-v2.jpg"
    ]
@@ -98,6 +100,8 @@
    "desc": "Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas.",
    "foto": "https://demen-loja.github.io/fotos/ogochi-mochila-frente.jpg",
    "link": "https://demen-loja.github.io/produto/ogochi-mochila-premium-label.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ogochi-mochila-frente.jpg",
     "fotos/ogochi-mochila-lateral.jpg",
@@ -124,6 +128,8 @@
    "desc": "O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda.",
    "foto": "https://demen-loja.github.io/fotos/adidas-samba-og-preto-v1.jpg",
    "link": "https://demen-loja.github.io/produto/adidas-tenis-samba-og-preto.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/adidas-samba-og-preto-v1.jpg",
     "fotos/adidas-samba-og-preto-v2.jpg",
@@ -144,6 +150,8 @@
    "desc": "Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente.",
    "foto": "https://demen-loja.github.io/fotos/carteira-ogochi-preta-v2.jpg",
    "link": "https://demen-loja.github.io/produto/ogochi-carteira-preta.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/carteira-ogochi-preta-v2.jpg"
    ]
@@ -165,6 +173,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-jaqueta-puffer-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-jaqueta-puffer-light-matelasse.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-jaqueta-puffer-v1.jpg",
     "fotos/ck-jaqueta-puffer-v2.jpg",
@@ -188,6 +198,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-polo-verde-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-polo-premium-verde.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-polo-verde-v1.jpg",
     "fotos/ck-polo-verde-v2.jpg",
@@ -213,6 +225,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-polo-azul-claro-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-polo-basica-azul-claro.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-polo-azul-claro-v1.jpg",
     "fotos/ck-polo-azul-claro-v2.jpg",
@@ -236,6 +250,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-camiseta-egipcio-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-camiseta-algodao-egipcio-preta.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-camiseta-egipcio-v1.jpg",
     "fotos/ck-camiseta-egipcio-v2.jpg",
@@ -261,6 +277,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-camiseta-logo-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-camiseta-logo-bordado-verde.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-camiseta-logo-v1.jpg",
     "fotos/ck-camiseta-logo-v2.jpg",
@@ -284,6 +302,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-regata-preta-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-regata-logo-preta.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-regata-preta-v1.jpg",
     "fotos/ck-regata-preta-v2.jpg"
@@ -306,6 +326,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-regata-marinho-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-regata-logo-marinho.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-regata-marinho-v1.jpg",
     "fotos/ck-regata-marinho-v2.jpg",
@@ -332,6 +354,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-calca-jeans-straight-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-calca-jeans-straight.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-calca-jeans-straight-v1.jpg",
     "fotos/ck-calca-jeans-straight-v2.jpg",
@@ -357,6 +381,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-calca-performance-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-calca-performance-grafite.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-calca-performance-v1.jpg",
     "fotos/ck-calca-performance-v2.jpg"
@@ -379,6 +405,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-bermuda-essentials-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-bermuda-chino-essentials.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-bermuda-essentials-v1.jpg",
     "fotos/ck-bermuda-essentials-v2.jpg",
@@ -403,6 +431,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-bermuda-moletom-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-bermuda-moletom-caqui.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-bermuda-moletom-v1.jpg",
     "fotos/ck-bermuda-moletom-v2.jpg",
@@ -423,6 +453,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-bone-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-bone-5-gomos-bordado.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-bone-v1.jpg",
     "fotos/ck-bone-v2.jpg"
@@ -440,6 +472,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-gorro-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-gorro-bordado.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-gorro-v1.jpg"
    ]
@@ -456,6 +490,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ck-bone-ny-v1.jpg",
    "link": "https://demen-loja.github.io/produto/calvin-klein-bone-ny-city.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ck-bone-ny-v1.jpg",
     "fotos/ck-bone-ny-v2.jpg"
@@ -475,6 +511,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-perfume-preto-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-perfume-reserva-preto-100-ml.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-perfume-preto-v1.jpg",
     "fotos/reserva-perfume-preto-v2.jpg",
@@ -497,6 +535,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-perfume-areia-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-perfume-reserva-areia-100-ml.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-perfume-areia-v1.jpg",
     "fotos/reserva-perfume-areia-v2.jpg",
@@ -519,6 +559,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-perfume-sepia-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-perfume-reserva-sepia-100-ml.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-perfume-sepia-v1.jpg",
     "fotos/reserva-perfume-sepia-v2.jpg",
@@ -544,6 +586,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-camiseta-basica-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-camiseta-basica.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-camiseta-basica-v1.jpg",
     "fotos/reserva-camiseta-basica-v2.jpg",
@@ -570,6 +614,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-calca-jeans-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-calca-jeans-slim.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-calca-jeans-v1.jpg",
     "fotos/reserva-calca-jeans-v2.jpg",
@@ -595,6 +641,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-bermuda-chino-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-bermuda-chino-comfort.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-bermuda-chino-v1.jpg",
     "fotos/reserva-bermuda-chino-v2.jpg",
@@ -620,6 +668,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-cueca-boxer-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-cueca-boxer-pima.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-cueca-boxer-v1.jpg",
     "fotos/reserva-cueca-boxer-v2.jpg",
@@ -647,6 +697,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-chinelo.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-chinelo.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-chinelo.jpg"
    ]
@@ -663,6 +715,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/reserva-bone-v1.jpg",
    "link": "https://demen-loja.github.io/produto/reserva-bone.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/reserva-bone-v1.jpg",
     "fotos/reserva-bone-v2.jpg",
@@ -689,6 +743,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ogochi-calca-jeans-v1.jpg",
    "link": "https://demen-loja.github.io/produto/ogochi-calca-jeans-slim.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ogochi-calca-jeans-v1.jpg"
    ]
@@ -710,6 +766,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ogochi-polo-branca-v1.jpg",
    "link": "https://demen-loja.github.io/produto/ogochi-polo-branca.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ogochi-polo-branca-v1.jpg",
     "fotos/ogochi-polo-branca-v2.jpg",
@@ -734,6 +792,8 @@
    "desc": "",
    "foto": "https://demen-loja.github.io/fotos/ogochi-calca-sarja-v1.jpg",
    "link": "https://demen-loja.github.io/produto/ogochi-calca-sarja-areia.html",
+   "esgotados": [],
+   "semEstoque": false,
    "fotosRel": [
     "fotos/ogochi-calca-sarja-v1.jpg",
     "fotos/ogochi-calca-sarja-v2.jpg",
