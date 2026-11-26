@@ -557,6 +557,15 @@
 
   .menu a{white-space:nowrap}
   .nav .logo span{white-space:nowrap}
+  .nav .logo{flex-shrink:0}  /* o logo nunca é espremido */
+  @media (min-width:861px) and (max-width:1640px){ .nav .logo span{display:none} } /* o monograma já diz DE men */
+  /* tablet / notebook pequeno: menu vira o botão ☰, igual no celular */
+  @media (min-width:861px) and (max-width:1040px){
+    .menu{position:fixed;inset:72px 0 auto 0;background:var(--preto);flex-direction:column;padding:1.5rem 4%;gap:1.2rem;border-bottom:1px solid var(--linha);display:none;margin:0;font-size:.82rem;letter-spacing:.12em}
+    .menu.aberto{display:flex}
+    body.com-promo .menu{top:108px}
+    .burger{display:block}
+  }
   @media (min-width:861px) and (max-width:1380px){ .menu{gap:1.15rem;font-size:.74rem;letter-spacing:.1em} .nav .btn.js-zap{display:none} }
   @media (min-width:861px) and (max-width:1200px){ .nav .logo span{display:none} .menu{gap:.85rem;font-size:.7rem;letter-spacing:.08em} .topo-acoes .ico{display:none} }
 
@@ -823,6 +832,8 @@
   .login-social .ou{display:flex;align-items:center;gap:.8rem;color:var(--cinza);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin-top:.3rem}
   .login-social .ou::before,.login-social .ou::after{content:"";flex:1;height:1px;background:var(--linha)}
   .isca{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+  .sac-caixa,.ajuda .wrap>*{min-width:0;max-width:100%}
+  .form-conta .duas>*{min-width:0}
 </style>
 </head>
 <body>
