@@ -43,6 +43,7 @@
   img{max-width:100%;display:block}
   .wrap{width:min(1180px,92%);margin:0 auto}
   .eyebrow{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--areia);font-weight:500}
+  .h1-local{display:block;font-family:var(--sans);line-height:1.6;margin-bottom:.9rem}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1}
   h2{font-size:clamp(2rem,4vw,3rem);margin:.4rem 0 1rem}
   .sub{color:var(--cinza);max-width:52ch}
@@ -280,7 +281,7 @@
   .pp-miniaturas img{width:100%;height:100%;object-fit:cover}
   .pp-info{display:flex;flex-direction:column;gap:1rem;align-self:start;position:sticky;top:90px}
   .pp-info .marca{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--areia)}
-  .pp-info h1{font-size:clamp(2.2rem,4vw,3.2rem)}
+  .pp-info h1,.pp-info .pp-nome{font-size:clamp(2.2rem,4vw,3.2rem);margin:0}
   .pp-info .preco{font-size:1.1rem;color:#cfcac2}
   .pp-info .desc{color:#bdb8b0;font-size:.95rem}
   .rotulo{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);display:flex;justify-content:space-between;align-items:center}
@@ -846,8 +847,8 @@ const LOJA = {
   pagamento: "Pix, cartão de crédito (parcelado) e débito",   // confirmar com o dono
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
   trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
-  fotoCapa: "../fotos/loja-vitrine-preto.jpg",   // foto do topo do site
-  fotoSobre: "../fotos/loja-fachada.jpg",
+  fotoCapa: "../fotos/loja-vitrine-preto.webp",   // foto do topo do site
+  fotoSobre: "../fotos/loja-fachada.webp",
   clientes: [],                     // (não usado mais — veja AVALIACOES e INSTAGRAM abaixo)
 
   // Faixa de promoção no topo. ativo:false some com ela.
@@ -864,7 +865,7 @@ const LOJA = {
   goatcounter: "",
 
   // Fotos da loja por dentro (a 1ª fica grande). fotoEquipe aparece junto se preenchida.
-  fotosLoja: ["../fotos/loja-vitrine-puffer.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg"],
+  fotosLoja: ["../fotos/loja-vitrine-puffer.webp", "../fotos/look-soft-elegance.webp", "../fotos/loja-vitrine-jaqueta-verde.webp"],
   fotoEquipe: "",                   // ex.: "../fotos/equipe.jpg"
 
   // Formas de pagamento. ativo:false esconde a opção. CONFIRMAR COM O DONO.
@@ -919,43 +920,43 @@ const CATALOGOS = [
 // Produtos. Preço vazio = "Consulte o preço". Tamanhos vazios = não mostra.
 const PRODUTOS = [
   // Fotos da própria loja
-  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.jpg", selo:"novo" },
-  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/ogochi-mochila-frente.jpg", foto2:"../fotos/ogochi-mochila-lateral.jpg", fotos:["../fotos/ogochi-mochila-costas.jpg"], selo:"novo", desc:"Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas." },
-  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto-v1.jpg", foto2:"../fotos/adidas-samba-og-preto-v2.jpg", fotos:["../fotos/adidas-samba-og-preto-v3.jpg", "../fotos/adidas-samba-og-preto-v4.jpg", "../fotos/adidas-samba-og-preto-v5.jpg"], selo:"novo", desc:"O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda." },
-  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"../fotos/carteira-ogochi-preta-v2.jpg", desc:"Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente." },
+  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.webp", selo:"novo" },
+  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"", tam:[], foto:"../fotos/ogochi-mochila-frente.webp", foto2:"../fotos/ogochi-mochila-lateral.webp", fotos:["../fotos/ogochi-mochila-costas.webp"], selo:"novo", desc:"Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas." },
+  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto-v1.webp", foto2:"../fotos/adidas-samba-og-preto-v2.webp", fotos:["../fotos/adidas-samba-og-preto-v3.webp", "../fotos/adidas-samba-og-preto-v4.webp", "../fotos/adidas-samba-og-preto-v5.webp"], selo:"novo", desc:"O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda." },
+  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"", tam:[], foto:"../fotos/carteira-ogochi-preta-v2.webp", desc:"Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente." },
   // Calvin Klein
-  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer-v1.jpg", foto2:"../fotos/ck-jaqueta-puffer-v2.jpg", fotos:["../fotos/ck-jaqueta-puffer-v3.jpg"], selo:"ultimas" },
-  { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde-v1.jpg", foto2:"../fotos/ck-polo-verde-v2.jpg", fotos:["../fotos/ck-polo-verde-v3.jpg", "../fotos/ck-polo-verde-v4.jpg", "../fotos/ck-polo-verde-v5.jpg"] },
-  { nome:"Polo Básica Azul-claro",         marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-azul-claro-v1.jpg", foto2:"../fotos/ck-polo-azul-claro-v2.jpg", fotos:["../fotos/ck-polo-azul-claro-v3.jpg"] },
-  { nome:"Camiseta Algodão Egípcio Preta", marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-egipcio-v1.jpg", foto2:"../fotos/ck-camiseta-egipcio-v2.jpg", fotos:["../fotos/ck-camiseta-egipcio-v3.jpg", "../fotos/ck-camiseta-egipcio-v4.jpg", "../fotos/ck-camiseta-egipcio-v5.jpg"] },
-  { nome:"Camiseta Logo Bordado Verde",    marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-logo-v1.jpg", foto2:"../fotos/ck-camiseta-logo-v2.jpg", fotos:["../fotos/ck-camiseta-logo-v3.jpg"] },
-  { nome:"Regata Logo Preta",              marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-preta-v1.jpg", foto2:"../fotos/ck-regata-preta-v2.jpg" },
-  { nome:"Regata Logo Marinho",            marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-marinho-v1.jpg", foto2:"../fotos/ck-regata-marinho-v2.jpg", fotos:["../fotos/ck-regata-marinho-v3.jpg", "../fotos/ck-regata-marinho-v4.jpg", "../fotos/ck-regata-marinho-v5.jpg"] },
-  { nome:"Calça Jeans Straight",           marca:"Calvin Klein", cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ck-calca-jeans-straight-v1.jpg", foto2:"../fotos/ck-calca-jeans-straight-v2.jpg", fotos:["../fotos/ck-calca-jeans-straight-v3.jpg", "../fotos/ck-calca-jeans-straight-v4.jpg", "../fotos/ck-calca-jeans-straight-v5.jpg"] },
-  { nome:"Calça Performance Grafite",      marca:"Calvin Klein", cat:"Calças",   preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-calca-performance-v1.jpg", foto2:"../fotos/ck-calca-performance-v2.jpg" },
-  { nome:"Bermuda Chino Essentials",       marca:"Calvin Klein", cat:"Bermudas", preco:"", tam:["38","40","42","44"], foto:"../fotos/ck-bermuda-essentials-v1.jpg", foto2:"../fotos/ck-bermuda-essentials-v2.jpg", fotos:["../fotos/ck-bermuda-essentials-v3.jpg", "../fotos/ck-bermuda-essentials-v4.jpg"] },
-  { nome:"Bermuda Moletom Caqui",          marca:"Calvin Klein", cat:"Bermudas", preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-bermuda-moletom-v1.jpg", foto2:"../fotos/ck-bermuda-moletom-v2.jpg", fotos:["../fotos/ck-bermuda-moletom-v3.jpg", "../fotos/ck-bermuda-moletom-v4.jpg", "../fotos/ck-bermuda-moletom-v5.jpg"] },
-  { nome:"Boné 5 Gomos Bordado",           marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",  preco:"", tam:[], foto:"../fotos/ck-bone-v1.jpg", foto2:"../fotos/ck-bone-v2.jpg" },
-  { nome:"Gorro Bordado",                  marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros", preco:"", tam:[], foto:"../fotos/ck-gorro-v1.jpg" },
-  { nome:"Boné NY City",                   marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"../fotos/ck-bone-ny-v1.jpg", foto2:"../fotos/ck-bone-ny-v2.jpg" },
+  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer-v1.webp", foto2:"../fotos/ck-jaqueta-puffer-v2.webp", fotos:["../fotos/ck-jaqueta-puffer-v3.webp"], selo:"ultimas" },
+  { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde-v1.webp", foto2:"../fotos/ck-polo-verde-v2.webp", fotos:["../fotos/ck-polo-verde-v3.webp", "../fotos/ck-polo-verde-v4.webp", "../fotos/ck-polo-verde-v5.webp"] },
+  { nome:"Polo Básica Azul-claro",         marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-azul-claro-v1.webp", foto2:"../fotos/ck-polo-azul-claro-v2.webp", fotos:["../fotos/ck-polo-azul-claro-v3.webp"] },
+  { nome:"Camiseta Algodão Egípcio Preta", marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-egipcio-v1.webp", foto2:"../fotos/ck-camiseta-egipcio-v2.webp", fotos:["../fotos/ck-camiseta-egipcio-v3.webp", "../fotos/ck-camiseta-egipcio-v4.webp", "../fotos/ck-camiseta-egipcio-v5.webp"] },
+  { nome:"Camiseta Logo Bordado Verde",    marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-logo-v1.webp", foto2:"../fotos/ck-camiseta-logo-v2.webp", fotos:["../fotos/ck-camiseta-logo-v3.webp"] },
+  { nome:"Regata Logo Preta",              marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-preta-v1.webp", foto2:"../fotos/ck-regata-preta-v2.webp" },
+  { nome:"Regata Logo Marinho",            marca:"Calvin Klein", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-marinho-v1.webp", foto2:"../fotos/ck-regata-marinho-v2.webp", fotos:["../fotos/ck-regata-marinho-v3.webp", "../fotos/ck-regata-marinho-v4.webp", "../fotos/ck-regata-marinho-v5.webp"] },
+  { nome:"Calça Jeans Straight",           marca:"Calvin Klein", cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ck-calca-jeans-straight-v1.webp", foto2:"../fotos/ck-calca-jeans-straight-v2.webp", fotos:["../fotos/ck-calca-jeans-straight-v3.webp", "../fotos/ck-calca-jeans-straight-v4.webp", "../fotos/ck-calca-jeans-straight-v5.webp"] },
+  { nome:"Calça Performance Grafite",      marca:"Calvin Klein", cat:"Calças",   preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-calca-performance-v1.webp", foto2:"../fotos/ck-calca-performance-v2.webp" },
+  { nome:"Bermuda Chino Essentials",       marca:"Calvin Klein", cat:"Bermudas", preco:"", tam:["38","40","42","44"], foto:"../fotos/ck-bermuda-essentials-v1.webp", foto2:"../fotos/ck-bermuda-essentials-v2.webp", fotos:["../fotos/ck-bermuda-essentials-v3.webp", "../fotos/ck-bermuda-essentials-v4.webp"] },
+  { nome:"Bermuda Moletom Caqui",          marca:"Calvin Klein", cat:"Bermudas", preco:"", tam:["P","M","G","GG"], foto:"../fotos/ck-bermuda-moletom-v1.webp", foto2:"../fotos/ck-bermuda-moletom-v2.webp", fotos:["../fotos/ck-bermuda-moletom-v3.webp", "../fotos/ck-bermuda-moletom-v4.webp", "../fotos/ck-bermuda-moletom-v5.webp"] },
+  { nome:"Boné 5 Gomos Bordado",           marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",  preco:"", tam:[], foto:"../fotos/ck-bone-v1.webp", foto2:"../fotos/ck-bone-v2.webp" },
+  { nome:"Gorro Bordado",                  marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros", preco:"", tam:[], foto:"../fotos/ck-gorro-v1.webp" },
+  { nome:"Boné NY City",                   marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"../fotos/ck-bone-ny-v1.webp", foto2:"../fotos/ck-bone-ny-v2.webp" },
   // Reserva
-  { nome:"Perfume Reserva Preto 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-preto-v1.jpg", foto2:"../fotos/reserva-perfume-preto-v2.jpg", fotos:["../fotos/reserva-perfume-preto-v3.jpg", "../fotos/reserva-perfume-preto-v4.jpg", "../fotos/reserva-perfume-preto-v5.jpg"] },
-  { nome:"Perfume Reserva Areia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-areia-v1.jpg", foto2:"../fotos/reserva-perfume-areia-v2.jpg", fotos:["../fotos/reserva-perfume-areia-v3.jpg", "../fotos/reserva-perfume-areia-v4.jpg", "../fotos/reserva-perfume-areia-v5.jpg"] },
-  { nome:"Perfume Reserva Sépia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-sepia-v1.jpg", foto2:"../fotos/reserva-perfume-sepia-v2.jpg", fotos:["../fotos/reserva-perfume-sepia-v3.jpg", "../fotos/reserva-perfume-sepia-v4.jpg", "../fotos/reserva-perfume-sepia-v5.jpg"] },
-  { nome:"Camiseta Básica",                marca:"Reserva", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/reserva-camiseta-basica-v1.jpg", foto2:"../fotos/reserva-camiseta-basica-v2.jpg", fotos:["../fotos/reserva-camiseta-basica-v3.jpg", "../fotos/reserva-camiseta-basica-v4.jpg", "../fotos/reserva-camiseta-basica-v5.jpg"] },
-  { nome:"Calça Jeans Slim",               marca:"Reserva", cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/reserva-calca-jeans-v1.jpg", foto2:"../fotos/reserva-calca-jeans-v2.jpg", fotos:["../fotos/reserva-calca-jeans-v3.jpg", "../fotos/reserva-calca-jeans-v4.jpg", "../fotos/reserva-calca-jeans-v5.jpg"] },
-  { nome:"Bermuda Chino Comfort",          marca:"Reserva", cat:"Bermudas", preco:"", tam:["38","40","42","44"], foto:"../fotos/reserva-bermuda-chino-v1.jpg", foto2:"../fotos/reserva-bermuda-chino-v2.jpg", fotos:["../fotos/reserva-bermuda-chino-v3.jpg", "../fotos/reserva-bermuda-chino-v4.jpg", "../fotos/reserva-bermuda-chino-v5.jpg"] },
-  { nome:"Cueca Boxer Pima",               marca:"Reserva", cat:"Cuecas",   preco:"", tam:["P","M","G","GG"], foto:"../fotos/reserva-cueca-boxer-v1.jpg", foto2:"../fotos/reserva-cueca-boxer-v2.jpg", fotos:["../fotos/reserva-cueca-boxer-v3.jpg", "../fotos/reserva-cueca-boxer-v4.jpg"] },
-  { nome:"Chinelo",                        marca:"Reserva", cat:"Sandálias",preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/reserva-chinelo.jpg" },
-  { nome:"Boné",                           marca:"Reserva", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"../fotos/reserva-bone-v1.jpg", foto2:"../fotos/reserva-bone-v2.jpg", fotos:["../fotos/reserva-bone-v3.jpg", "../fotos/reserva-bone-v4.jpg", "../fotos/reserva-bone-v5.jpg"] },
+  { nome:"Perfume Reserva Preto 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-preto-v1.webp", foto2:"../fotos/reserva-perfume-preto-v2.webp", fotos:["../fotos/reserva-perfume-preto-v3.webp", "../fotos/reserva-perfume-preto-v4.webp", "../fotos/reserva-perfume-preto-v5.webp"] },
+  { nome:"Perfume Reserva Areia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-areia-v1.webp", foto2:"../fotos/reserva-perfume-areia-v2.webp", fotos:["../fotos/reserva-perfume-areia-v3.webp", "../fotos/reserva-perfume-areia-v4.webp", "../fotos/reserva-perfume-areia-v5.webp"] },
+  { nome:"Perfume Reserva Sépia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"", tam:["100 ml"], foto:"../fotos/reserva-perfume-sepia-v1.webp", foto2:"../fotos/reserva-perfume-sepia-v2.webp", fotos:["../fotos/reserva-perfume-sepia-v3.webp", "../fotos/reserva-perfume-sepia-v4.webp", "../fotos/reserva-perfume-sepia-v5.webp"] },
+  { nome:"Camiseta Básica",                marca:"Reserva", cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/reserva-camiseta-basica-v1.webp", foto2:"../fotos/reserva-camiseta-basica-v2.webp", fotos:["../fotos/reserva-camiseta-basica-v3.webp", "../fotos/reserva-camiseta-basica-v4.webp", "../fotos/reserva-camiseta-basica-v5.webp"] },
+  { nome:"Calça Jeans Slim",               marca:"Reserva", cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/reserva-calca-jeans-v1.webp", foto2:"../fotos/reserva-calca-jeans-v2.webp", fotos:["../fotos/reserva-calca-jeans-v3.webp", "../fotos/reserva-calca-jeans-v4.webp", "../fotos/reserva-calca-jeans-v5.webp"] },
+  { nome:"Bermuda Chino Comfort",          marca:"Reserva", cat:"Bermudas", preco:"", tam:["38","40","42","44"], foto:"../fotos/reserva-bermuda-chino-v1.webp", foto2:"../fotos/reserva-bermuda-chino-v2.webp", fotos:["../fotos/reserva-bermuda-chino-v3.webp", "../fotos/reserva-bermuda-chino-v4.webp", "../fotos/reserva-bermuda-chino-v5.webp"] },
+  { nome:"Cueca Boxer Pima",               marca:"Reserva", cat:"Cuecas",   preco:"", tam:["P","M","G","GG"], foto:"../fotos/reserva-cueca-boxer-v1.webp", foto2:"../fotos/reserva-cueca-boxer-v2.webp", fotos:["../fotos/reserva-cueca-boxer-v3.webp", "../fotos/reserva-cueca-boxer-v4.webp"] },
+  { nome:"Chinelo",                        marca:"Reserva", cat:"Sandálias",preco:"", tam:["38","39","40","41","42","43","44"], foto:"../fotos/reserva-chinelo.webp" },
+  { nome:"Boné",                           marca:"Reserva", cat:"Acessórios", sub:"Bonés", preco:"", tam:[], foto:"../fotos/reserva-bone-v1.webp", foto2:"../fotos/reserva-bone-v2.webp", fotos:["../fotos/reserva-bone-v3.webp", "../fotos/reserva-bone-v4.webp", "../fotos/reserva-bone-v5.webp"] },
   // Ainda sem foto
   { nome:"Camisa Olive Heritage",          marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"" },
-  { nome:"Calça Jeans Slim",               marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-jeans-v1.jpg" },
+  { nome:"Calça Jeans Slim",               marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-jeans-v1.webp" },
   { nome:"Kit 3 Pares de Meias",           marca:"Ogochi",  cat:"Meias",    preco:"", tam:["39-43"], foto:"" },
   { nome:"Jaqueta Verde Militar",          marca:"Ogochi",  cat:"Casacos",  preco:"", tam:["P","M","G","GG"], foto:"" },
   { nome:"Camisa Linho Azul-claro",        marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["1","2","3","4"], foto:"" },
-  { nome:"Polo Branca",                    marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ogochi-polo-branca-v1.jpg", foto2:"../fotos/ogochi-polo-branca-v2.jpg", fotos:["../fotos/ogochi-polo-branca-v3.jpg"] },
-  { nome:"Calça Sarja Areia",              marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-sarja-v1.jpg", foto2:"../fotos/ogochi-calca-sarja-v2.jpg", fotos:["../fotos/ogochi-calca-sarja-v3.jpg"] },
+  { nome:"Polo Branca",                    marca:"Ogochi",  cat:"Camisas",  preco:"", tam:["P","M","G","GG"], foto:"../fotos/ogochi-polo-branca-v1.webp", foto2:"../fotos/ogochi-polo-branca-v2.webp", fotos:["../fotos/ogochi-polo-branca-v3.webp"] },
+  { nome:"Calça Sarja Areia",              marca:"Ogochi",  cat:"Calças",   preco:"", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-sarja-v1.webp", foto2:"../fotos/ogochi-calca-sarja-v2.webp", fotos:["../fotos/ogochi-calca-sarja-v3.webp"] },
   { nome:"Sapato Social Couro",            marca:"Ogochi",  cat:"Calçados", preco:"", tam:["38","39","40","41","42","43","44"], foto:"" },
   { nome:"Cinto de Couro",                 marca:"Ogochi",  cat:"Acessórios", sub:"Cintos",    preco:"", tam:["90","95","100","105","110"], foto:"" }
 ];
@@ -963,28 +964,28 @@ const PRODUTOS = [
 
 // Looks prontos. Os itens são os NOMES dos produtos acima.
 const LOOKS = [
-  { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"../fotos/look-soft-elegance.jpg",
+  { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"../fotos/look-soft-elegance.webp",
     itens:["Polo Básica Azul-claro", "Calça Sarja Areia"] },
-  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/ck-camiseta-egipcio-v1.jpg",
+  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/ck-camiseta-egipcio-v1.webp",
     itens:["Camiseta Algodão Egípcio Preta", "Calça Jeans Straight", "Tênis Samba OG Preto", "Boné 5 Gomos Bordado"] },
-  { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"../fotos/loja-vitrine-puffer.jpg",
+  { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"../fotos/loja-vitrine-puffer.webp",
     itens:["Jaqueta Puffer Light Matelassê", "Gorro Bordado", "Carteira Preta"] },
-  { nome:"Verão Reserva", desc:"Camiseta, bermuda chino, chinelo e o perfume Areia. Pronto para o fim de semana.", foto:"../fotos/reserva-bermuda-chino.jpg",
+  { nome:"Verão Reserva", desc:"Camiseta, bermuda chino, chinelo e o perfume Areia. Pronto para o fim de semana.", foto:"../fotos/reserva-bermuda-chino.webp",
     itens:["Camiseta Básica", "Bermuda Chino Comfort", "Chinelo", "Perfume Reserva Areia 100 ml"] }
 ];
 
 // Lookbook (galeria em tela cheia). produto = nome do produto ligado à foto (opcional).
 const LOOKBOOK = [
-  { foto:"../fotos/look-soft-elegance.jpg", titulo:"Soft Elegance", marca:"Calvin Klein + Ogochi", produto:"Polo Básica Azul-claro" },
-  { foto:"../fotos/ck-jaqueta-puffer.jpg", titulo:"Puffer Light", marca:"Calvin Klein", produto:"Jaqueta Puffer Light Matelassê" },
-  { foto:"../fotos/loja-vitrine-preto.jpg", titulo:"All Black", marca:"Na vitrine da DE men", produto:"Tênis Samba OG Preto" },
-  { foto:"../fotos/ck-polo-verde.jpg", titulo:"Polo Premium", marca:"Calvin Klein", produto:"Polo Premium Verde" },
-  { foto:"../fotos/reserva-camiseta-basica.jpg", titulo:"Básico bem feito", marca:"Reserva", produto:"Camiseta Básica" },
-  { foto:"../fotos/loja-vitrine-jaqueta-verde.jpg", titulo:"Verde militar", marca:"Na vitrine da DE men" },
-  { foto:"../fotos/ck-camiseta-egipcio.jpg", titulo:"Algodão egípcio", marca:"Calvin Klein", produto:"Camiseta Algodão Egípcio Preta" },
-  { foto:"../fotos/ogochi-mochila-frente.jpg", titulo:"Premium Label", marca:"Ogochi", produto:"Mochila Premium Label" },
-  { foto:"../fotos/reserva-bermuda-chino.jpg", titulo:"Fim de semana", marca:"Reserva", produto:"Bermuda Chino Comfort" },
-  { foto:"../fotos/loja-vitrine-puffer.jpg", titulo:"Inverno leve", marca:"Na vitrine da DE men", produto:"Jaqueta Puffer Light Matelassê" }
+  { foto:"../fotos/look-soft-elegance.webp", titulo:"Soft Elegance", marca:"Calvin Klein + Ogochi", produto:"Polo Básica Azul-claro" },
+  { foto:"../fotos/ck-jaqueta-puffer.webp", titulo:"Puffer Light", marca:"Calvin Klein", produto:"Jaqueta Puffer Light Matelassê" },
+  { foto:"../fotos/loja-vitrine-preto.webp", titulo:"All Black", marca:"Na vitrine da DE men", produto:"Tênis Samba OG Preto" },
+  { foto:"../fotos/ck-polo-verde.webp", titulo:"Polo Premium", marca:"Calvin Klein", produto:"Polo Premium Verde" },
+  { foto:"../fotos/reserva-camiseta-basica.webp", titulo:"Básico bem feito", marca:"Reserva", produto:"Camiseta Básica" },
+  { foto:"../fotos/loja-vitrine-jaqueta-verde.webp", titulo:"Verde militar", marca:"Na vitrine da DE men" },
+  { foto:"../fotos/ck-camiseta-egipcio.webp", titulo:"Algodão egípcio", marca:"Calvin Klein", produto:"Camiseta Algodão Egípcio Preta" },
+  { foto:"../fotos/ogochi-mochila-frente.webp", titulo:"Premium Label", marca:"Ogochi", produto:"Mochila Premium Label" },
+  { foto:"../fotos/reserva-bermuda-chino.webp", titulo:"Fim de semana", marca:"Reserva", produto:"Bermuda Chino Comfort" },
+  { foto:"../fotos/loja-vitrine-puffer.webp", titulo:"Inverno leve", marca:"Na vitrine da DE men", produto:"Jaqueta Puffer Light Matelassê" }
 ];
 
 // Avaliações. Troque pelas avaliações REAIS dos clientes (com permissão deles).
@@ -999,8 +1000,8 @@ const AVALIACOES = [
 // cole os links dos posts em "posts" (ex.: "https://www.instagram.com/p/XXXX/").
 const INSTAGRAM = {
   usuario: "demen.loja",
-  fotos: ["../fotos/loja-vitrine-preto.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-puffer.jpg",
-          "../fotos/carteira-ogochi-preta-v2.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg", "../fotos/ogochi-mochila-frente.jpg"],
+  fotos: ["../fotos/loja-vitrine-preto.webp", "../fotos/look-soft-elegance.webp", "../fotos/loja-vitrine-puffer.webp",
+          "../fotos/carteira-ogochi-preta-v2.webp", "../fotos/loja-vitrine-jaqueta-verde.webp", "../fotos/ogochi-mochila-frente.webp"],
   posts: []
 };
 </script>
@@ -1034,8 +1035,7 @@ const INSTAGRAM = {
     <canvas id="particulas"></canvas><div class="brilho"></div>
     <div class="wrap">
       <div>
-        <div class="eyebrow">Moda masculina premium • Sertânia-PE</div>
-        <h1>Elegância não precisa de esforço. Está nos <em>detalhes.</em></h1>
+        <h1><span class="eyebrow h1-local">Moda masculina premium em Sertânia-PE</span>Elegância não precisa de esforço. Está nos <em>detalhes.</em></h1>
         <p>Peças originais das marcas que você confia, escolhidas para o homem que se veste bem sem complicar. Na loja ou com envio para todo o Brasil.</p>
         <div class="acoes">
           <a href="#vitrine" class="btn cheio">Ver a vitrine</a>
@@ -1297,6 +1297,7 @@ const INSTAGRAM = {
         <div><div class="eyebrow">Visite</div><h2>Venha conhecer a loja</h2></div>
         <div><small>Endereço</small><span id="endereco"></span></div>
         <div><small>Horário</small><span id="horario"></span></div>
+        <div><small>WhatsApp</small><a id="telefone" class="js-zap" target="_blank" rel="noopener"></a></div>
         <div><small>Mapa</small><a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener" style="border-bottom:1px solid var(--areia)">Abrir no Google Maps</a></div>
         <div><small>Envios</small>Para todo o Brasil. Peça pelo WhatsApp.</div>
         <div><a class="btn cheio js-zap" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
@@ -1536,6 +1537,9 @@ const INSTAGRAM = {
   document.querySelectorAll('.js-insta').forEach(a => a.href = LOJA.instagram);
   $('endereco').textContent = LOJA.endereco;
   $('horario').textContent = LOJA.horario;
+  { const n = LOJA.whatsapp.replace(/\D/g, '').replace(/^55/, '');
+    if (/^\d{2}90{6,}$/.test(n)) $('telefone').parentElement.hidden = true; // número de exemplo: não mostra
+    else $('telefone').textContent = `(${n.slice(0, 2)}) ${n.slice(2, -4)}-${n.slice(-4)}`; }
   $('ano').textContent = new Date().getFullYear();
   if (LOJA.fotoCapa) { const h = document.querySelector('.hero'); h.style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`); h.classList.add('com-foto'); }
   if (LOJA.fotoSobre) $('fotoSobre').innerHTML = `<img src="${LOJA.fotoSobre}" alt="Loja DE men">`;
@@ -1556,7 +1560,7 @@ const INSTAGRAM = {
         <div class="foto" data-abrir="${p.id}">${seloHTML(p)}${foto(p.foto, p.nome, "Foto do produto")}${p.foto2 ? `<img class="foto2" src="${p.foto2}" alt="${p.nome} — outro ângulo" loading="lazy">` : ""}<button class="fav" data-fav="${p.nome}" aria-label="Salvar nos favoritos"><i class="fa-regular fa-heart"></i></button></div>
         <div class="info">
           <div class="marca">${p.marca}</div>
-          <h3 data-abrir="${p.id}">${p.nome}</h3>
+          <h3><a href="/produto/${p.id}.html" data-abrir="${p.id}">${p.nome}</a></h3>
           <div class="preco">${p.preco || "Consulte o preço"}</div>
           ${p.tam.length ? `<div class="tams">${p.tam.map(x => `<span>${x}</span>`).join('')}</div>` : '<div class="tams"></div>'}
           <div class="card-acoes"><a class="btn js-quero" data-produto="${p.nome}" data-marca="${p.marca}" target="_blank" rel="noopener"
@@ -1973,7 +1977,7 @@ const INSTAGRAM = {
         <div class="pp-info">
           <nav class="migalha" aria-label="Caminho"><button data-fechar>Início</button><span>/</span><button data-ir-cat="${esc(p.cat)}">${esc(p.cat)}</button><span>/</span><button data-ir-marca="${esc(p.marca)}">${esc(p.marca)}</button></nav>
           <div class="marca">${esc(p.marca)} • ${esc(p.sub || p.cat)}</div>
-          <div class="pp-titulo-linha"><h1>${esc(p.nome)}</h1><button class="btn-compartilhar" id="ppCompartilhar" aria-label="Compartilhar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></button></div>
+          <div class="pp-titulo-linha"><h2 class="pp-nome">${esc(p.nome)}</h2><button class="btn-compartilhar" id="ppCompartilhar" aria-label="Compartilhar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></button></div>
           <div class="preco">${esc(p.preco || 'Consulte o preço no WhatsApp')}</div>
           ${pagLinha()}
           <p class="desc">${esc(p.desc || descPadrao(p))}</p>
