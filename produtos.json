@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-11-27T23:10:46.308Z",
+ "geradoEm": "2026-11-27T23:28:08.911Z",
  "loja": {
   "nome": "DE men",
   "site": "https://demen-loja.github.io/",
@@ -7,6 +7,32 @@
   "fotoCapa": "fotos/loja-vitrine-preto.jpg",
   "endereco": "R. Floriano Peixoto, 70 — Sertânia - PE",
   "horario": "Seg a Sex 8h–18h • Sáb 8h–13h",
+  "expediente": {
+   "0": [],
+   "1": [
+    "08:00-12:00",
+    "14:00-18:00"
+   ],
+   "2": [
+    "08:00-12:00",
+    "14:00-18:00"
+   ],
+   "3": [
+    "08:00-12:00",
+    "14:00-18:00"
+   ],
+   "4": [
+    "08:00-12:00",
+    "14:00-18:00"
+   ],
+   "5": [
+    "08:00-12:00",
+    "14:00-18:00"
+   ],
+   "6": [
+    "08:00-13:00"
+   ]
+  },
   "pagamento": "Pix, cartão de crédito à vista ou parcelado, débito e dinheiro na loja",
   "pagamentos": {
    "pix": {
