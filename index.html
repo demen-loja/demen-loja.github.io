@@ -775,6 +775,9 @@
   @media(max-width:700px){
     .loja-fotos .foto.paisagem{flex-basis:100%}
   }
+  /* esconde o botão ▶ nativo do iPhone quando o autoplay é bloqueado (o vídeo começa no primeiro toque) */
+  video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+  video::-webkit-media-controls{display:none!important}
 
   /* ================= CONTA / REDES ================= */
   .topo-acoes{display:flex;align-items:center;gap:.4rem}
@@ -2095,6 +2098,19 @@ const INSTAGRAM = {
     if (!('IntersectionObserver' in window)) { vids.forEach(v=>{v.preload='metadata'; v.play().catch(()=>{});}); return; }
     const io=new IntersectionObserver(es=>es.forEach(e=>{ const v=e.target; if(e.isIntersecting){ v.play().catch(()=>{}); } else v.pause(); }),{threshold:.35});
     vids.forEach(v=>io.observe(v));
+  })();
+
+  // iPhone em "Modo de Pouca Energia" (e alguns Android em economia de bateria) bloqueiam o autoplay.
+  // Tenta tocar; se o navegador bloquear, toca no primeiro toque/rolagem do cliente e esconde o botão ▶ do sistema.
+  (function(){
+    const vids=[...document.querySelectorAll('video[autoplay], video[data-auto]')];
+    if (!vids.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const visivel = v => { const r=v.getBoundingClientRect(); return r.bottom>0 && r.top<innerHeight; };
+    const tocar = () => vids.forEach(v=>{ v.muted=true; v.defaultMuted=true; v.playsInline=true; if (v.paused && (v.hasAttribute('autoplay') || visivel(v))) v.play().catch(()=>{}); });
+    tocar();
+    const destravar = () => { tocar(); ['touchstart','pointerdown','scroll','keydown'].forEach(ev=>removeEventListener(ev,destravar)); };
+    ['touchstart','pointerdown','scroll','keydown'].forEach(ev=>addEventListener(ev,destravar,{passive:true}));
+    document.addEventListener('visibilitychange',()=>{ if(!document.hidden) tocar(); });
   })();
 
   if (LOJA.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(LOJA.email)) {
