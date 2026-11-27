@@ -772,6 +772,13 @@
     .prov-res b{font-size:1.35rem}
   }
 
+  /* Loja por dentro: cada foto na proporção dela (nada cortado), todas na mesma altura */
+  .loja-fotos,.loja-fotos.n3,.loja-fotos.n4{display:flex;flex-wrap:wrap;gap:1rem;grid-template-columns:none}
+  .loja-fotos .foto,.loja-fotos .foto:first-child,.loja-fotos.n4 .foto:nth-child(4){flex:var(--ar,1.333) 1 0;min-width:0;aspect-ratio:var(--ar,1.333);grid-row:auto;grid-column:auto}
+  @media(max-width:700px){
+    .loja-fotos .foto.paisagem{flex-basis:100%}
+  }
+
   /* ================= VERSÃO 2 — editorial ================= */
   :root[data-tema="claro"] header:not(.solid):not(:has(.menu.aberto)){--preto:#f7f4ef; --grafite:#ffffff; --grafite2:#efeae2; --cinza:#6b655c; --linha:#e2dbd0;--branco:#161514; --areia:#836a3a; --texto2:#3b3833; --texto3:#514c45; --vidro:247,244,239; color:var(--branco);}
   :root[data-tema="claro"] header .logo-img{filter:brightness(.32) contrast(1.2)}
@@ -964,7 +971,7 @@
 window.SUPABASE_CONFIG = { url: "https://ycoazbopchjxbmgxnqey.supabase.co", chave: "sb_publishable_omkx2to9vt-wEAtpVAC_Eg_hToTt9JE" };
 
 const LOJA = {
-  whatsapp: "5587900000000",        // DDI + DDD + número, só dígitos (ex.: 5587999998888)
+  whatsapp: "5587991929953",        // DDI + DDD + número, só dígitos (ex.: 5587999998888)
   instagram: "https://www.instagram.com/demen.loja/",
   endereco: "R. Floriano Peixoto, 70 — Sertânia - PE",
   horario: "Seg a Sex 8h–18h • Sáb 8h–13h",   // confirmar com o dono
@@ -2422,6 +2429,11 @@ const INSTAGRAM = {
   $('lojaFotos').innerHTML = fotosLoja.map((f, i) => `<div class="foto" data-lb="${i}">${foto(f, 'Loja DE men em Sertânia', '')}</div>`).join('')
     + (LOJA.fotoEquipe ? `<div class="foto" data-lb="${fotosLoja.length}">${foto(LOJA.fotoEquipe, 'Equipe DE men', '')}</div>` : '');
   $('lojaFotos').classList.add('n' + Math.min(4, fotosLoja.length + (LOJA.fotoEquipe ? 1 : 0)));
+  $('lojaFotos').querySelectorAll('.foto img').forEach(img => {
+    const ajusta = () => { if (!img.naturalWidth) return; const ar = img.naturalWidth / img.naturalHeight, f = img.closest('.foto');
+      f.style.setProperty('--ar', ar.toFixed(3)); f.classList.add(ar > 1.1 ? 'paisagem' : 'retrato'); };
+    img.complete ? ajusta() : img.addEventListener('load', ajusta, { once: true });
+  });
   if (LOJA.fotoEquipe) LOJA_LB.push({ foto: LOJA.fotoEquipe, titulo: 'Nossa equipe', marca: 'DE men' });
   if (!fotosLoja.length) $('porDentro').hidden = true;
 
