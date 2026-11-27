@@ -95,6 +95,21 @@
   .marca-grande .marca-de path{vector-effect:non-scaling-stroke}
   .marca-grande span{font-family:var(--serif);font-weight:500;font-size:clamp(4.5rem,17vw,15rem);line-height:.8;letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px var(--linha)}
 
+
+  /* Vídeo no topo (gerado no Higgsfield a partir da foto da vitrine) */
+  .hero.com-video,.hero.com-video.com-foto{background:var(--preto)}
+  .hero-video{position:absolute;top:0;right:0;height:100%;width:min(62%,1000px);object-fit:cover;object-position:center;z-index:0}
+  .hero-veu{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+      linear-gradient(90deg,var(--preto) 0%,var(--preto) 38%,rgba(var(--vidro),.6) 52%,rgba(var(--vidro),.15) 75%,rgba(var(--vidro),.1) 100%),
+      linear-gradient(180deg,rgba(var(--vidro),.15) 55%,var(--preto) 100%)}
+  .hero.com-video .wrap{position:relative;z-index:2}
+  .hero.com-video .hero-logo{display:none}
+  @media (max-width:860px){
+    .hero-video{width:100%;height:100%;inset:0}
+    .hero-veu{background:linear-gradient(180deg,rgba(var(--vidro),.5) 0%,rgba(var(--vidro),.72) 45%,var(--preto) 100%)}
+  }
+  @media (prefers-reduced-motion:reduce){.hero-video{display:none}.hero.com-video{background:var(--hero-img) right center/auto 100% no-repeat,var(--preto)}}
+
   /* Header */
   header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
   header.solid{background:rgba(var(--vidro),.92);backdrop-filter:blur(8px);border-color:var(--linha)}
@@ -742,7 +757,7 @@
   .hero2-mosaico figure{overflow:hidden;background:var(--mini);margin:0}
   .hero2-mosaico .m1{grid-row:1 / 3}
   .hero2-mosaico img,.hero2-mosaico video{width:100%;height:100%;object-fit:cover;display:block}
-  .hero2-mosaico video{object-position:50% 0%}
+  .hero2-mosaico .m1 video{object-position:50% 0%}
   .hero2-mosaico img{animation:zoomlento 18s ease-in-out infinite alternate}
   .hero2-mosaico .m2 img{animation-delay:-6s}
   .hero2-mosaico .m3{background:#fff}
@@ -1131,7 +1146,7 @@ const INSTAGRAM = {
       </div>
       <div class="hero2-mosaico" aria-hidden="true">
         <figure class="m1"><video src="../img/topo-modelo.mp4" poster="../img/topo-modelo-capa.jpg" autoplay muted loop playsinline preload="metadata"></video></figure>
-        <figure class="m2"><img src="../fotos/loja-vitrine-jaqueta-verde.webp" alt=""></figure>
+        <figure class="m2"><video src="../img/topo-jaqueta.mp4" poster="../img/topo-jaqueta-capa.jpg" autoplay muted loop playsinline preload="metadata"></video></figure>
         <figure class="m3"><img src="../fotos/adidas-samba-og-preto-v2.webp" alt=""></figure>
         <span class="hero2-selo">Peças<br>originais</span>
       </div>
