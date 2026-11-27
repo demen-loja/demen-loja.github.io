@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-11-27T03:33:32.549Z",
+ "geradoEm": "2026-11-27T03:48:33.502Z",
  "loja": {
   "nome": "DE men",
   "site": "https://demen-loja.github.io/",
@@ -337,6 +337,58 @@
    ]
   },
   {
+   "id": "calvin-klein-regata-logo-branca",
+   "nome": "Regata Logo Branca",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "novo",
+   "desc": "Regata Calvin Klein Jeans branca com o logo bordado no peito. Fica ótima com jeans claro ou bermuda.",
+   "foto": "https://demen-loja.github.io/fotos/ck-regata-branca-v1.jpg",
+   "link": "https://demen-loja.github.io/produto/calvin-klein-regata-logo-branca.html",
+   "esgotados": [],
+   "semEstoque": false,
+   "fotosRel": [
+    "fotos/ck-regata-branca-v1.jpg",
+    "fotos/ck-regata-branca-v2.jpg",
+    "fotos/ck-regata-branca-v3.jpg",
+    "fotos/ck-regata-branca-v4.jpg",
+    "fotos/ck-regata-branca-v5.jpg"
+   ]
+  },
+  {
+   "id": "calvin-klein-camiseta-algodao-egipcio-marrom",
+   "nome": "Camiseta Algodão Egípcio Marrom",
+   "marca": "Calvin Klein",
+   "cat": "Camisas",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "novo",
+   "desc": "Camiseta Calvin Klein Jeans em algodão egípcio na cor marrom, com o logo bordado. Combina com bermuda off-white e tênis branco.",
+   "foto": "https://demen-loja.github.io/fotos/ck-camiseta-egipcio-marrom-v1.jpg",
+   "link": "https://demen-loja.github.io/produto/calvin-klein-camiseta-algodao-egipcio-marrom.html",
+   "esgotados": [],
+   "semEstoque": false,
+   "fotosRel": [
+    "fotos/ck-camiseta-egipcio-marrom-v1.jpg",
+    "fotos/ck-camiseta-egipcio-marrom-v2.jpg",
+    "fotos/ck-camiseta-egipcio-marrom-v3.jpg"
+   ]
+  },
+  {
    "id": "calvin-klein-calca-jeans-straight",
    "nome": "Calça Jeans Straight",
    "marca": "Calvin Klein",
@@ -362,6 +414,34 @@
     "fotos/ck-calca-jeans-straight-v3.jpg",
     "fotos/ck-calca-jeans-straight-v4.jpg",
     "fotos/ck-calca-jeans-straight-v5.jpg"
+   ]
+  },
+  {
+   "id": "calvin-klein-calca-five-pockets-caqui",
+   "nome": "Calça Five Pockets Cáqui",
+   "marca": "Calvin Klein",
+   "cat": "Calças",
+   "sub": "",
+   "preco": "",
+   "tam": [
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+   ],
+   "selo": "novo",
+   "desc": "Calça Calvin Klein modelo five pockets, corte slim, em cáqui médio. Vai bem com polo branca e camisa social.",
+   "foto": "https://demen-loja.github.io/fotos/ck-calca-five-pockets-caqui-v1.jpg",
+   "link": "https://demen-loja.github.io/produto/calvin-klein-calca-five-pockets-caqui.html",
+   "esgotados": [],
+   "semEstoque": false,
+   "fotosRel": [
+    "fotos/ck-calca-five-pockets-caqui-v1.jpg",
+    "fotos/ck-calca-five-pockets-caqui-v2.jpg",
+    "fotos/ck-calca-five-pockets-caqui-v3.jpg",
+    "fotos/ck-calca-five-pockets-caqui-v4.jpg",
+    "fotos/ck-calca-five-pockets-caqui-v5.jpg"
    ]
   },
   {
@@ -622,6 +702,34 @@
     "fotos/reserva-calca-jeans-v3.jpg",
     "fotos/reserva-calca-jeans-v4.jpg",
     "fotos/reserva-calca-jeans-v5.jpg"
+   ]
+  },
+  {
+   "id": "reserva-short-praia-hamptons-cinza",
+   "nome": "Short Praia Hamptons Cinza",
+   "marca": "Reserva",
+   "cat": "Bermudas",
+   "sub": "Shorts",
+   "preco": "",
+   "tam": [
+    "P",
+    "M",
+    "G",
+    "GG"
+   ],
+   "selo": "novo",
+   "desc": "Short de praia Reserva Hamptons em cinza, com cordão e bolso traseiro. Serve para a praia, a piscina e o dia a dia.",
+   "foto": "https://demen-loja.github.io/fotos/reserva-short-praia-cinza-v4.jpg",
+   "link": "https://demen-loja.github.io/produto/reserva-short-praia-hamptons-cinza.html",
+   "esgotados": [],
+   "semEstoque": false,
+   "fotosRel": [
+    "fotos/reserva-short-praia-cinza-v4.jpg",
+    "fotos/reserva-short-praia-cinza-v1.jpg",
+    "fotos/reserva-short-praia-cinza-v2.jpg",
+    "fotos/reserva-short-praia-cinza-v3.jpg",
+    "fotos/reserva-short-praia-cinza-v5.jpg",
+    "fotos/reserva-short-praia-cinza-v6.jpg"
    ]
   },
   {
