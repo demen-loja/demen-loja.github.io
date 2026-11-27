@@ -666,6 +666,27 @@
   .pag-grade h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;margin:.3rem 0 1rem}
   .pag-chips{display:flex;flex-wrap:wrap;gap:.6rem}
   .pag-chips div{display:flex;align-items:center;gap:.6rem;border:1px solid var(--linha);padding:.7rem .9rem;background:var(--preto);min-width:150px}
+  .isca{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+  .news{padding:5rem 0;border-top:1px solid var(--linha)}
+  .news-grade{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+  .news-form{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1rem;background:var(--grafite);border:1px solid var(--linha);padding:1.6rem}
+  .news-campo{display:flex;flex-direction:column;gap:.35rem}
+  .news-campo span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza)}
+  .news-campo input{background:var(--preto);border:1px solid var(--linha);color:var(--branco);padding:.85rem .9rem;font:inherit}
+  .news-campo input:focus{outline:2px solid var(--areia);outline-offset:1px}
+  .news-ok{grid-column:1/-1;display:flex;gap:.6rem;align-items:flex-start;font-size:.85rem;color:var(--texto2)}
+  .news-ok input{margin-top:.2rem;accent-color:var(--areia)}
+  .news-ok a{border-bottom:1px solid var(--areia)}
+  .news-form .btn{grid-column:1/-1;justify-content:center}
+  .news-msg{grid-column:1/-1;font-size:.9rem;min-height:1.2em;margin:0}
+  .news-msg.ok{color:var(--areia)}
+  .news-msg.erro{color:#d9534f}
+  @media (max-width:860px){.news-grade{grid-template-columns:1fr;gap:1.6rem}.news-form{grid-template-columns:1fr}}
+  .bandeiras{margin-top:1.1rem}
+  .bandeiras small{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza);margin-bottom:.55rem}
+  .bandeiras > div{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center}
+  .bandeiras img{width:52px;height:33px;display:block;border-radius:4px;box-shadow:0 0 0 1px var(--linha)}
+  .band-pix{height:33px;display:inline-flex;align-items:center;padding:0 .8rem;border:1px solid var(--linha);border-radius:4px;font-weight:600;font-size:.8rem;letter-spacing:.06em;background:var(--preto);color:var(--branco)}
   .pag-chips svg{width:22px;height:22px;color:var(--areia);flex:none}
   .pag-chips b{display:block;font-weight:500;font-size:.88rem}
   .pag-chips small{display:block;font-size:.72rem;color:var(--cinza)}
@@ -906,7 +927,7 @@ const LOJA = {
   goatcounter: "",
 
   // Fotos da loja por dentro (a 1ª fica grande). fotoEquipe aparece junto se preenchida.
-  fotosLoja: ["fotos/loja-vitrine-puffer.webp", "fotos/look-soft-elegance.webp", "fotos/loja-vitrine-jaqueta-verde.webp"],
+  fotosLoja: ["fotos/loja-interior.webp", "fotos/loja-fachada-rua.webp", "fotos/loja-vitrine-jaqueta-verde.webp", "fotos/loja-vitrine-puffer.webp"],
   fotoEquipe: "",                   // ex.: "fotos/equipe.jpg"
 
   // Pagamento online pelo Mercado Pago (Pix e cartão no site). Só ligue (true) depois de colocar a chave
@@ -917,6 +938,10 @@ const LOJA = {
   funcoes: "https://ycoazbopchjxbmgxnqey.supabase.co/functions/v1/",
 
   // Formas de pagamento. ativo:false esconde a opção. CONFIRMAR COM O DONO.
+  // E-mail de atendimento (SAC). Deixe vazio até a conta existir: com valor, aparece em "Visite" e no rodapé.
+  email: "",
+  // Bandeiras de cartão mostradas no site (confirme com a maquininha da loja): visa, mastercard, elo, amex, hipercard, diners
+  bandeiras: ["visa", "mastercard", "elo", "amex", "hipercard"],
   pagamentos: {
     pix:      { ativo:true, desconto:"" },        // ex.: "5%" → mostra "5% de desconto no Pix". Vazio = sem desconto anunciado
     credito:  { ativo:true, parcelas:0, semJuros:true, parcelaMinima:"" }, // parcelas: ex.: 3 → "até 3x sem juros". 0 = "parcelado (condições no WhatsApp)"
@@ -1503,8 +1528,8 @@ const INSTAGRAM = {
     <div class="wrap">
       <div class="revelar">
         <div class="eyebrow">A loja por dentro</div>
-        <h2>Venha ver de perto</h2>
-        <p class="sub">Uma loja de verdade em Sertânia, com as peças expostas e gente para te atender. Clique nas fotos para ampliar.</p>
+        <h2>Venha ver a loja por dentro</h2>
+        <p class="sub">Uma loja de verdade na Rua Floriano Peixoto, 70, em Sertânia: araras organizadas por marca, provador e gente para te atender. Clique nas fotos para ampliar.</p>
       </div>
       <div class="loja-fotos" id="lojaFotos"></div>
     </div>
@@ -1531,6 +1556,24 @@ const INSTAGRAM = {
         <a class="btn js-insta" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
       <div class="insta-grade" id="instaGrade"></div>
+    </div>
+  </section>
+
+  <section class="news" id="newsletter">
+    <div class="wrap news-grade revelar">
+      <div>
+        <div class="eyebrow">Newsletter</div>
+        <h2>Novidades antes de todo mundo</h2>
+        <p class="sub">Receba por e-mail as peças que acabaram de chegar, os looks da semana e os avisos de promoção da loja. Nada de spam: no máximo um e-mail por semana.</p>
+      </div>
+      <form id="newsForm" class="news-form" novalidate>
+        <label class="news-campo"><span>Seu nome (opcional)</span><input name="nome" autocomplete="given-name" maxlength="80"></label>
+        <label class="news-campo"><span>Seu e-mail</span><input name="email" type="email" required autocomplete="email" maxlength="160" placeholder="voce@email.com"></label>
+        <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="news-ok"><input type="checkbox" name="aceite" required> <span>Aceito receber e-mails da DE men e sei que posso cancelar quando quiser (<a href="privacidade.html">privacidade</a>).</span></label>
+        <button class="btn cheio" type="submit">Quero receber</button>
+        <p class="news-msg" id="newsMsg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -1586,6 +1629,7 @@ const INSTAGRAM = {
         <div><small>Horário</small><span id="horario">Seg a Sex 8h–18h • Sáb 8h–13h</span></div>
         <div><small>WhatsApp</small><a id="telefone" class="js-zap" target="_blank" rel="noopener"></a></div>
         <div><small>Mapa</small><a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener" style="border-bottom:1px solid var(--areia)">Abrir no Google Maps</a></div>
+        <div id="emailLinha" hidden><small>E-mail (SAC)</small><a id="emailLoja"></a></div>
         <div><small>Envios</small>Para todo o Brasil. Peça pelo WhatsApp.</div>
         <div><a class="btn cheio js-zap" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
       </div>
@@ -1598,7 +1642,7 @@ const INSTAGRAM = {
 
 <section class="pag-faixa" id="pagamento">
   <div class="wrap pag-grade">
-    <div><div class="eyebrow">Formas de pagamento</div><h3>Pague como preferir</h3><div class="pag-chips" id="pagChips"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.8l3.2 3.2-3.2 3.2L8.8 6 12 2.8zM12 14.8l3.2 3.2-3.2 3.2-3.2-3.2 3.2-3.2zM2.8 12L6 8.8 9.2 12 6 15.2 2.8 12zM14.8 12L18 8.8l3.2 3.2-3.2 3.2-3.2-3.2z"></path></svg><span><b>Pix</b><small>À vista, na hora</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5.5" width="19" height="13" rx="1.5"></rect><path d="M2.5 9.5h19M6 15h4"></path></svg><span><b>Crédito à vista</b><small>1x no cartão</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5.5" width="19" height="13" rx="1.5"></rect><path d="M2.5 9.5h19M6 15h4"></path></svg><span><b>Crédito parcelado</b><small>Consulte as condições</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5.5" width="19" height="13" rx="1.5"></rect><path d="M2.5 9.5h19M6 15h4"></path></svg><span><b>Débito</b><small>À vista</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6.5" width="19" height="11" rx="1"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9.5v5M18 9.5v5"></path></svg><span><b>Dinheiro</b><small>Na loja ou em Sertânia</small></span></div></div></div>
+    <div><div class="eyebrow">Formas de pagamento</div><h3>Pague como preferir</h3><div class="pag-chips" id="pagChips"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.8l3.2 3.2-3.2 3.2L8.8 6 12 2.8zM12 14.8l3.2 3.2-3.2 3.2-3.2-3.2 3.2-3.2zM2.8 12L6 8.8 9.2 12 6 15.2 2.8 12zM14.8 12L18 8.8l3.2 3.2-3.2 3.2-3.2-3.2z"></path></svg><span><b>Pix</b><small>À vista, na hora</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5.5" width="19" height="13" rx="1.5"></rect><path d="M2.5 9.5h19M6 15h4"></path></svg><span><b>Crédito à vista</b><small>1x no cartão</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5.5" width="19" height="13" rx="1.5"></rect><path d="M2.5 9.5h19M6 15h4"></path></svg><span><b>Crédito parcelado</b><small>Consulte as condições</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="5.5" width="19" height="13" rx="1.5"></rect><path d="M2.5 9.5h19M6 15h4"></path></svg><span><b>Débito</b><small>À vista</small></span></div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6.5" width="19" height="11" rx="1"></rect><circle cx="12" cy="12" r="2.5"></circle><path d="M6 9.5v5M18 9.5v5"></path></svg><span><b>Dinheiro</b><small>Na loja ou em Sertânia</small></span></div></div><div class="bandeiras" id="bandeiras" aria-label="Bandeiras de cartão aceitas"></div></div>
     <div><div class="eyebrow">Entrega</div><h3>Receba ou retire</h3><div class="frete-lista" id="freteLista"><div><p>Retirar na loja<small>R. Floriano Peixoto, 70 — Sertânia. Pronto no mesmo dia.</small></p><span>Grátis</span></div><div><p>Entrega em Sertânia<small>A loja leva até você na cidade.</small></p><span>A combinar</span></div><div><p>Correios PAC<small>Para todo o Brasil, mais econômico.</small></p><span>Calculado pelo CEP</span></div><div><p>Correios SEDEX<small>Para todo o Brasil, mais rápido.</small></p><span>Calculado pelo CEP</span></div></div></div>
   </div>
 </section>
@@ -2045,6 +2089,35 @@ const INSTAGRAM = {
     const io=new IntersectionObserver(es=>es.forEach(e=>{ const v=e.target; if(e.isIntersecting){ v.play().catch(()=>{}); } else v.pause(); }),{threshold:.35});
     vids.forEach(v=>io.observe(v));
   })();
+
+  if (LOJA.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(LOJA.email)) {
+    const el = $('emailLoja'); el.textContent = LOJA.email; el.href = 'mailto:' + LOJA.email + '?subject=' + encodeURIComponent('Atendimento DE men');
+    $('emailLinha').hidden = false;
+  }
+
+  // Newsletter: grava o e-mail no banco da loja (tabela newsletter, só aceita inclusão)
+  (function(){
+    const f = $('newsForm'); if (!f) return;
+    const msg = $('newsMsg');
+    const dizer = (t, tipo) => { msg.textContent = t; msg.className = 'news-msg ' + (tipo || ''); };
+    let ultimo = 0;
+    f.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (f.site.value) return;
+      const email = f.email.value.trim().toLowerCase(), nome = f.nome.value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { dizer('Confira o e-mail digitado.', 'erro'); f.email.focus(); return; }
+      if (!f.aceite.checked) { dizer('Marque a caixa de aceite para receber os e-mails.', 'erro'); return; }
+      if (Date.now() - ultimo < 15000) { dizer('Aguarde alguns segundos e tente de novo.', 'erro'); return; }
+      ultimo = Date.now();
+      const sb = window.demenSB;
+      if (!sb) { dizer('Cadastro indisponível agora. Fale com a loja pelo WhatsApp.', 'erro'); return; }
+      const btn = f.querySelector('button'); btn.disabled = true; dizer('Enviando…');
+      const { error } = await sb.from('newsletter').insert({ email, nome: nome || null, origem: 'site', consentimento: true });
+      btn.disabled = false;
+      if (!error || error.code === '23505') { dizer(error ? 'Esse e-mail já está na lista. Obrigado!' : 'Pronto! Você vai receber as novidades da DE men.', 'ok'); f.reset(); }
+      else dizer('Não deu para cadastrar agora. Tente de novo em instantes.', 'erro');
+    });
+  })();
   // Tema claro / escuro
   (function(){
     const raiz = document.documentElement, btn = $('btnTema'), meta = document.querySelector('meta[name="theme-color"]');
@@ -2479,6 +2552,11 @@ const INSTAGRAM = {
     if (pg.debito && pg.debito.ativo) chips.push([SVG.cartao, 'Débito', 'À vista']);
     if (pg.dinheiro && pg.dinheiro.ativo) chips.push([SVG.dinheiro, 'Dinheiro', 'Na loja ou em Sertânia']);
     if ($('pagChips')) $('pagChips').innerHTML = chips.map(([i, b, s]) => `<div>${i}<span><b>${b}</b><small>${esc(s)}</small></span></div>`).join('');
+    if ($('bandeiras')) {
+      const NOMES = { visa: 'Visa', mastercard: 'Mastercard', elo: 'Elo', amex: 'American Express', hipercard: 'Hipercard', diners: 'Diners Club' };
+      const lista = (LOJA.bandeiras || []).filter(b => NOMES[b]);
+      $('bandeiras').innerHTML = lista.length ? `<small>Bandeiras aceitas</small><div>${lista.map(b => `<img src="img/bandeiras/${b}.svg" alt="${NOMES[b]}" title="${NOMES[b]}" width="52" height="33" loading="lazy">`).join('')}${pg.pix && pg.pix.ativo ? '<span class="band-pix">Pix</span>' : ''}</div>` : '';
+    }
     if ($('freteLista')) $('freteLista').innerHTML = (LOJA.fretes || []).map(f => `<div><p>${esc(f.nome)}<small>${esc(f.desc || '')}</small></p><span>${esc(f.preco || '')}</span></div>`).join('');
   })();
 
@@ -2502,7 +2580,8 @@ const INSTAGRAM = {
 
   /* ---------- 9. A loja por dentro ---------- */
   const fotosLoja = (LOJA.fotosLoja || []).filter(Boolean);
-  const LOJA_LB = fotosLoja.map((f, i) => ({ foto: f, titulo: 'DE men por dentro', marca: `Foto ${i + 1}` }));
+  const LEG_LOJA = ['A loja por dentro', 'A fachada, nº 70', 'Vitrine', 'Vitrine'];
+  const LOJA_LB = fotosLoja.map((f, i) => ({ foto: f, titulo: LEG_LOJA[i] || 'DE men por dentro', marca: 'DE men · Sertânia' }));
   $('lojaFotos').innerHTML = fotosLoja.map((f, i) => `<div class="foto" data-lb="${i}">${foto(f, 'Loja DE men em Sertânia', '')}</div>`).join('')
     + (LOJA.fotoEquipe ? `<div class="foto" data-lb="${fotosLoja.length}">${foto(LOJA.fotoEquipe, 'Equipe DE men', '')}</div>` : '');
   $('lojaFotos').classList.add('n' + Math.min(4, fotosLoja.length + (LOJA.fotoEquipe ? 1 : 0)));
