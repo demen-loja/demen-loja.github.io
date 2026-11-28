@@ -9,13 +9,13 @@
 <script>
 (function(){
   var t = null; try { t = localStorage.getItem('demen_tema'); } catch(e) {}
-  if (t !== 'claro' && t !== 'escuro') t = 'claro';
+  if (t !== 'claro' && t !== 'escuro') t = (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches) ? 'claro' : 'escuro';
   document.documentElement.setAttribute('data-tema', t);
   var m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = t === 'claro' ? '#f7f4ef' : '#0d0d0d';
 })();
 </script>
 
-<title>DE men | Versão 2 (comparação)</title>
+<title>DE men | Versão com efeitos (teste)</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="DE men: moda masculina premium em Sertânia-PE. Revenda autorizada, 100% originais. Calvin Klein, Reserva, Adidas e Ogochi. Enviamos para todo o Brasil.">
 <link rel="canonical" href="https://demen-loja.github.io/">
@@ -784,64 +784,69 @@
   video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
   video::-webkit-media-controls{display:none!important}
 
-  /* ================= VERSÃO 2 — editorial ================= */
-  :root[data-tema="claro"] header:not(.solid):not(:has(.menu.aberto)){--preto:#f7f4ef; --grafite:#ffffff; --grafite2:#efeae2; --cinza:#6b655c; --linha:#e2dbd0;--branco:#161514; --areia:#836a3a; --texto2:#3b3833; --texto3:#514c45; --vidro:247,244,239; color:var(--branco);}
-  :root[data-tema="claro"] header .logo-img{filter:brightness(.32) contrast(1.2)}
-  h2{font-size:clamp(2.4rem,5vw,4.2rem);letter-spacing:-.01em;line-height:1}
-
-  /* Topo */
-  .hero2{padding:calc(72px + 3.5rem) 0 3.5rem;background:var(--preto);position:relative;overflow:hidden}
-  body.com-promo .hero2{padding-top:calc(108px + 3.5rem)}
-  .hero2-grade{display:grid;grid-template-columns:1.05fr 1fr;gap:4rem;align-items:center}
-  .hero2 h1{font-size:clamp(3rem,6.4vw,6rem);line-height:.98;letter-spacing:-.015em;margin:0 0 1.6rem}
-  .hero2 h1 em{font-style:italic;color:var(--areia)}
-  .hero2 p{color:var(--texto2);max-width:44ch;font-size:1.05rem;margin-bottom:2rem}
-  .hero2 .acoes{display:flex;gap:.8rem;flex-wrap:wrap}
-  .hero2-fatos{list-style:none;display:flex;gap:2.4rem;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--linha)}
-  .hero2-fatos li{display:flex;flex-direction:column;gap:.15rem}
-  .hero2-fatos b{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1}
-  .hero2-fatos span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza)}
-  .hero2-mosaico{position:relative;display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:min(78vh,680px)}
-  .hero2-mosaico figure{overflow:hidden;background:var(--mini);margin:0}
-  .hero2-mosaico .m1{grid-row:1 / 3}
-  .hero2-mosaico img,.hero2-mosaico video{width:100%;height:100%;object-fit:cover;display:block}
-  .hero2-mosaico .m1 video{object-position:50% 0%}
-  .hero2-mosaico img{animation:zoomlento 18s ease-in-out infinite alternate}
-  .hero2-mosaico .m2 img{animation-delay:-6s}
-  .hero2-mosaico .m3{background:#fff}
-  .hero2-mosaico .m3 img{object-fit:contain;padding:12%;animation-delay:-12s}
-  .hero2-mosaico .m3 video{object-fit:cover}
-  @keyframes zoomlento{from{transform:scale(1)}to{transform:scale(1.08)}}
-  .hero2-selo{position:absolute;left:-46px;bottom:38px;width:112px;height:112px;border-radius:50%;background:var(--areia);color:#fff;display:grid;place-items:center;text-align:center;
-    font-family:var(--serif);font-size:1.15rem;line-height:1.05;font-style:italic;box-shadow:0 12px 30px rgba(0,0,0,.18);animation:gira 24s linear infinite}
-  @keyframes gira{50%{transform:rotate(8deg)}}
-  @media (prefers-reduced-motion:reduce){.hero2-mosaico img,.hero2-selo,.faixa2-trilho{animation:none}}
-
-  /* Faixa de marcas */
-  .faixa2{overflow:hidden;border-block:1px solid var(--linha);padding:1.15rem 0;background:var(--grafite)}
-  .faixa2-trilho{display:flex;gap:2.6rem;width:max-content;align-items:center;animation:desliza2 40s linear infinite}
-  .faixa2-trilho span{font-family:var(--serif);font-size:1.6rem;white-space:nowrap;letter-spacing:.04em}
-  .faixa2-trilho i{color:var(--areia);font-style:normal;font-size:.8rem}
-  @keyframes desliza2{to{transform:translateX(-50%)}}
-
-  /* Vitrine: cards mais limpos */
-  .card{background:transparent!important;border:0!important}
-  .card .foto{background:#fff;transition:none}
-  .card .foto img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-  .card:hover .foto img{transform:scale(1.045)}
-  .card h3{font-size:1.25rem}
-
-  @media (max-width:900px){
-    .hero2{padding-top:calc(64px + 1.8rem)}
-    body.com-promo .hero2{padding-top:calc(100px + 1.8rem)}
-    .hero2-grade{grid-template-columns:1fr;gap:2.2rem}
-    .hero2-mosaico{height:auto;aspect-ratio:1/.82;order:-1}
-    .hero2-selo{left:auto;right:14px;bottom:-26px;width:88px;height:88px;font-size:.95rem}
-    .hero2-fatos{gap:1.4rem;margin-top:2rem}
-    .hero2-fatos b{font-size:1.35rem}
+  /* ================= EFEITOS (versão teste) ================= */
+  html.lenis, html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto !important}
+  #intro{position:fixed;inset:0;z-index:300;background:var(--preto);display:grid;place-items:center;transition:opacity .9s ease,visibility .9s}
+  #intro img{width:110px;animation:pulsa 1.8s ease-in-out infinite}
+  #intro .barra{position:absolute;left:50%;bottom:22%;width:170px;height:1px;background:#2a2a2a;transform:translateX(-50%);overflow:hidden}
+  #intro .barra i{display:block;height:100%;width:0;background:var(--areia);transition:width .35s ease}
+  body.carregado #intro{opacity:0;visibility:hidden}
+  @keyframes pulsa{50%{opacity:.55;transform:scale(.96)}}
+  #progresso{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--areia),#fff);z-index:130}
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:250;border-radius:50%;transform:translate3d(-100px,-100px,0)}
+  .cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--areia)}
+  .cursor-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(200,180,138,.55);transition:width .25s,height .25s,margin .25s,background .25s}
+  .cursor-ring.grande{width:72px;height:72px;margin:-36px 0 0 -36px;background:rgba(200,180,138,.08)}
+  @media (hover:none){.cursor-dot,.cursor-ring{display:none}}
+  .hero{isolation:isolate}
+  #particulas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .hero .brilho{position:absolute;z-index:0;width:700px;height:700px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(200,180,138,.13),transparent 62%);left:var(--mx,72%);top:var(--my,42%);transform:translate(-50%,-50%);transition:left .6s ease-out,top .6s ease-out}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-3d{position:relative;width:100%;max-width:520px;aspect-ratio:1/1;justify-self:center;align-self:center}
+  .hero-3d canvas{position:absolute;inset:0;width:100% !important;height:100% !important;display:block;cursor:grab;touch-action:pan-y}
+  .hero-3d canvas:active{cursor:grabbing}
+  .hero-3d .hero-logo{position:absolute;inset:0;margin:auto !important;width:78% !important}
+  .hero-3d.ativo .hero-logo{display:none}
+  .hero-3d .legenda{position:absolute;left:0;right:0;bottom:4%;text-align:center;font-size:.68rem;letter-spacing:.5em;color:#9b9488;opacity:0;transition:opacity 1s}
+  .hero-3d.ativo .legenda{opacity:1}
+  .hero-3d::after{content:"";position:absolute;left:18%;right:18%;bottom:9%;height:22px;border-radius:50%;background:radial-gradient(ellipse,rgba(200,180,138,.25),transparent 70%);filter:blur(6px)}
+  .palavra{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+  .palavra>span{display:inline-block;transform:translateY(110%)}
+  .faixa{overflow:hidden;border-block:1px solid var(--linha);padding:1.3rem 0;background:var(--grafite)}
+  .faixa-trilho{display:flex;gap:3.5rem;width:max-content;align-items:center;animation:desliza 32s linear infinite}
+  .faixa:hover .faixa-trilho{animation-play-state:paused}
+  .faixa-trilho span{font-family:var(--serif);font-size:1.55rem;letter-spacing:.14em;white-space:nowrap;color:#c9c2b6}
+  .faixa-trilho i{color:var(--areia);font-style:normal;font-size:1rem}
+  @keyframes desliza{to{transform:translateX(-50%)}}
+  .numeros-sec{padding:4.5rem 0 0}
+  .numeros{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha)}
+  .numeros div{background:var(--preto);padding:2.3rem 1rem;text-align:center}
+  .numeros b{display:block;font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1}
+  .numeros small{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza)}
+  .grade,.marcas-grade,.cat-grade{perspective:1200px}
+  .card,.cat-card,.marca-cel{transform-style:preserve-3d;transition:transform .18s ease-out,border-color .25s,background .25s;will-change:transform;position:relative}
+  .brilho-card{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s;
+    background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.16),transparent 45%)}
+  .card:hover .brilho-card,.cat-card:hover .brilho-card,.marca-cel:hover .brilho-card{opacity:1}
+  .card .foto img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .foto img{transform:scale(1.08)}
+  .card:hover{transform:none}
+  .btn{will-change:transform;transition:background .2s,color .2s,transform .25s cubic-bezier(.2,.7,.2,1)}
+  h2 .linha-ouro{display:block;width:0;height:1px;margin-top:.9rem;background:var(--areia);transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+  h2.desenhada .linha-ouro{width:64px}
+  .teste-selo{position:fixed;left:200px;top:24px;z-index:60;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(200,180,138,.12);color:var(--areia);border:1px solid rgba(200,180,138,.35);padding:.3rem .55rem;pointer-events:none}
+  @media (max-width:860px){.teste-selo{display:none}}
+  @media (max-width:860px){
+    .hero-3d{max-width:250px;justify-self:start;grid-row:1;margin-top:4.5rem}
+    .numeros{grid-template-columns:repeat(2,1fr)}
+    .hero .brilho{width:420px;height:420px}
   }
-
-  .movimento{display:none!important}
+  @media (prefers-reduced-motion: reduce){
+    .faixa-trilho{animation:none}
+    .palavra>span{transform:none}
+  }
 
   /* ================= CONTA / REDES ================= */
   .topo-acoes{display:flex;align-items:center;gap:.4rem}
@@ -966,6 +971,10 @@
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><img src="../img/monograma.svg" alt=""><div class="barra"><i></i></div></div>
+<div id="progresso"></div>
+<div class="cursor-dot"></div><div class="cursor-ring"></div>
+<div class="teste-selo">Teste</div>
 
 <!-- =========================================================
      CONFIGURAÇÃO RÁPIDA — edite só este bloco
@@ -983,8 +992,8 @@ const LOJA = {
   pagamento: "Pix, cartão de crédito (parcelado) e débito",   // confirmar com o dono
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
   trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
-  fotoCapa: "../fotos/loja-vitrine-preto.jpg",   // foto do topo do site
-  fotoSobre: "../fotos/loja-fachada.jpg",
+  fotoCapa: "../fotos/loja-vitrine-preto.webp",   // foto do topo do site
+  fotoSobre: "../fotos/loja-fachada.webp",
   clientes: [],                     // (não usado mais — veja AVALIACOES e INSTAGRAM abaixo)
 
   // Faixa de promoção no topo. ativo:false some com ela.
@@ -1001,7 +1010,7 @@ const LOJA = {
   goatcounter: "",
 
   // Fotos da loja por dentro (a 1ª fica grande). fotoEquipe aparece junto se preenchida.
-  fotosLoja: ["../fotos/loja-interior.jpg", "../fotos/loja-fachada-rua.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg", "../fotos/loja-vitrine-puffer.jpg"],
+  fotosLoja: ["../fotos/loja-interior.webp", "../fotos/loja-fachada-rua.webp", "../fotos/loja-vitrine-jaqueta-verde.webp", "../fotos/loja-vitrine-puffer.webp"],
   fotoEquipe: "",                   // ex.: "../fotos/equipe.jpg"
 
   // Pagamento online pelo Mercado Pago (Pix e cartão no site). Só ligue (true) depois de colocar a chave
@@ -1069,47 +1078,47 @@ const PRODUTOS = [
   // PREÇOS DE REFERÊNCIA (27/11/2026): preço cheio no site oficial de cada marca (Calvin Klein, Reserva, adidas)
   // ou em revendas Ogochi (a marca não vende on-line). CONFIRMAR CADA VALOR COM O DONO antes de divulgar.
   // Fotos da própria loja
-  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 219,00", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.jpg", selo:"novo" },
-  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"R$ 189,90", tam:[], foto:"../fotos/ogochi-mochila-frente.jpg", foto2:"../fotos/ogochi-mochila-lateral.jpg", fotos:["../fotos/ogochi-mochila-costas.jpg"], selo:"novo", desc:"Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas." },
-  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"R$ 599,99", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto-v1.jpg", foto2:"../fotos/adidas-samba-og-preto-v2.jpg", fotos:["../fotos/adidas-samba-og-preto-v3.jpg", "../fotos/adidas-samba-og-preto-v4.jpg", "../fotos/adidas-samba-og-preto-v5.jpg"], selo:"novo", desc:"O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda." },
-  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"R$ 69,90", tam:[], foto:"../fotos/carteira-ogochi-preta-v2.jpg", desc:"Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente." },
+  { nome:"Camiseta Assinatura Branca",     marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 219,00", tam:["P","M","G","GG"], foto:"../fotos/loja-camiseta-ck-branca-v2.webp", selo:"novo" },
+  { nome:"Mochila Premium Label",          marca:"Ogochi",  cat:"Acessórios", sub:"Mochilas",  preco:"R$ 189,90", tam:[], foto:"../fotos/ogochi-mochila-frente.webp", foto2:"../fotos/ogochi-mochila-lateral.webp", fotos:["../fotos/ogochi-mochila-costas.webp"], selo:"novo", desc:"Mochila Ogochi da linha Premium Label, com bolso frontal com zíper e placa metálica da marca. Boa para o trabalho, a faculdade e viagens curtas." },
+  { nome:"Tênis Samba OG Preto",           marca:"Adidas",  cat:"Calçados", preco:"R$ 599,99", tam:["38","39","40","41","42","43","44"], foto:"../fotos/adidas-samba-og-preto-v1.webp", foto2:"../fotos/adidas-samba-og-preto-v2.webp", fotos:["../fotos/adidas-samba-og-preto-v3.webp", "../fotos/adidas-samba-og-preto-v4.webp", "../fotos/adidas-samba-og-preto-v5.webp"], selo:"novo", desc:"O clássico Adidas Samba OG em couro preto, com as três listras brancas e sola de borracha. Combina com jeans, sarja e bermuda." },
+  { nome:"Carteira Preta",                 marca:"Ogochi",  cat:"Acessórios", sub:"Carteiras", preco:"R$ 69,90", tam:[], foto:"../fotos/carteira-ogochi-preta-v2.webp", desc:"Carteira Ogochi preta, modelo slim, com o logo gravado em baixo-relevo. Vem na caixa da marca, boa opção de presente." },
   // Calvin Klein
-  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"R$ 1.590,00", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer-v1.jpg", foto2:"../fotos/ck-jaqueta-puffer-v2.jpg", fotos:["../fotos/ck-jaqueta-puffer-v3.jpg"], selo:"ultimas" },
-  { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 359,00", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde-v1.jpg", foto2:"../fotos/ck-polo-verde-v2.jpg", fotos:["../fotos/ck-polo-verde-v3.jpg", "../fotos/ck-polo-verde-v4.jpg", "../fotos/ck-polo-verde-v5.jpg"] },
-  { nome:"Polo Básica Azul-claro",         marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 349,00", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-azul-claro-v1.jpg", foto2:"../fotos/ck-polo-azul-claro-v2.jpg", fotos:["../fotos/ck-polo-azul-claro-v3.jpg"] },
-  { nome:"Camiseta Algodão Egípcio Preta", marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 269,00", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-egipcio-v1.jpg", foto2:"../fotos/ck-camiseta-egipcio-v2.jpg", fotos:["../fotos/ck-camiseta-egipcio-v3.jpg", "../fotos/ck-camiseta-egipcio-v4.jpg", "../fotos/ck-camiseta-egipcio-v5.jpg"] },
-  { nome:"Camiseta Logo Bordado Verde",    marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 219,00", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-logo-v1.jpg", foto2:"../fotos/ck-camiseta-logo-v2.jpg", fotos:["../fotos/ck-camiseta-logo-v3.jpg"] },
-  { nome:"Regata Logo Preta",              marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 179,00", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-preta-v1.jpg", foto2:"../fotos/ck-regata-preta-v2.jpg" },
-  { nome:"Regata Logo Marinho",            marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 169,00", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-marinho-v1.jpg", foto2:"../fotos/ck-regata-marinho-v2.jpg", fotos:["../fotos/ck-regata-marinho-v3.jpg", "../fotos/ck-regata-marinho-v4.jpg", "../fotos/ck-regata-marinho-v5.jpg"] },
-  { nome:"Regata Logo Branca",             marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 179,00", tam:["P","M","G","GG"], selo:"novo", foto:"../fotos/ck-regata-branca-v1.jpg", foto2:"../fotos/ck-regata-branca-v2.jpg", fotos:["../fotos/ck-regata-branca-v3.jpg", "../fotos/ck-regata-branca-v4.jpg", "../fotos/ck-regata-branca-v5.jpg"], desc:"Regata Calvin Klein Jeans branca com o logo bordado no peito. Fica ótima com jeans claro ou bermuda." },
-  { nome:"Camiseta Algodão Egípcio Marrom", marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 269,00", tam:["P","M","G","GG"], selo:"novo", foto:"../fotos/ck-camiseta-egipcio-marrom-v1.jpg", foto2:"../fotos/ck-camiseta-egipcio-marrom-v2.jpg", fotos:["../fotos/ck-camiseta-egipcio-marrom-v3.jpg"], desc:"Camiseta Calvin Klein Jeans em algodão egípcio na cor marrom, com o logo bordado. Combina com bermuda off-white e tênis branco." },
-  { nome:"Calça Jeans Straight",           marca:"Calvin Klein", cat:"Calças",   preco:"R$ 439,00", tam:["38","40","42","44","46"], foto:"../fotos/ck-calca-jeans-straight-v1.jpg", foto2:"../fotos/ck-calca-jeans-straight-v2.jpg", fotos:["../fotos/ck-calca-jeans-straight-v3.jpg", "../fotos/ck-calca-jeans-straight-v4.jpg", "../fotos/ck-calca-jeans-straight-v5.jpg"] },
-  { nome:"Calça Five Pockets Cáqui",       marca:"Calvin Klein", cat:"Calças",   preco:"R$ 699,00", tam:["38","40","42","44","46"], selo:"novo", foto:"../fotos/ck-calca-five-pockets-caqui-v1.jpg", foto2:"../fotos/ck-calca-five-pockets-caqui-v2.jpg", fotos:["../fotos/ck-calca-five-pockets-caqui-v3.jpg", "../fotos/ck-calca-five-pockets-caqui-v4.jpg", "../fotos/ck-calca-five-pockets-caqui-v5.jpg"], desc:"Calça Calvin Klein modelo five pockets, corte slim, em cáqui médio. Vai bem com polo branca e camisa social." },
-  { nome:"Calça Performance Grafite",      marca:"Calvin Klein", cat:"Calças",   preco:"R$ 329,00", tam:["P","M","G","GG"], foto:"../fotos/ck-calca-performance-v1.jpg", foto2:"../fotos/ck-calca-performance-v2.jpg" },
-  { nome:"Bermuda Chino Essentials",       marca:"Calvin Klein", cat:"Bermudas", preco:"R$ 499,00", tam:["38","40","42","44"], foto:"../fotos/ck-bermuda-essentials-v1.jpg", foto2:"../fotos/ck-bermuda-essentials-v2.jpg", fotos:["../fotos/ck-bermuda-essentials-v3.jpg", "../fotos/ck-bermuda-essentials-v4.jpg"] },
-  { nome:"Bermuda Moletom Caqui",          marca:"Calvin Klein", cat:"Bermudas", preco:"R$ 539,00", tam:["P","M","G","GG"], foto:"../fotos/ck-bermuda-moletom-v1.jpg", foto2:"../fotos/ck-bermuda-moletom-v2.jpg", fotos:["../fotos/ck-bermuda-moletom-v3.jpg", "../fotos/ck-bermuda-moletom-v4.jpg", "../fotos/ck-bermuda-moletom-v5.jpg"] },
-  { nome:"Boné 5 Gomos Bordado",           marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",  preco:"R$ 229,00", tam:[], foto:"../fotos/ck-bone-v1.jpg", foto2:"../fotos/ck-bone-v2.jpg" },
-  { nome:"Gorro Bordado",                  marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros", preco:"R$ 199,00", tam:[], foto:"../fotos/ck-gorro-v1.jpg" },
-  { nome:"Boné NY City",                   marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés", preco:"R$ 279,00", tam:[], foto:"../fotos/ck-bone-ny-v1.jpg", foto2:"../fotos/ck-bone-ny-v2.jpg" },
+  { nome:"Jaqueta Puffer Light Matelassê", marca:"Calvin Klein", cat:"Casacos",  preco:"R$ 1.590,00", tam:["P","M","G","GG"], foto:"../fotos/ck-jaqueta-puffer-v1.webp", foto2:"../fotos/ck-jaqueta-puffer-v2.webp", fotos:["../fotos/ck-jaqueta-puffer-v3.webp"], selo:"ultimas" },
+  { nome:"Polo Premium Verde",             marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 359,00", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-verde-v1.webp", foto2:"../fotos/ck-polo-verde-v2.webp", fotos:["../fotos/ck-polo-verde-v3.webp", "../fotos/ck-polo-verde-v4.webp", "../fotos/ck-polo-verde-v5.webp"] },
+  { nome:"Polo Básica Azul-claro",         marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 349,00", tam:["P","M","G","GG"], foto:"../fotos/ck-polo-azul-claro-v1.webp", foto2:"../fotos/ck-polo-azul-claro-v2.webp", fotos:["../fotos/ck-polo-azul-claro-v3.webp"] },
+  { nome:"Camiseta Algodão Egípcio Preta", marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 269,00", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-egipcio-v1.webp", foto2:"../fotos/ck-camiseta-egipcio-v2.webp", fotos:["../fotos/ck-camiseta-egipcio-v3.webp", "../fotos/ck-camiseta-egipcio-v4.webp", "../fotos/ck-camiseta-egipcio-v5.webp"] },
+  { nome:"Camiseta Logo Bordado Verde",    marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 219,00", tam:["P","M","G","GG"], foto:"../fotos/ck-camiseta-logo-v1.webp", foto2:"../fotos/ck-camiseta-logo-v2.webp", fotos:["../fotos/ck-camiseta-logo-v3.webp"] },
+  { nome:"Regata Logo Preta",              marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 179,00", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-preta-v1.webp", foto2:"../fotos/ck-regata-preta-v2.webp" },
+  { nome:"Regata Logo Marinho",            marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 169,00", tam:["P","M","G","GG"], foto:"../fotos/ck-regata-marinho-v1.webp", foto2:"../fotos/ck-regata-marinho-v2.webp", fotos:["../fotos/ck-regata-marinho-v3.webp", "../fotos/ck-regata-marinho-v4.webp", "../fotos/ck-regata-marinho-v5.webp"] },
+  { nome:"Regata Logo Branca",             marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 179,00", tam:["P","M","G","GG"], selo:"novo", foto:"../fotos/ck-regata-branca-v1.webp", foto2:"../fotos/ck-regata-branca-v2.webp", fotos:["../fotos/ck-regata-branca-v3.webp", "../fotos/ck-regata-branca-v4.webp", "../fotos/ck-regata-branca-v5.webp"], desc:"Regata Calvin Klein Jeans branca com o logo bordado no peito. Fica ótima com jeans claro ou bermuda." },
+  { nome:"Camiseta Algodão Egípcio Marrom", marca:"Calvin Klein", cat:"Camisas",  preco:"R$ 269,00", tam:["P","M","G","GG"], selo:"novo", foto:"../fotos/ck-camiseta-egipcio-marrom-v1.webp", foto2:"../fotos/ck-camiseta-egipcio-marrom-v2.webp", fotos:["../fotos/ck-camiseta-egipcio-marrom-v3.webp"], desc:"Camiseta Calvin Klein Jeans em algodão egípcio na cor marrom, com o logo bordado. Combina com bermuda off-white e tênis branco." },
+  { nome:"Calça Jeans Straight",           marca:"Calvin Klein", cat:"Calças",   preco:"R$ 439,00", tam:["38","40","42","44","46"], foto:"../fotos/ck-calca-jeans-straight-v1.webp", foto2:"../fotos/ck-calca-jeans-straight-v2.webp", fotos:["../fotos/ck-calca-jeans-straight-v3.webp", "../fotos/ck-calca-jeans-straight-v4.webp", "../fotos/ck-calca-jeans-straight-v5.webp"] },
+  { nome:"Calça Five Pockets Cáqui",       marca:"Calvin Klein", cat:"Calças",   preco:"R$ 699,00", tam:["38","40","42","44","46"], selo:"novo", foto:"../fotos/ck-calca-five-pockets-caqui-v1.webp", foto2:"../fotos/ck-calca-five-pockets-caqui-v2.webp", fotos:["../fotos/ck-calca-five-pockets-caqui-v3.webp", "../fotos/ck-calca-five-pockets-caqui-v4.webp", "../fotos/ck-calca-five-pockets-caqui-v5.webp"], desc:"Calça Calvin Klein modelo five pockets, corte slim, em cáqui médio. Vai bem com polo branca e camisa social." },
+  { nome:"Calça Performance Grafite",      marca:"Calvin Klein", cat:"Calças",   preco:"R$ 329,00", tam:["P","M","G","GG"], foto:"../fotos/ck-calca-performance-v1.webp", foto2:"../fotos/ck-calca-performance-v2.webp" },
+  { nome:"Bermuda Chino Essentials",       marca:"Calvin Klein", cat:"Bermudas", preco:"R$ 499,00", tam:["38","40","42","44"], foto:"../fotos/ck-bermuda-essentials-v1.webp", foto2:"../fotos/ck-bermuda-essentials-v2.webp", fotos:["../fotos/ck-bermuda-essentials-v3.webp", "../fotos/ck-bermuda-essentials-v4.webp"] },
+  { nome:"Bermuda Moletom Caqui",          marca:"Calvin Klein", cat:"Bermudas", preco:"R$ 539,00", tam:["P","M","G","GG"], foto:"../fotos/ck-bermuda-moletom-v1.webp", foto2:"../fotos/ck-bermuda-moletom-v2.webp", fotos:["../fotos/ck-bermuda-moletom-v3.webp", "../fotos/ck-bermuda-moletom-v4.webp", "../fotos/ck-bermuda-moletom-v5.webp"] },
+  { nome:"Boné 5 Gomos Bordado",           marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés",  preco:"R$ 229,00", tam:[], foto:"../fotos/ck-bone-v1.webp", foto2:"../fotos/ck-bone-v2.webp" },
+  { nome:"Gorro Bordado",                  marca:"Calvin Klein", cat:"Acessórios", sub:"Gorros", preco:"R$ 199,00", tam:[], foto:"../fotos/ck-gorro-v1.webp" },
+  { nome:"Boné NY City",                   marca:"Calvin Klein", cat:"Acessórios", sub:"Bonés", preco:"R$ 279,00", tam:[], foto:"../fotos/ck-bone-ny-v1.webp", foto2:"../fotos/ck-bone-ny-v2.webp" },
   // Reserva
-  { nome:"Perfume Reserva Preto 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"R$ 459,00", tam:["100 ml"], foto:"../fotos/reserva-perfume-preto-v1.jpg", foto2:"../fotos/reserva-perfume-preto-v2.jpg", fotos:["../fotos/reserva-perfume-preto-v3.jpg", "../fotos/reserva-perfume-preto-v4.jpg", "../fotos/reserva-perfume-preto-v5.jpg"] },
-  { nome:"Perfume Reserva Areia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"R$ 313,90", tam:["100 ml"], foto:"../fotos/reserva-perfume-areia-v1.jpg", foto2:"../fotos/reserva-perfume-areia-v2.jpg", fotos:["../fotos/reserva-perfume-areia-v3.jpg", "../fotos/reserva-perfume-areia-v4.jpg", "../fotos/reserva-perfume-areia-v5.jpg"] },
-  { nome:"Perfume Reserva Sépia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"R$ 459,00", tam:["100 ml"], foto:"../fotos/reserva-perfume-sepia-v1.jpg", foto2:"../fotos/reserva-perfume-sepia-v2.jpg", fotos:["../fotos/reserva-perfume-sepia-v3.jpg", "../fotos/reserva-perfume-sepia-v4.jpg", "../fotos/reserva-perfume-sepia-v5.jpg"] },
-  { nome:"Camiseta Básica",                marca:"Reserva", cat:"Camisas",  preco:"R$ 99,00", tam:["P","M","G","GG"], foto:"../fotos/reserva-camiseta-basica-v1.jpg", foto2:"../fotos/reserva-camiseta-basica-v2.jpg", fotos:["../fotos/reserva-camiseta-basica-v3.jpg", "../fotos/reserva-camiseta-basica-v4.jpg", "../fotos/reserva-camiseta-basica-v5.jpg"] },
-  { nome:"Calça Jeans Slim",               marca:"Reserva", cat:"Calças",   preco:"R$ 499,00", tam:["38","40","42","44","46"], foto:"../fotos/reserva-calca-jeans-v1.jpg", foto2:"../fotos/reserva-calca-jeans-v2.jpg", fotos:["../fotos/reserva-calca-jeans-v3.jpg", "../fotos/reserva-calca-jeans-v4.jpg", "../fotos/reserva-calca-jeans-v5.jpg"] },
-  { nome:"Short Praia Hamptons Cinza",     marca:"Reserva", cat:"Bermudas", sub:"Shorts", preco:"R$ 499,00", tam:["P","M","G","GG"], selo:"novo", foto:"../fotos/reserva-short-praia-cinza-v4.jpg", foto2:"../fotos/reserva-short-praia-cinza-v1.jpg", fotos:["../fotos/reserva-short-praia-cinza-v2.jpg", "../fotos/reserva-short-praia-cinza-v3.jpg", "../fotos/reserva-short-praia-cinza-v5.jpg", "../fotos/reserva-short-praia-cinza-v6.jpg"], desc:"Short de praia Reserva Hamptons em cinza, com cordão e bolso traseiro. Serve para a praia, a piscina e o dia a dia." },
-  { nome:"Bermuda Chino Comfort",          marca:"Reserva", cat:"Bermudas", preco:"R$ 759,00", tam:["38","40","42","44"], foto:"../fotos/reserva-bermuda-chino-v1.jpg", foto2:"../fotos/reserva-bermuda-chino-v2.jpg", fotos:["../fotos/reserva-bermuda-chino-v3.jpg", "../fotos/reserva-bermuda-chino-v4.jpg", "../fotos/reserva-bermuda-chino-v5.jpg"] },
-  { nome:"Cueca Boxer Pima",               marca:"Reserva", cat:"Cuecas",   preco:"R$ 149,00", tam:["P","M","G","GG"], foto:"../fotos/reserva-cueca-boxer-v1.jpg", foto2:"../fotos/reserva-cueca-boxer-v2.jpg", fotos:["../fotos/reserva-cueca-boxer-v3.jpg", "../fotos/reserva-cueca-boxer-v4.jpg"] },
-  { nome:"Chinelo",                        marca:"Reserva", cat:"Sandálias",preco:"R$ 99,00", tam:["38","39","40","41","42","43","44"], foto:"../fotos/reserva-chinelo.jpg" },
-  { nome:"Boné",                           marca:"Reserva", cat:"Acessórios", sub:"Bonés", preco:"R$ 159,00", tam:[], foto:"../fotos/reserva-bone-v1.jpg", foto2:"../fotos/reserva-bone-v2.jpg", fotos:["../fotos/reserva-bone-v3.jpg", "../fotos/reserva-bone-v4.jpg", "../fotos/reserva-bone-v5.jpg"] },
+  { nome:"Perfume Reserva Preto 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"R$ 459,00", tam:["100 ml"], foto:"../fotos/reserva-perfume-preto-v1.webp", foto2:"../fotos/reserva-perfume-preto-v2.webp", fotos:["../fotos/reserva-perfume-preto-v3.webp", "../fotos/reserva-perfume-preto-v4.webp", "../fotos/reserva-perfume-preto-v5.webp"] },
+  { nome:"Perfume Reserva Areia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"R$ 313,90", tam:["100 ml"], foto:"../fotos/reserva-perfume-areia-v1.webp", foto2:"../fotos/reserva-perfume-areia-v2.webp", fotos:["../fotos/reserva-perfume-areia-v3.webp", "../fotos/reserva-perfume-areia-v4.webp", "../fotos/reserva-perfume-areia-v5.webp"] },
+  { nome:"Perfume Reserva Sépia 100 ml",   marca:"Reserva", cat:"Perfumes", preco:"R$ 459,00", tam:["100 ml"], foto:"../fotos/reserva-perfume-sepia-v1.webp", foto2:"../fotos/reserva-perfume-sepia-v2.webp", fotos:["../fotos/reserva-perfume-sepia-v3.webp", "../fotos/reserva-perfume-sepia-v4.webp", "../fotos/reserva-perfume-sepia-v5.webp"] },
+  { nome:"Camiseta Básica",                marca:"Reserva", cat:"Camisas",  preco:"R$ 99,00", tam:["P","M","G","GG"], foto:"../fotos/reserva-camiseta-basica-v1.webp", foto2:"../fotos/reserva-camiseta-basica-v2.webp", fotos:["../fotos/reserva-camiseta-basica-v3.webp", "../fotos/reserva-camiseta-basica-v4.webp", "../fotos/reserva-camiseta-basica-v5.webp"] },
+  { nome:"Calça Jeans Slim",               marca:"Reserva", cat:"Calças",   preco:"R$ 499,00", tam:["38","40","42","44","46"], foto:"../fotos/reserva-calca-jeans-v1.webp", foto2:"../fotos/reserva-calca-jeans-v2.webp", fotos:["../fotos/reserva-calca-jeans-v3.webp", "../fotos/reserva-calca-jeans-v4.webp", "../fotos/reserva-calca-jeans-v5.webp"] },
+  { nome:"Short Praia Hamptons Cinza",     marca:"Reserva", cat:"Bermudas", sub:"Shorts", preco:"R$ 499,00", tam:["P","M","G","GG"], selo:"novo", foto:"../fotos/reserva-short-praia-cinza-v4.webp", foto2:"../fotos/reserva-short-praia-cinza-v1.webp", fotos:["../fotos/reserva-short-praia-cinza-v2.webp", "../fotos/reserva-short-praia-cinza-v3.webp", "../fotos/reserva-short-praia-cinza-v5.webp", "../fotos/reserva-short-praia-cinza-v6.webp"], desc:"Short de praia Reserva Hamptons em cinza, com cordão e bolso traseiro. Serve para a praia, a piscina e o dia a dia." },
+  { nome:"Bermuda Chino Comfort",          marca:"Reserva", cat:"Bermudas", preco:"R$ 759,00", tam:["38","40","42","44"], foto:"../fotos/reserva-bermuda-chino-v1.webp", foto2:"../fotos/reserva-bermuda-chino-v2.webp", fotos:["../fotos/reserva-bermuda-chino-v3.webp", "../fotos/reserva-bermuda-chino-v4.webp", "../fotos/reserva-bermuda-chino-v5.webp"] },
+  { nome:"Cueca Boxer Pima",               marca:"Reserva", cat:"Cuecas",   preco:"R$ 149,00", tam:["P","M","G","GG"], foto:"../fotos/reserva-cueca-boxer-v1.webp", foto2:"../fotos/reserva-cueca-boxer-v2.webp", fotos:["../fotos/reserva-cueca-boxer-v3.webp", "../fotos/reserva-cueca-boxer-v4.webp"] },
+  { nome:"Chinelo",                        marca:"Reserva", cat:"Sandálias",preco:"R$ 99,00", tam:["38","39","40","41","42","43","44"], foto:"../fotos/reserva-chinelo.webp" },
+  { nome:"Boné",                           marca:"Reserva", cat:"Acessórios", sub:"Bonés", preco:"R$ 159,00", tam:[], foto:"../fotos/reserva-bone-v1.webp", foto2:"../fotos/reserva-bone-v2.webp", fotos:["../fotos/reserva-bone-v3.webp", "../fotos/reserva-bone-v4.webp", "../fotos/reserva-bone-v5.webp"] },
   // Ainda sem foto
   { nome:"Camisa Olive Heritage",          marca:"Ogochi",  cat:"Camisas",  preco:"R$ 229,90", tam:["P","M","G","GG"], foto:"" },
-  { nome:"Calça Jeans Slim",               marca:"Ogochi",  cat:"Calças",   preco:"R$ 189,90", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-jeans-v1.jpg" },
+  { nome:"Calça Jeans Slim",               marca:"Ogochi",  cat:"Calças",   preco:"R$ 189,90", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-jeans-v1.webp" },
   { nome:"Kit 3 Pares de Meias",           marca:"Ogochi",  cat:"Meias",    preco:"R$ 49,90", tam:["39-43"], foto:"" },
   { nome:"Jaqueta Verde Militar",          marca:"Ogochi",  cat:"Casacos",  preco:"R$ 239,90", tam:["P","M","G","GG"], foto:"" },
   { nome:"Camisa Linho Azul-claro",        marca:"Ogochi",  cat:"Camisas",  preco:"R$ 239,90", tam:["1","2","3","4"], foto:"" },
-  { nome:"Polo Branca",                    marca:"Ogochi",  cat:"Camisas",  preco:"R$ 129,90", tam:["P","M","G","GG"], foto:"../fotos/ogochi-polo-branca-v1.jpg", foto2:"../fotos/ogochi-polo-branca-v2.jpg", fotos:["../fotos/ogochi-polo-branca-v3.jpg"] },
-  { nome:"Calça Sarja Areia",              marca:"Ogochi",  cat:"Calças",   preco:"R$ 189,90", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-sarja-v1.jpg", foto2:"../fotos/ogochi-calca-sarja-v2.jpg", fotos:["../fotos/ogochi-calca-sarja-v3.jpg"] },
+  { nome:"Polo Branca",                    marca:"Ogochi",  cat:"Camisas",  preco:"R$ 129,90", tam:["P","M","G","GG"], foto:"../fotos/ogochi-polo-branca-v1.webp", foto2:"../fotos/ogochi-polo-branca-v2.webp", fotos:["../fotos/ogochi-polo-branca-v3.webp"] },
+  { nome:"Calça Sarja Areia",              marca:"Ogochi",  cat:"Calças",   preco:"R$ 189,90", tam:["38","40","42","44","46"], foto:"../fotos/ogochi-calca-sarja-v1.webp", foto2:"../fotos/ogochi-calca-sarja-v2.webp", fotos:["../fotos/ogochi-calca-sarja-v3.webp"] },
   { nome:"Sapato Social Couro",            marca:"Ogochi",  cat:"Calçados", preco:"R$ 359,90", tam:["38","39","40","41","42","43","44"], foto:"" },
   { nome:"Cinto de Couro",                 marca:"Ogochi",  cat:"Acessórios", sub:"Cintos",    preco:"R$ 99,90", tam:["90","95","100","105","110"], foto:"" }
 ];
@@ -1117,28 +1126,28 @@ const PRODUTOS = [
 
 // Looks prontos. Os itens são os NOMES dos produtos acima.
 const LOOKS = [
-  { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"../fotos/look-soft-elegance.jpg",
+  { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"../fotos/look-soft-elegance.webp",
     itens:["Polo Básica Azul-claro", "Calça Sarja Areia"] },
-  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/ck-camiseta-egipcio-v1.jpg",
+  { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"../fotos/ck-camiseta-egipcio-v1.webp",
     itens:["Camiseta Algodão Egípcio Preta", "Calça Jeans Straight", "Tênis Samba OG Preto", "Boné 5 Gomos Bordado"] },
-  { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"../fotos/loja-vitrine-puffer.jpg",
+  { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"../fotos/loja-vitrine-puffer.webp",
     itens:["Jaqueta Puffer Light Matelassê", "Gorro Bordado", "Carteira Preta"] },
-  { nome:"Verão Reserva", desc:"Camiseta, bermuda chino, chinelo e o perfume Areia. Pronto para o fim de semana.", foto:"../fotos/reserva-bermuda-chino.jpg",
+  { nome:"Verão Reserva", desc:"Camiseta, bermuda chino, chinelo e o perfume Areia. Pronto para o fim de semana.", foto:"../fotos/reserva-bermuda-chino.webp",
     itens:["Camiseta Básica", "Bermuda Chino Comfort", "Chinelo", "Perfume Reserva Areia 100 ml"] }
 ];
 
 // Lookbook (galeria em tela cheia). produto = nome do produto ligado à foto (opcional).
 const LOOKBOOK = [
-  { foto:"../fotos/look-soft-elegance.jpg", titulo:"Soft Elegance", marca:"Calvin Klein + Ogochi", produto:"Polo Básica Azul-claro" },
-  { foto:"../fotos/ck-jaqueta-puffer.jpg", titulo:"Puffer Light", marca:"Calvin Klein", produto:"Jaqueta Puffer Light Matelassê" },
-  { foto:"../fotos/loja-vitrine-preto.jpg", titulo:"All Black", marca:"Na vitrine da DE men", produto:"Tênis Samba OG Preto" },
-  { foto:"../fotos/ck-polo-verde.jpg", titulo:"Polo Premium", marca:"Calvin Klein", produto:"Polo Premium Verde" },
-  { foto:"../fotos/reserva-camiseta-basica.jpg", titulo:"Básico bem feito", marca:"Reserva", produto:"Camiseta Básica" },
-  { foto:"../fotos/loja-vitrine-jaqueta-verde.jpg", titulo:"Verde militar", marca:"Na vitrine da DE men" },
-  { foto:"../fotos/ck-camiseta-egipcio.jpg", titulo:"Algodão egípcio", marca:"Calvin Klein", produto:"Camiseta Algodão Egípcio Preta" },
-  { foto:"../fotos/ogochi-mochila-frente.jpg", titulo:"Premium Label", marca:"Ogochi", produto:"Mochila Premium Label" },
-  { foto:"../fotos/reserva-bermuda-chino.jpg", titulo:"Fim de semana", marca:"Reserva", produto:"Bermuda Chino Comfort" },
-  { foto:"../fotos/loja-vitrine-puffer.jpg", titulo:"Inverno leve", marca:"Na vitrine da DE men", produto:"Jaqueta Puffer Light Matelassê" }
+  { foto:"../fotos/look-soft-elegance.webp", titulo:"Soft Elegance", marca:"Calvin Klein + Ogochi", produto:"Polo Básica Azul-claro" },
+  { foto:"../fotos/ck-jaqueta-puffer.webp", titulo:"Puffer Light", marca:"Calvin Klein", produto:"Jaqueta Puffer Light Matelassê" },
+  { foto:"../fotos/loja-vitrine-preto.webp", titulo:"All Black", marca:"Na vitrine da DE men", produto:"Tênis Samba OG Preto" },
+  { foto:"../fotos/ck-polo-verde.webp", titulo:"Polo Premium", marca:"Calvin Klein", produto:"Polo Premium Verde" },
+  { foto:"../fotos/reserva-camiseta-basica.webp", titulo:"Básico bem feito", marca:"Reserva", produto:"Camiseta Básica" },
+  { foto:"../fotos/loja-vitrine-jaqueta-verde.webp", titulo:"Verde militar", marca:"Na vitrine da DE men" },
+  { foto:"../fotos/ck-camiseta-egipcio.webp", titulo:"Algodão egípcio", marca:"Calvin Klein", produto:"Camiseta Algodão Egípcio Preta" },
+  { foto:"../fotos/ogochi-mochila-frente.webp", titulo:"Premium Label", marca:"Ogochi", produto:"Mochila Premium Label" },
+  { foto:"../fotos/reserva-bermuda-chino.webp", titulo:"Fim de semana", marca:"Reserva", produto:"Bermuda Chino Comfort" },
+  { foto:"../fotos/loja-vitrine-puffer.webp", titulo:"Inverno leve", marca:"Na vitrine da DE men", produto:"Jaqueta Puffer Light Matelassê" }
 ];
 
 // Avaliações. Troque pelas avaliações REAIS dos clientes (com permissão deles).
@@ -1153,8 +1162,8 @@ const AVALIACOES = [
 // cole os links dos posts em "posts" (ex.: "https://www.instagram.com/p/XXXX/").
 const INSTAGRAM = {
   usuario: "demen.loja",
-  fotos: ["../fotos/loja-vitrine-preto.jpg", "../fotos/look-soft-elegance.jpg", "../fotos/loja-vitrine-puffer.jpg",
-          "../fotos/carteira-ogochi-preta-v2.jpg", "../fotos/loja-vitrine-jaqueta-verde.jpg", "../fotos/ogochi-mochila-frente.jpg"],
+  fotos: ["../fotos/loja-vitrine-preto.webp", "../fotos/look-soft-elegance.webp", "../fotos/loja-vitrine-puffer.webp",
+          "../fotos/carteira-ogochi-preta-v2.webp", "../fotos/loja-vitrine-jaqueta-verde.webp", "../fotos/ogochi-mochila-frente.webp"],
   posts: []
 };
 </script>
@@ -1184,34 +1193,39 @@ const INSTAGRAM = {
 </header>
 
 <main>
-  <section class="hero2" id="inicio">
-    <div class="wrap hero2-grade">
-      <div class="hero2-texto">
-        <p class="eyebrow h1-local">Moda masculina premium · Sertânia-PE</p>
+  <section class="hero com-video" id="inicio">
+    <video class="hero-video" src="../img/topo-jaqueta.mp4" poster="../img/topo-jaqueta-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <div class="hero-veu" aria-hidden="true"></div>
+    <canvas id="particulas"></canvas><div class="brilho"></div>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow h1-local">Moda masculina premium em Sertânia-PE</p>
         <h1>Elegância não precisa de esforço. Está nos <em>detalhes.</em></h1>
-        <p>Calvin Klein, Reserva, Adidas e Ogochi originais, escolhidos peça por peça para o homem que se veste bem sem complicar.</p>
+        <p>Peças originais das marcas que você confia, escolhidas para o homem que se veste bem sem complicar. Na loja ou com envio para todo o Brasil.</p>
         <div class="acoes">
           <a href="#vitrine" class="btn cheio">Ver a vitrine</a>
           <button class="btn" id="abrirLookbook">Ver lookbook</button>
         </div>
-        <ul class="hero2-fatos">
-          <li><b>Revenda</b><span>autorizada</span></li>
-          <li><b>100%</b><span>originais</span></li>
-          <li><b>Brasil</b><span>enviamos para todo</span></li>
-        </ul>
+        <div class="selos">
+          <div><b>Revenda autorizada</b></div>
+          <div><b>100%</b> originais</div>
+          <div>Enviamos para <b>todo o Brasil</b></div>
+        </div>
       </div>
-      <div class="hero2-mosaico" aria-hidden="true">
-        <figure class="m1"><video src="../img/topo-modelo.mp4" poster="../img/topo-modelo-capa.jpg" autoplay muted loop playsinline preload="metadata"></video></figure>
-        <figure class="m2"><video src="../img/topo-jaqueta.mp4" poster="../img/topo-jaqueta-capa.jpg" autoplay muted loop playsinline preload="metadata"></video></figure>
-        <figure class="m3"><video src="../img/topo-samba.mp4" poster="../img/topo-samba-capa.jpg" autoplay muted loop playsinline preload="metadata"></video></figure>
-        <span class="hero2-selo">Peças<br>originais</span>
-      </div>
+      <div class="hero-3d" id="hero3d"><img src="../img/logo.svg" alt="Logo DE men" class="hero-logo"><div class="legenda">DE&nbsp;MEN</div></div>
     </div>
   </section>
-  <div class="faixa2" aria-hidden="true"><div class="faixa2-trilho">
-    <span>Calvin Klein</span><i>✦</i><span>Reserva</span><i>✦</i><span>Adidas</span><i>✦</i><span>Ogochi</span><i>✦</i><span>Retire na loja</span><i>✦</i><span>Pix e cartão</span><i>✦</i>
-    <span>Calvin Klein</span><i>✦</i><span>Reserva</span><i>✦</i><span>Adidas</span><i>✦</i><span>Ogochi</span><i>✦</i><span>Retire na loja</span><i>✦</i><span>Pix e cartão</span><i>✦</i>
-  </div></div>
+
+  <div class="faixa" aria-hidden="true"><div class="faixa-trilho"><span>CALVIN KLEIN</span><i>✦</i><span>RESERVA</span><i>✦</i><span>ADIDAS</span><i>✦</i><span>OGOCHI</span><i>✦</i><span>100% ORIGINAIS</span><i>✦</i><span>REVENDA AUTORIZADA</span><i>✦</i><span>ENVIAMOS PARA TODO O BRASIL</span><i>✦</i><span>CALVIN KLEIN</span><i>✦</i><span>RESERVA</span><i>✦</i><span>ADIDAS</span><i>✦</i><span>OGOCHI</span><i>✦</i><span>100% ORIGINAIS</span><i>✦</i><span>REVENDA AUTORIZADA</span><i>✦</i><span>ENVIAMOS PARA TODO O BRASIL</span><i>✦</i></div></div>
+
+  <section class="numeros-sec">
+    <div class="wrap numeros">
+      <div><b data-conta="4">4</b><small>Marcas oficiais</small></div>
+      <div><b data-conta="100" data-suf="%">100%</b><small>Peças originais</small></div>
+      <div><b data-conta="3400" data-suf="+">3.400+</b><small>Seguidores no Instagram</small></div>
+      <div><b data-conta="0" id="numPecas">—</b><small>Peças na vitrine</small></div>
+    </div>
+  </section>
 
   <section class="marcas" id="marcas">
     <div class="wrap">
@@ -1727,7 +1741,7 @@ const INSTAGRAM = {
     if (/^\d{2}90{6,}$/.test(n)) $('telefone').parentElement.hidden = true; // número de exemplo: não mostra
     else $('telefone').textContent = `(${n.slice(0, 2)}) ${n.slice(2, -4)}-${n.slice(-4)}`; }
   $('ano').textContent = new Date().getFullYear();
-  if (LOJA.fotoCapa && document.querySelector('.hero')) { const h = document.querySelector('.hero'); h.style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`); h.classList.add('com-foto'); }
+  if (LOJA.fotoCapa) { const h = document.querySelector('.hero'); h.style.setProperty('--hero-img', `url("${LOJA.fotoCapa}")`); h.classList.add('com-foto'); }
   if (LOJA.fotoSobre) $('fotoSobre').innerHTML = `<img src="${LOJA.fotoSobre}" alt="Loja DE men">`;
   const foto = (src, alt, rotulo) => src ? `<img src="${src}" alt="${alt}" loading="lazy">` : rotulo;
   const ICON = {
@@ -2932,6 +2946,258 @@ const INSTAGRAM = {
 
   desenhar();
 })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+/* ================= EFEITOS ================= */
+(() => {
+  const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const toque = matchMedia('(hover: none)').matches;
+  const temGsap = !!window.gsap;
+  if (temGsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+  // número de peças na vitrine
+  const np = document.getElementById('numPecas');
+  if (np) { np.dataset.conta = PRODUTOS.length; np.textContent = PRODUTOS.length; }
+
+  /* ---- título palavra por palavra ---- */
+  const h1 = document.querySelector('.hero h1');
+  (function quebra(el){
+    [...el.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(w => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { f.appendChild(document.createTextNode(w)); return; }
+          const o = document.createElement('span'); o.className = 'palavra';
+          const i = document.createElement('span'); i.textContent = w; o.appendChild(i); f.appendChild(o);
+        });
+        n.replaceWith(f);
+      } else if (n.nodeType === 1) quebra(n);
+    });
+  })(h1);
+
+  /* ---- intro ---- */
+  const barra = document.querySelector('#intro .barra i');
+  let p = 0; const tk = setInterval(() => { p = Math.min(92, p + Math.random() * 22); barra.style.width = p + '%'; }, 160);
+  let feito = false;
+  function pronto(){
+    if (feito) return; feito = true; clearInterval(tk); barra.style.width = '100%';
+    setTimeout(() => { document.body.classList.add('carregado'); animaCapa(); }, 380);
+  }
+  addEventListener('load', pronto); setTimeout(pronto, 3500);
+
+  function animaCapa(){
+    if (!temGsap || reduz) { document.querySelectorAll('.palavra>span').forEach(s => s.style.transform = 'none'); return; }
+    gsap.to('.palavra>span', { y: 0, duration: 1.15, ease: 'power4.out', stagger: .06 });
+    gsap.from(['.hero .eyebrow', '.hero p', '.hero .acoes', '.hero .selos'], { opacity: 0, y: 30, duration: 1, ease: 'power3.out', stagger: .12, delay: .35 });
+    gsap.from('#hero3d', { opacity: 0, scale: .75, duration: 1.8, ease: 'power3.out', delay: .15 });
+  }
+
+  /* ---- rolagem suave (Lenis) ---- */
+  let lenis = null;
+  if (window.Lenis && !reduz && !toque) {
+    lenis = new Lenis({ lerp: .09, smoothWheel: true });
+    new MutationObserver(() => document.body.classList.contains('travado') ? lenis.stop() : lenis.start()).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    if (window.ScrollTrigger) { lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+    else { const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]'); if (!a) return;
+      const id = a.getAttribute('href'); if (id.length < 2 || !document.querySelector(id)) return;
+      e.preventDefault(); lenis.scrollTo(id, { offset: -70 });
+    });
+    const nativo = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function(){ try { lenis.scrollTo(this, { offset: -70 }); } catch(_) { nativo.call(this); } };
+  }
+
+  /* ---- barra de progresso ---- */
+  const prog = document.getElementById('progresso');
+  const atualizaProg = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%'; };
+  addEventListener('scroll', atualizaProg, { passive: true }); atualizaProg();
+
+  /* ---- cursor personalizado ---- */
+  if (!toque) {
+    const dot = document.querySelector('.cursor-dot'), ring = document.querySelector('.cursor-ring');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate3d(${mx}px,${my}px,0)`; });
+    (function loop(){ rx += (mx - rx) * .18; ry += (my - ry) * .18; ring.style.transform = `translate3d(${rx}px,${ry}px,0)`; requestAnimationFrame(loop); })();
+    document.addEventListener('mouseover', e => { ring.classList.toggle('grande', !!e.target.closest('a,button,.card,.cat-card,.marca-cel,.chip,canvas')); });
+  }
+
+  /* ---- brilho dourado seguindo o mouse na capa ---- */
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mousemove', e => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (e.clientX - r.left) + 'px'); hero.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+
+  /* ---- partículas douradas na capa ---- */
+  (function particulas(){
+    const cv = document.getElementById('particulas'); if (!cv || reduz) return;
+    const ctx = cv.getContext('2d'); let W, H, pts = [], visivel = true, px = 0, py = 0;
+    const N = innerWidth < 860 ? 35 : 80, dpr = Math.min(devicePixelRatio, 2);
+    function tam(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    tam(); addEventListener('resize', tam);
+    for (let i = 0; i < N; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.6 + .3, v: Math.random() * .35 + .08, a: Math.random() * .6 + .15, z: Math.random() * 1 + .3 });
+    hero.addEventListener('mousemove', e => { px = (e.clientX / innerWidth - .5); py = (e.clientY / innerHeight - .5); });
+    new IntersectionObserver(([en]) => visivel = en.isIntersecting).observe(hero);
+    (function anda(){
+      if (visivel) {
+        ctx.clearRect(0, 0, W, H);
+        for (const q of pts) {
+          q.y -= q.v; if (q.y < -5) { q.y = H + 5; q.x = Math.random() * W; }
+          ctx.beginPath(); ctx.arc(q.x - px * 30 * q.z, q.y - py * 20 * q.z, q.r, 0, 7);
+          ctx.fillStyle = `rgba(200,180,138,${q.a})`; ctx.fill();
+        }
+      }
+      requestAnimationFrame(anda);
+    })();
+  })();
+
+  /* ---- inclinação 3D + brilho nos cards ---- */
+  if (!toque && !reduz) {
+    const SEL = '.card,.cat-card,.marca-cel';
+    document.addEventListener('mousemove', e => {
+      const c = e.target.closest(SEL); if (!c) return;
+      const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      const forca = c.classList.contains('marca-cel') ? 8 : 10;
+      c.style.transform = `rotateY(${(x - .5) * forca}deg) rotateX(${(.5 - y) * forca}deg)`;
+      c.style.setProperty('--gx', x * 100 + '%'); c.style.setProperty('--gy', y * 100 + '%');
+      if (!c.querySelector(':scope > .brilho-card')) { const b = document.createElement('div'); b.className = 'brilho-card'; c.appendChild(b); }
+    });
+    document.addEventListener('mouseout', e => { const c = e.target.closest(SEL); if (c && !c.contains(e.relatedTarget)) c.style.transform = ''; });
+  }
+
+  /* ---- botões magnéticos ---- */
+  if (!toque && !reduz) {
+    document.addEventListener('mousemove', e => {
+      const b = e.target.closest('.btn,.bot-botao'); if (!b) return;
+      const r = b.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      b.style.transform = `translate(${dx * .22}px,${dy * .3}px)`;
+    });
+    document.addEventListener('mouseout', e => { const b = e.target.closest('.btn,.bot-botao'); if (b && !b.contains(e.relatedTarget)) b.style.transform = ''; });
+  }
+
+  /* ---- animações ao rolar ---- */
+  document.querySelectorAll('section h2').forEach(h => { const l = document.createElement('span'); l.className = 'linha-ouro'; h.appendChild(l); });
+  const ioH2 = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('desenhada'); ioH2.unobserve(en.target); } }), { threshold: .6 });
+  document.querySelectorAll('section h2').forEach(h => ioH2.observe(h));
+
+  if (temGsap && window.ScrollTrigger && !reduz) {
+    // parallax da capa
+    gsap.to('.hero .wrap > div:first-child', { yPercent: -16, opacity: .25, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    gsap.to('#hero3d', { yPercent: 22, scale: .82, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    // contadores
+    document.querySelectorAll('[data-conta]').forEach(el => {
+      const fim = +el.dataset.conta, suf = el.dataset.suf || '', o = { v: 0 };
+      el.textContent = '0' + suf;
+      ScrollTrigger.create({ trigger: el, start: 'top 92%', once: true, onEnter: () =>
+        gsap.to(o, { v: fim, duration: 2.2, ease: 'power2.out', onUpdate: () => el.textContent = Math.round(o.v).toLocaleString('pt-BR') + suf }) });
+    });
+    // marcas e catálogos
+    gsap.fromTo('#marcasGrade', { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.2, ease: 'power4.out', scrollTrigger: { trigger: '#marcasGrade', start: 'top 88%' } });
+    gsap.fromTo('.marca-cel > *', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .9, stagger: .08, delay: .3, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#marcasGrade', start: 'top 88%' } });
+    document.querySelectorAll('.cat-card').forEach(e => e.classList.remove('revelar'));
+    gsap.fromTo('.cat-card', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1, stagger: .1, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#catGrade', start: 'top 88%' } });
+    gsap.fromTo('.numeros > div > *', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: .9, stagger: .06, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '.numeros', start: 'top 90%' } });
+    [['.look', '#looksGrade'], ['#lojaFotos .foto', '#lojaFotos'], ['.aval', '#avalGrade'], ['#instaGrade > *', '#instaGrade'], ['.provas > div', '.provas']].forEach(([alvo, gatilho]) => {
+      if (!document.querySelector(alvo)) return;
+      gsap.fromTo(alvo, { opacity: 0, y: 50, scale: .96 }, { opacity: 1, y: 0, scale: 1, duration: .9, stagger: .08, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: gatilho, start: 'top 88%' } });
+    });
+
+    // cards da vitrine: revelam a foto de baixo pra cima (inclusive depois de filtrar)
+    const grade = document.getElementById('grade');
+    const animaCards = () => {
+      const cards = grade.querySelectorAll('.card:not(.animado)');
+      cards.forEach(c => c.classList.add('animado'));
+      ScrollTrigger.batch(cards, { start: 'top 92%', once: true, onEnter: lote => {
+        gsap.fromTo(lote, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: .9, stagger: .08, ease: 'power3.out' });
+        gsap.fromTo(lote.map(c => c.querySelector('.foto')), { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 1.1, stagger: .08, ease: 'power4.out' });
+      }});
+      ScrollTrigger.refresh();
+    };
+    animaCards();
+    new MutationObserver(animaCards).observe(grade, { childList: true });
+  }
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+/* ================= LOGO 3D (Three.js) ================= */
+import * as THREE from 'three';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const caixa = document.getElementById('hero3d');
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+try {
+  const canvas = document.createElement('canvas');
+  if (!(canvas.getContext('webgl2') || canvas.getContext('webgl'))) throw new Error('sem WebGL');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 860 ? 1.5 : 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const cena = new THREE.Scene();
+  const pm = new THREE.PMREMGenerator(renderer);
+  cena.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+  camera.position.set(0, 0, 10);
+
+  const svg = (await (await fetch('../img/monograma.svg')).text()).replaceAll('url(#prata)', '#dddddd');
+  const dados = new SVGLoader().parse(svg);
+  const grupo = new THREE.Group();
+  const metal = new THREE.MeshPhysicalMaterial({ color: 0xe9e9e9, metalness: 1, roughness: .2, clearcoat: 1, clearcoatRoughness: .12 });
+  dados.paths.forEach(path => SVGLoader.createShapes(path).forEach(forma => {
+    const g = new THREE.ExtrudeGeometry(forma, { depth: 9, bevelEnabled: true, bevelThickness: 1.6, bevelSize: 1, bevelSegments: 4, curveSegments: 28 });
+    grupo.add(new THREE.Mesh(g, metal));
+  }));
+  const bb = new THREE.Box3().setFromObject(grupo), tam = bb.getSize(new THREE.Vector3()), centro = bb.getCenter(new THREE.Vector3());
+  grupo.children.forEach(m => m.geometry.translate(-centro.x, -centro.y, -centro.z));
+  const esc = 4.6 / Math.max(tam.x, tam.y);
+  grupo.scale.set(esc, -esc, esc);
+  cena.add(grupo);
+
+  const luzOuro = new THREE.PointLight(0xc8b48a, 60, 40); luzOuro.position.set(-4, 3, 5); cena.add(luzOuro);
+  const luzBranca = new THREE.DirectionalLight(0xffffff, 1.4); luzBranca.position.set(3, 4, 6); cena.add(luzBranca);
+
+  caixa.appendChild(canvas);
+  caixa.classList.add('ativo');
+  const ajusta = () => { const w = caixa.clientWidth, h = caixa.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); };
+  ajusta(); addEventListener('resize', ajusta);
+
+  // segue o mouse; no celular, gira arrastando com o dedo
+  let alvoX = 0, alvoY = 0, arrastando = false, ultX = 0, giro = 0, vel = 0;
+  addEventListener('pointermove', e => { if (e.pointerType === 'mouse') { alvoY = (e.clientX / innerWidth - .5) * .9; alvoX = (e.clientY / innerHeight - .5) * .5; } });
+  canvas.addEventListener('pointerdown', e => { arrastando = true; ultX = e.clientX; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => { if (!arrastando) return; vel = (e.clientX - ultX) * .012; ultX = e.clientX; giro += vel; });
+  addEventListener('pointerup', () => arrastando = false);
+
+  let visivel = true;
+  new IntersectionObserver(([en]) => visivel = en.isIntersecting).observe(caixa);
+  const relogio = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    if (!visivel) return;
+    const t = relogio.getElapsedTime();
+    if (!arrastando) { vel *= .95; giro += vel; }
+    const balanco = reduz ? 0 : Math.sin(t * .5) * .38;
+    grupo.rotation.y += ((balanco + alvoY + giro) - grupo.rotation.y) * .06;
+    grupo.rotation.x += (alvoX - grupo.rotation.x) * .06;
+    grupo.position.y = reduz ? 0 : Math.sin(t * 1.1) * .09;
+    luzOuro.position.x = Math.sin(t * .7) * 5;
+    renderer.render(cena, camera);
+  });
+  window.__logo3d = true;
+} catch (erro) {
+  console.warn('Logo 3D indisponível — usando a logo normal.', erro);
+}
 </script>
 
 <script>
