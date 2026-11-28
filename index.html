@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://viacep.com.br https://ycoazbopchjxbmgxnqey.supabase.co wss://ycoazbopchjxbmgxnqey.supabase.co https://docs.google.com https://*.googleusercontent.com https://cdn.jsdelivr.net https://*.goatcounter.com; frame-src https://maps.google.com https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at https://www.instagram.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://viacep.com.br https://ycoazbopchjxbmgxnqey.supabase.co wss://ycoazbopchjxbmgxnqey.supabase.co https://docs.google.com https://*.googleusercontent.com https://cdn.jsdelivr.net https://*.goatcounter.com; frame-src https://maps.google.com https://www.google.com https://www.instagram.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#0d0d0d">
 <script>
@@ -917,9 +917,9 @@ const LOJA = {
   whatsapp: "5587991929953",        // DDI + DDD + número, só dígitos (ex.: 5587999998888)
   instagram: "https://www.instagram.com/demen.loja/",
   endereco: "R. Floriano Peixoto, 70 — Sertânia - PE",
-  horario: "Seg a Sex 8h–18h • Sáb 8h–13h",   // confirmar com o dono
+  horario: "Seg a Sáb 8h30–18h30",   // confirmado em 28/11/2026
   // Expediente usado pelo robô do WhatsApp para avisar "horário de almoço" / "loja fechada" (0 = domingo). Confirmar com o dono.
-  expediente: { "1":["08:00-12:00","14:00-18:00"], "2":["08:00-12:00","14:00-18:00"], "3":["08:00-12:00","14:00-18:00"], "4":["08:00-12:00","14:00-18:00"], "5":["08:00-12:00","14:00-18:00"], "6":["08:00-13:00"], "0":[] },
+  expediente: { "1":["08:30-18:30"], "2":["08:30-18:30"], "3":["08:30-18:30"], "4":["08:30-18:30"], "5":["08:30-18:30"], "6":["08:30-18:30"], "0":[] },
   pagamento: "Pix, cartão de crédito (parcelado) e débito",   // confirmar com o dono
   envio: "Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp.", // confirmar
   trocas: "Trocas em até 7 dias, com a etiqueta e a peça sem uso.", // confirmar com o dono
@@ -1095,7 +1095,7 @@ const INSTAGRAM = {
   usuario: "demen.loja",
   fotos: ["fotos/loja-vitrine-preto.webp", "fotos/look-soft-elegance.webp", "fotos/loja-vitrine-puffer.webp",
           "fotos/carteira-ogochi-preta-v2.webp", "fotos/loja-vitrine-jaqueta-verde.webp", "fotos/ogochi-mochila-frente.webp"],
-  posts: []
+  posts: ["https://www.instagram.com/p/DgNuuueAsmP/", "https://www.instagram.com/reel/DgP0RMGxSYF/", "https://www.instagram.com/p/DgKfzisxjC_/", "https://www.instagram.com/reel/DgLW85Fge11/"]   // posts recentes do @demen.loja (troque pelos que quiser destacar)
 };
 </script>
 
@@ -1599,7 +1599,7 @@ const INSTAGRAM = {
       </div>
       <div class="ajuda-grade">
         <div>
-          <div class="faq" id="faq"><details><summary>As peças são originais?</summary><p>Sim. A DE men é revenda autorizada Calvin Klein, Reserva, Adidas e Ogochi. Todas as peças têm etiqueta e tag da marca, e você pode pedir a nota fiscal da sua compra.</p></details><details><summary>Como faço um pedido pelo site?</summary><p>Escolha as peças, coloque na sacola (ou toque em "Pedir") e envie pelo WhatsApp. A loja confirma estoque, valor e frete antes de você pagar. Você não paga nada no site.</p></details><details><summary>Quais as formas de pagamento?</summary><p>Pix, cartão de crédito à vista ou parcelado, débito e dinheiro na loja.</p></details><details><summary>Entregam na minha cidade? Qual o prazo?</summary><p>Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp. Em Sertânia, você também pode retirar na loja.</p></details><details><summary>Como funciona a troca?</summary><p>Trocas em até 7 dias, com a etiqueta e a peça sem uso. Para trocar, abra um atendimento aqui ou chame no WhatsApp com o número do pedido.</p></details><details><summary>Não sei meu tamanho. E agora?</summary><p>Use o "Guia de tamanhos" na página de cada peça. Se ficar em dúvida, mande suas medidas no WhatsApp que a gente mede a peça para você.</p></details><details><summary>Qual o horário da loja?</summary><p>Seg a Sex 8h–18h • Sáb 8h–13h. Endereço: R. Floriano Peixoto, 70 — Sertânia - PE.</p></details><details><summary>Preciso criar conta para comprar?</summary><p>Não. A conta é opcional e serve para salvar favoritos, ver seus pedidos e atendimentos e avaliar produtos.</p></details><details><summary>Como excluir minha conta e meus dados?</summary><p>Na Área do cliente, toque em "Pedir exclusão da minha conta e dados", ou abra um atendimento aqui. Atendemos conforme a LGPD.</p></details></div>
+          <div class="faq" id="faq"><details><summary>As peças são originais?</summary><p>Sim. A DE men é revenda autorizada Calvin Klein, Reserva, Adidas e Ogochi. Todas as peças têm etiqueta e tag da marca, e você pode pedir a nota fiscal da sua compra.</p></details><details><summary>Como faço um pedido pelo site?</summary><p>Escolha as peças, coloque na sacola (ou toque em "Pedir") e envie pelo WhatsApp. A loja confirma estoque, valor e frete antes de você pagar. Você não paga nada no site.</p></details><details><summary>Quais as formas de pagamento?</summary><p>Pix, cartão de crédito à vista ou parcelado, débito e dinheiro na loja.</p></details><details><summary>Entregam na minha cidade? Qual o prazo?</summary><p>Enviamos para todo o Brasil pelos Correios. O frete é calculado pelo seu CEP no WhatsApp. Em Sertânia, você também pode retirar na loja.</p></details><details><summary>Como funciona a troca?</summary><p>Trocas em até 7 dias, com a etiqueta e a peça sem uso. Para trocar, abra um atendimento aqui ou chame no WhatsApp com o número do pedido.</p></details><details><summary>Não sei meu tamanho. E agora?</summary><p>Use o "Guia de tamanhos" na página de cada peça. Se ficar em dúvida, mande suas medidas no WhatsApp que a gente mede a peça para você.</p></details><details><summary>Qual o horário da loja?</summary><p>Seg a Sáb 8h30–18h30. Endereço: R. Floriano Peixoto, 70 — Sertânia - PE.</p></details><details><summary>Preciso criar conta para comprar?</summary><p>Não. A conta é opcional e serve para salvar favoritos, ver seus pedidos e atendimentos e avaliar produtos.</p></details><details><summary>Como excluir minha conta e meus dados?</summary><p>Na Área do cliente, toque em "Pedir exclusão da minha conta e dados", ou abra um atendimento aqui. Atendemos conforme a LGPD.</p></details></div>
           <div class="canais">
             <a class="btn zap js-zap" target="_blank" rel="noopener">WhatsApp</a>
             <button class="btn" id="abrirChat" type="button">Assistente virtual</button>
@@ -1639,7 +1639,7 @@ const INSTAGRAM = {
       <div class="dados revelar">
         <div><div class="eyebrow">Visite</div><h2>Venha conhecer a loja</h2></div>
         <div><small>Endereço</small><span id="endereco">R. Floriano Peixoto, 70 — Sertânia - PE</span></div>
-        <div><small>Horário</small><span id="horario">Seg a Sex 8h–18h • Sáb 8h–13h</span></div>
+        <div><small>Horário</small><span id="horario">Seg a Sáb 8h30–18h30</span></div>
         <div><small>WhatsApp</small><a id="telefone" class="js-zap" target="_blank" rel="noopener">(87) 99192-9953</a></div>
         <div><small>Mapa</small><a href="https://www.google.com/maps/search/?api=1&query=-8.0764307%2C-37.2668626" target="_blank" rel="noopener" style="border-bottom:1px solid var(--areia)">Abrir no Google Maps</a></div>
         <div id="emailLinha" hidden><small>E-mail (SAC)</small><a id="emailLoja"></a></div>
