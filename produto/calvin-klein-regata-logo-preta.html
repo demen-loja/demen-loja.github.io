@@ -40,7 +40,34 @@ h2{font-family:var(--serif);font-weight:500;font-size:1.6rem;margin:2.4rem 0 1re
 footer{border-top:1px solid var(--linha);padding:2rem 0;font-size:.82rem;color:var(--cinza)}footer b{color:var(--branco);font-weight:500}footer p+p{margin-top:.3rem}
 :root[data-tema="claro"]{--preto:#f7f4ef;--grafite:#fff;--cinza:#6b655c;--linha:#e2dbd0;--branco:#161514;--areia:#836a3a;--texto2:#3b3833;color-scheme:light}
 :root[data-tema="claro"] .logo img{filter:brightness(.32) contrast(1.2)}
-@media(max-width:820px){.galeria>img{max-height:70vh;object-fit:contain}.produto{grid-template-columns:1fr;gap:1.4rem}.rel{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){.produto{grid-template-columns:1fr;gap:1.4rem}.rel{grid-template-columns:repeat(2,1fr)}}
+@view-transition{navigation:auto}
+.galeria{position:relative}
+.trilho{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/5;background:#fff}
+.trilho::-webkit-scrollbar{display:none}
+.trilho img{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/5;object-fit:cover;background:linear-gradient(100deg,#ece7df 30%,#f7f4ef 50%,#ece7df 70%) 0 0/200% 100%;animation:brilho 1.3s linear infinite}
+.trilho img.carregou{animation:none;background:#fff}
+@keyframes brilho{to{background-position:-200% 0}}
+.galeria .mini{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem}
+.galeria .mini button{padding:0;border:1px solid var(--linha);background:#fff;cursor:pointer;opacity:.6}
+.galeria .mini button.ativo{opacity:1;border-color:var(--areia)}
+.galeria .mini img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.pontos{display:none;justify-content:center;gap:.4rem;margin-top:.7rem}
+.pontos i{width:7px;height:7px;border-radius:50%;background:var(--linha)}
+.pontos i.ativo{background:var(--areia)}
+.barra-fixa{display:none}
+@media(max-width:820px){
+  .galeria .mini{display:none}.pontos{display:flex}
+  .trilho{margin:0 -4.35%;aspect-ratio:4/5}
+  body{padding-bottom:84px}
+  .barra-fixa{display:flex;align-items:center;gap:.8rem;position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(13,13,13,.96);border-top:1px solid var(--linha);padding:.7rem 4% calc(.7rem + env(safe-area-inset-bottom))}
+  :root[data-tema="claro"] .barra-fixa{background:rgba(247,244,239,.97)}
+  .barra-fixa div{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+  .barra-fixa small{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza)}
+  .barra-fixa b{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--areia);white-space:nowrap}
+  .barra-fixa .btn{flex:1;padding:.85rem .6rem;font-size:.7rem}
+}
+@media (prefers-reduced-motion:reduce){.trilho img{animation:none}::view-transition-group(*){animation:none!important}}
 </style>
 </head>
 <body>
@@ -48,7 +75,7 @@ footer{border-top:1px solid var(--linha);padding:2rem 0;font-size:.82rem;color:v
 <main class="wrap">
   <nav class="migalha" aria-label="Você está em"><ol><li><a href="../">Início</a></li><li><a href="../#vitrine">Camisas</a></li><li aria-current="page">Regata Logo Preta</li></ol></nav>
   <article class="produto">
-    <div class="galeria"><img src="../fotos/ck-regata-preta-v1.webp" alt="Regata Logo Preta — Calvin Klein" width="800" height="1000"><div class="mini"><img src="../fotos/ck-regata-preta-v2.webp" alt="Regata Logo Preta — foto 2" loading="lazy" width="200" height="250"></div></div>
+    <div class="galeria"><div class="trilho" tabindex="0" aria-label="Fotos de Regata Logo Preta (arraste para ver mais)"><img src="../fotos/ck-regata-preta-v1.webp" alt="Regata Logo Preta — Calvin Klein" width="800" height="1000"><img src="../fotos/ck-regata-preta-v2.webp" alt="Regata Logo Preta — foto 2" width="800" height="1000" loading="lazy"></div><div class="pontos" aria-hidden="true"><i class="ativo"></i><i></i></div><div class="mini"><button type="button" class="ativo" aria-label="Ver foto 1"><img src="../fotos/ck-regata-preta-v1.webp" alt="" loading="lazy" width="200" height="250"></button><button type="button" aria-label="Ver foto 2"><img src="../fotos/ck-regata-preta-v2.webp" alt="" loading="lazy" width="200" height="250"></button></div></div>
     <div>
       <div class="eyebrow">Calvin Klein</div>
       <h1>Regata Logo Preta</h1>
@@ -67,10 +94,22 @@ footer{border-top:1px solid var(--linha);padding:2rem 0;font-size:.82rem;color:v
   </article>
   <section><h2>Você também pode gostar</h2><div class="rel"><a href="calvin-klein-camiseta-assinatura-branca.html"><img src="../fotos/loja-camiseta-ck-branca-v2.webp" alt="Camiseta Assinatura Branca" loading="lazy" width="400" height="500"><small>Calvin Klein</small><h3>Camiseta Assinatura Branca</h3></a><a href="calvin-klein-polo-premium-verde.html"><img src="../fotos/ck-polo-verde-v1.webp" alt="Polo Premium Verde" loading="lazy" width="400" height="500"><small>Calvin Klein</small><h3>Polo Premium Verde</h3></a><a href="calvin-klein-polo-basica-azul-claro.html"><img src="../fotos/ck-polo-azul-claro-v1.webp" alt="Polo Básica Azul-claro" loading="lazy" width="400" height="500"><small>Calvin Klein</small><h3>Polo Básica Azul-claro</h3></a><a href="calvin-klein-camiseta-algodao-egipcio-preta.html"><img src="../fotos/ck-camiseta-egipcio-v1.webp" alt="Camiseta Algodão Egípcio Preta" loading="lazy" width="400" height="500"><small>Calvin Klein</small><h3>Camiseta Algodão Egípcio Preta</h3></a></div></section>
 </main>
+<div class="barra-fixa"><div><small>Calvin Klein</small><b>R$ 179,00</b></div><a class="btn cheio" href="https://wa.me/5587991929953?text=Ol%C3%A1%2C%20DE%20men%21%20Tenho%20interesse%20em%3A%20Regata%20Logo%20Preta%20%28Calvin%20Klein%29.%20Tem%20dispon%C3%ADvel%3F%0Ahttps%3A//demen-loja.github.io/produto/calvin-klein-regata-logo-preta.html" target="_blank" rel="noopener">Pedir no WhatsApp</a></div>
+
 <footer><div class="wrap">
   <p><b>DE men</b> — moda masculina premium</p>
   <p>R. Floriano Peixoto, 70 — Sertânia - PE · <a href="https://wa.me/5587991929953?text=Ol%C3%A1%2C%20DE%20men%21" target="_blank" rel="noopener">WhatsApp (87) 99192-9953</a></p>
   <p>Seg a Sáb 8h30–18h30 · <a href="https://www.instagram.com/demen.loja/" target="_blank" rel="noopener">Instagram</a> · <a href="../privacidade.html">Privacidade</a></p>
 </div></footer>
+<script>
+(() => {
+  const tr = document.querySelector('.trilho'); if (!tr) return;
+  const fotos = [...tr.querySelectorAll('img')], pts = [...document.querySelectorAll('.pontos i')], minis = [...document.querySelectorAll('.galeria .mini button')];
+  fotos.forEach(img => { const ok = () => img.classList.add('carregou'); img.complete ? ok() : (img.addEventListener('load', ok, { once: true }), img.addEventListener('error', ok, { once: true })); });
+  const marcar = i => { pts.forEach((p, k) => p.classList.toggle('ativo', k === i)); minis.forEach((b, k) => b.classList.toggle('ativo', k === i)); };
+  tr.addEventListener('scroll', () => marcar(Math.round(tr.scrollLeft / tr.clientWidth)), { passive: true });
+  minis.forEach((b, k) => b.addEventListener('click', () => tr.scrollTo({ left: k * tr.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })));
+})();
+</script>
 </body>
 </html>
