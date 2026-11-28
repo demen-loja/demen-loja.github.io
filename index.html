@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at https://www.instagram.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://viacep.com.br https://ycoazbopchjxbmgxnqey.supabase.co wss://ycoazbopchjxbmgxnqey.supabase.co https://docs.google.com https://*.googleusercontent.com https://cdn.jsdelivr.net https://*.goatcounter.com; frame-src https://maps.google.com https://www.google.com https://www.instagram.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at https://www.instagram.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://viacep.com.br https://ycoazbopchjxbmgxnqey.supabase.co wss://ycoazbopchjxbmgxnqey.supabase.co https://docs.google.com https://*.googleusercontent.com https://cdn.jsdelivr.net https://*.goatcounter.com https://feeds.behold.so; frame-src https://maps.google.com https://www.google.com https://www.instagram.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#0d0d0d">
 <script>
@@ -901,6 +901,40 @@
   .isca{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
   .sac-caixa,.ajuda .wrap>*{min-width:0;max-width:100%}
   .form-conta .duas>*{min-width:0}
+
+  /* ===== Moderno: novidades, compre o look, transição, esqueleto ===== */
+  @view-transition{navigation:auto}
+  .novidades{padding:4.5rem 0 2.5rem}
+  .nov-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.6rem}
+  .nov-setas{display:flex;gap:.5rem}
+  .nov-seta{width:42px;height:42px;border-radius:50%;border:1px solid var(--linha);background:none;color:var(--branco);font-size:1.3rem;line-height:1;cursor:pointer;transition:border-color .2s,color .2s}
+  .nov-seta:hover{border-color:var(--areia);color:var(--areia)}
+  .nov-trilho{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3rem)/4);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.4rem}
+  .nov-trilho::-webkit-scrollbar{display:none}
+  .nov-card{scroll-snap-align:start;background:none;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:.2rem;padding:0;min-width:0}
+  .nov-card .foto{margin-bottom:.6rem;position:relative}
+  .nov-card .foto img{transition:transform .6s}
+  .nov-card:hover .foto img{transform:scale(1.04)}
+  .nov-card small{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--areia)}
+  .nov-card b{font-weight:400;font-size:.95rem;line-height:1.3}
+  .nov-card span{font-size:.85rem;color:var(--texto2)}
+  @media(max-width:760px){.nov-trilho{grid-auto-columns:62%;margin:0 -4.35%;padding:0 4.35% .4rem;scroll-padding:0 4.35%}.nov-setas{display:none}.novidades{padding:3.2rem 0 1.5rem}}
+  .look .foto{position:relative}
+  .look-ponto{position:absolute;width:32px;height:32px;margin:-16px 0 0 -16px;border-radius:50%;border:0;background:rgba(13,13,13,.5);cursor:pointer;display:grid;place-items:center;z-index:2;padding:0}
+  .look-ponto::before{content:"";width:12px;height:12px;border-radius:50%;background:#c8b48a;animation:pulso 2s infinite}
+  .look-ponto span{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;background:var(--preto);color:var(--branco);border:1px solid var(--linha);font-size:.72rem;letter-spacing:.02em;text-transform:none;padding:.35rem .6rem;opacity:0;pointer-events:none;transition:opacity .2s}
+  .look-ponto.esq span{left:auto;right:-4px;transform:none}
+  .look-ponto.dir span{left:-4px;transform:none}
+  .look-ponto:hover span,.look-ponto:focus-visible span{opacity:1}
+  @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(200,180,138,.75)}70%{box-shadow:0 0 0 11px rgba(200,180,138,0)}100%{box-shadow:0 0 0 0 rgba(200,180,138,0)}}
+  .pp-barra-preco{display:flex;flex-direction:column;justify-content:center;min-width:0;padding-right:.2rem;line-height:1.15}
+  .pp-barra-preco small{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pp-barra-preco b{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--areia);white-space:nowrap}
+  .vt-produto .pp{transition:none}
+  ::view-transition-group(foto-produto){animation-duration:.45s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+  @keyframes brilho{to{background-position:-200% 0}}
+  .foto:not(.carregou),.pp-trilho:not(.carregou){background:linear-gradient(100deg,var(--ph2) 30%,var(--ph1) 50%,var(--ph2) 70%) 0 0/200% 100%;animation:brilho 1.3s linear infinite}
+  @media (prefers-reduced-motion:reduce){.foto,.pp-trilho,.look-ponto::before{animation:none!important}::view-transition-group(*){animation:none!important}}
 </style>
 </head>
 <body>
@@ -1058,13 +1092,17 @@ const PRODUTOS = [
 // Looks prontos. Os itens são os NOMES dos produtos acima.
 const LOOKS = [
   { nome:"Soft Elegance", desc:"Polo Calvin Klein azul-bebê com sarja areia Ogochi. Leveza e caimento impecável.", foto:"fotos/look-soft-elegance.webp",
-    itens:["Polo Básica Azul-claro", "Calça Sarja Areia"] },
+    itens:["Polo Básica Azul-claro", "Calça Sarja Areia"],
+    pontos:[{ item:"Polo Básica Azul-claro", x:26, y:42 }, { item:"Calça Sarja Areia", x:77, y:46 }] },
   { nome:"Urbano Preto", desc:"Tudo em preto com o Samba OG: básico que nunca erra.", foto:"fotos/ck-camiseta-egipcio-v1.webp",
-    itens:["Camiseta Algodão Egípcio Preta", "Calça Jeans Straight", "Tênis Samba OG Preto", "Boné 5 Gomos Bordado"] },
+    itens:["Camiseta Algodão Egípcio Preta", "Calça Jeans Straight", "Tênis Samba OG Preto", "Boné 5 Gomos Bordado"],
+    pontos:[{ item:"Camiseta Algodão Egípcio Preta", x:52, y:42 }] },
   { nome:"Inverno Leve", desc:"Puffer Calvin Klein, gorro e carteira Ogochi para os dias frios do Sertão.", foto:"fotos/loja-vitrine-puffer.webp",
-    itens:["Jaqueta Puffer Light Matelassê", "Gorro Bordado", "Carteira Preta"] },
+    itens:["Jaqueta Puffer Light Matelassê", "Gorro Bordado", "Carteira Preta"],
+    pontos:[{ item:"Jaqueta Puffer Light Matelassê", x:50, y:45 }, { item:"Gorro Bordado", x:89, y:76 }, { item:"Carteira Preta", x:62, y:91 }] },
   { nome:"Verão Reserva", desc:"Camiseta, bermuda chino, chinelo e o perfume Areia. Pronto para o fim de semana.", foto:"fotos/reserva-bermuda-chino.webp",
-    itens:["Camiseta Básica", "Bermuda Chino Comfort", "Chinelo", "Perfume Reserva Areia 100 ml"] }
+    itens:["Camiseta Básica", "Bermuda Chino Comfort", "Chinelo", "Perfume Reserva Areia 100 ml"],
+    pontos:[{ item:"Bermuda Chino Comfort", x:52, y:24 }] }
 ];
 
 // Lookbook (galeria em tela cheia). produto = nome do produto ligado à foto (opcional).
@@ -1095,6 +1133,10 @@ const INSTAGRAM = {
   usuario: "demen.loja",
   fotos: ["fotos/loja-vitrine-preto.webp", "fotos/look-soft-elegance.webp", "fotos/loja-vitrine-puffer.webp",
           "fotos/carteira-ogochi-preta-v2.webp", "fotos/loja-vitrine-jaqueta-verde.webp", "fotos/ogochi-mochila-frente.webp"],
+  // FEED AUTOMÁTICO: cole aqui o link "JSON feed" do behold.so (ex.: "https://feeds.behold.so/AbCd123").
+  // Com ele, o site mostra sempre os posts mais recentes sozinho. Vazio = usa a lista fixa abaixo.
+  feed: "",
+  quantos: 4,                      // quantos posts mostrar
   posts: ["https://www.instagram.com/p/DgNuuueAsmP/", "https://www.instagram.com/reel/DgP0RMGxSYF/", "https://www.instagram.com/p/DgKfzisxjC_/", "https://www.instagram.com/reel/DgLW85Fge11/"]   // posts recentes do @demen.loja (troque pelos que quiser destacar)
 };
 </script>
@@ -1143,6 +1185,14 @@ const INSTAGRAM = {
         </div>
       </div>
       <img src="img/logo.svg" alt="Logo DE men" class="hero-logo">
+    </div>
+  </section>
+
+  <section class="novidades" id="novidades" hidden>
+    <div class="wrap">
+      <div class="nov-topo"><div><div class="eyebrow">Acabou de chegar</div><h2>Novidades na loja</h2></div>
+        <div class="nov-setas"><button class="nov-seta" data-nov="-1" aria-label="Novidades anteriores">‹</button><button class="nov-seta" data-nov="1" aria-label="Próximas novidades">›</button></div></div>
+      <div class="nov-trilho" id="novTrilho"></div>
     </div>
   </section>
 
@@ -2530,7 +2580,7 @@ const INSTAGRAM = {
             <div class="itens">${outros.map(o => `<button class="mini-card" data-abrir="${o.id}">${o.foto ? `<img src="${esc(o.foto)}" alt="" loading="lazy">` : ''}<span><small>${esc(o.marca)}</small>${esc(o.nome)}</span></button>`).join('')}</div>
             <button class="btn cheio" data-look="${li}">${ICON.sacola} Look completo na sacola</button></div>`; })()}
       ${rel.length ? `<div class="relacionados"><div class="eyebrow">Quem viu também gostou</div><h2>Combina com esta peça</h2><div class="grade">${rel.map(cardHTML).join('')}</div></div>` : ''}
-      <div class="pp-barra">${p.semEstoque ? `<button class="btn cheio" data-avise="">${SVG.sino} Avise-me</button>` : `<button class="btn cheio" data-pp-add>${ICON.sacola} Sacola</button>`}<a class="btn zap" id="ppZap2" target="_blank" rel="noopener">${ICON.zap} WhatsApp</a></div>`;
+      <div class="pp-barra">${p.preco ? `<div class="pp-barra-preco"><small>${esc(p.marca)}</small><b>${esc(p.preco)}</b></div>` : ''}${p.semEstoque ? `<button class="btn cheio" data-avise="">${SVG.sino} Avise-me</button>` : `<button class="btn cheio" data-pp-add>${ICON.sacola} Sacola</button>`}<a class="btn zap" id="ppZap2" target="_blank" rel="noopener">${ICON.zap} WhatsApp</a></div>`;
     atualizarZapPP();
     abrir(pp); pp.scrollTop = 0;
     document.title = `${p.nome} | DE men`;
@@ -2538,11 +2588,23 @@ const INSTAGRAM = {
     window.dispatchEvent(new CustomEvent('produto-aberto', { detail: p }));
     return true;
   }
+  /* ---------- Transição: a foto do card "cresce" até a página do produto ---------- */
+  let fotoOrigem = null;
+  document.addEventListener('pointerdown', e => { const c = e.target.closest('.card, .nov-card'); fotoOrigem = c ? c.querySelector('.foto img') : null; }, true);
+  function comTransicao(id) {
+    const src = fotoOrigem; fotoOrigem = null;
+    if (!document.startViewTransition || !src || !src.isConnected || matchMedia('(prefers-reduced-motion: reduce)').matches) return mostrarProduto(id);
+    src.style.viewTransitionName = 'foto-produto';
+    document.documentElement.classList.add('vt-produto');
+    const alvo = () => document.querySelector('#ppTrilho .pp-slide img');
+    const t = document.startViewTransition(() => { src.style.viewTransitionName = ''; mostrarProduto(id); const a = alvo(); if (a) a.style.viewTransitionName = 'foto-produto'; });
+    t.finished.finally(() => { document.documentElement.classList.remove('vt-produto'); const a = alvo(); if (a) a.style.viewTransitionName = ''; });
+  }
   const tituloOriginal = document.title;
   function abrirProduto(id) {
     if (!porId(id)) return;
     history.pushState({ pp: id }, '', '#p/' + id);
-    mostrarProduto(id);
+    comTransicao(id);
   }
   function esconderProduto() { fechar(pp); document.title = tituloOriginal; }
   function fecharProduto() {
@@ -2591,7 +2653,7 @@ const INSTAGRAM = {
     $('looksGrade').innerHTML = LOOKS.map((l, i) => {
       const itens = l.itens.map(porNome).filter(Boolean);
       return `<article class="look">
-        <div class="foto">${foto(l.foto, l.nome, 'Foto do look')}</div>
+        <div class="foto">${foto(l.foto, l.nome, 'Foto do look')}${(l.pontos || []).map(pt => { const p = porNome(pt.item); if (!p) return ''; const txt = esc(p.nome) + (p.preco ? ' · ' + esc(p.preco) : ''); return `<button class="look-ponto${pt.x > 68 ? ' esq' : pt.x < 32 ? ' dir' : ''}" data-abrir="${p.id}" style="left:${pt.x}%;top:${pt.y}%" aria-label="Ver ${txt}"><span>${txt}</span></button>`; }).join('')}</div>
         <div class="info">
           <div class="eyebrow">Look ${String(i + 1).padStart(2, '0')}</div>
           <h3>${esc(l.nome)}</h3>
@@ -2603,6 +2665,15 @@ const INSTAGRAM = {
     }).join('');
   }
   renderLooks();
+  /* ---------- Novidades (carrossel logo após o topo) ---------- */
+  function renderNovidades() {
+    const sec = $('novidades'); if (!sec) return;
+    const nov = PRODUTOS.filter(p => p.selo === 'novo').slice(0, 12);
+    sec.hidden = nov.length < 3; if (sec.hidden) return;
+    $('novTrilho').innerHTML = nov.map(p => `<button class="nov-card" data-abrir="${p.id}"><div class="foto">${seloHTML(p)}${foto(p.foto, p.nome, '')}</div><small>${esc(p.marca)}</small><b>${esc(p.nome)}</b><span>${esc(p.preco || 'Consulte o preço')}</span></button>`).join('');
+  }
+  renderNovidades();
+  document.addEventListener('click', e => { const s = e.target.closest('[data-nov]'); if (!s) return; const tr = $('novTrilho'); tr.scrollBy({ left: Number(s.dataset.nov) * tr.clientWidth * 0.8, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); });
 
   /* ---------- 9. A loja por dentro ---------- */
   const fotosLoja = (LOJA.fotosLoja || []).filter(Boolean);
@@ -2635,12 +2706,22 @@ const INSTAGRAM = {
 
   /* ---------- 13. Instagram ---------- */
   $('instaUser').textContent = '@' + INSTAGRAM.usuario;
-  if (!(INSTAGRAM.posts && INSTAGRAM.posts.length)) $('instaGrade').hidden = true;
-  else if (INSTAGRAM.posts && INSTAGRAM.posts.length) {
+  // Mostra os posts: primeiro tenta o feed automático (sempre os mais recentes); se falhar, usa a lista fixa.
+  function mostrarPosts(lista) {
+    lista = (lista || []).filter(u => /^https:\/\/www\.instagram\.com\/(p|reel)\/[\w-]+\/?$/.test(u)).slice(0, INSTAGRAM.quantos || 4);
+    if (!lista.length) { $('instaGrade').hidden = true; return; }
+    $('instaGrade').hidden = false;
     $('instaGrade').className = 'insta-embeds';
-    $('instaGrade').innerHTML = INSTAGRAM.posts.map(u => `<blockquote class="instagram-media" data-instgrm-permalink="${esc(u)}" data-instgrm-version="14" style="background:#fff;margin:0;min-width:280px;width:100%"></blockquote>`).join('');
-    const sc = document.createElement('script'); sc.async = true; sc.src = 'https://www.instagram.com/embed.js'; document.body.appendChild(sc);
-  } else {
+    $('instaGrade').innerHTML = lista.map(u => `<blockquote class="instagram-media" data-instgrm-permalink="${esc(u)}" data-instgrm-version="14" style="background:#fff;margin:0;min-width:280px;width:100%"></blockquote>`).join('');
+    if (window.instgrm) window.instgrm.Embeds.process();
+    else if (!document.querySelector('script[src*="instagram.com/embed.js"]')) { const sc = document.createElement('script'); sc.async = true; sc.src = 'https://www.instagram.com/embed.js'; document.body.appendChild(sc); }
+  }
+  if (INSTAGRAM.feed) {
+    fetch(INSTAGRAM.feed, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(d => { const posts = Array.isArray(d) ? d : (d.posts || []); const links = posts.map(p => String(p.permalink || '').split('?')[0].replace(/\/?$/, '/')); if (!links.length) throw new Error('feed vazio'); mostrarPosts(links); })
+      .catch(err => { console.warn('Feed do Instagram não carregou; usando os posts fixos.', err); mostrarPosts(INSTAGRAM.posts); });
+  } else if (INSTAGRAM.posts && INSTAGRAM.posts.length) mostrarPosts(INSTAGRAM.posts);
+  else if (false) {
     $('instaGrade').innerHTML = INSTAGRAM.fotos.map(f => `<a href="${esc(LOJA.instagram)}" target="_blank" rel="noopener" aria-label="Ver no Instagram">${foto(f, 'Post da DE men no Instagram', '')}</a>`).join('');
   }
 
@@ -2794,7 +2875,7 @@ const INSTAGRAM = {
       }).filter(p => p.nome && !/^(nao|não|n|0|false)$/i.test(p.ativo));
       if (!novos.length) return;
       PRODUTOS.length = 0; PRODUTOS.push(...novos);
-      prepararProdutos(); montarFiltros(); atualizarChips(); render(); renderLooks();
+      prepararProdutos(); montarFiltros(); atualizarChips(); render(); renderLooks(); renderNovidades();
       const m = location.hash.match(/^#p\/(.+)$/); if (m) mostrarProduto(decodeURIComponent(m[1]));
     } catch (err) { console.warn('Planilha não carregou; usando a lista do site.', err); }
   }
@@ -3433,6 +3514,19 @@ if (sb) {
   const { data: { session } } = await sb.auth.getSession();
   usuario = session ? session.user : null; carrega();
 }
+</script>
+<script>
+/* Esqueleto de carregamento: o brilho some de cada foto assim que ela carrega */
+(() => {
+  const marca = img => { const c = img.closest('.foto, .pp-trilho'); if (c) c.classList.add('carregou'); };
+  const ver = raiz => {
+    if (!raiz || !raiz.querySelectorAll) return;
+    raiz.querySelectorAll('img').forEach(img => { if (img.complete) marca(img); else { img.addEventListener('load', () => marca(img), { once: true }); img.addEventListener('error', () => marca(img), { once: true }); } });
+    raiz.querySelectorAll('.foto').forEach(f => { if (!f.querySelector('img')) f.classList.add('carregou'); });
+  };
+  ver(document);
+  new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => { if (n.nodeType === 1) ver(n.parentElement || n); }))).observe(document.body, { childList: true, subtree: true });
+})();
 </script>
 </body>
 </html>
