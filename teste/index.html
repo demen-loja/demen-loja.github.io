@@ -449,6 +449,7 @@
   .insta-grade a:hover img{transform:scale(1.06)}
   .insta-embeds{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;margin-top:3rem}
   @media(max-width:760px){.insta-embeds{margin-top:2rem}}
+  #instaGrade iframe,#instaGrade blockquote{opacity:1!important;transform:none!important;visibility:visible!important}  /* posts do Instagram sempre visíveis */
 
   /* Lookbook / visualizador em tela cheia */
   .lb{position:fixed;inset:0;z-index:90;background:#050505;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
@@ -3182,7 +3183,7 @@ const INSTAGRAM = {
     document.querySelectorAll('.cat-card').forEach(e => e.classList.remove('revelar'));
     gsap.fromTo('.cat-card', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1, stagger: .1, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '#catGrade', start: 'top 88%' } });
     gsap.fromTo('.numeros > div > *', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: .9, stagger: .06, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: '.numeros', start: 'top 90%' } });
-    [['.look', '#looksGrade'], ['#lojaFotos .foto', '#lojaFotos'], ['.aval', '#avalGrade'], ['#instaGrade > *', '#instaGrade'], ['.provas > div', '.provas']].forEach(([alvo, gatilho]) => {
+    [['.look', '#looksGrade'], ['#lojaFotos .foto', '#lojaFotos'], ['.aval', '#avalGrade'], ['.provas > div', '.provas']].forEach(([alvo, gatilho]) => {
       if (!document.querySelector(alvo)) return;
       gsap.fromTo(alvo, { opacity: 0, y: 50, scale: .96 }, { opacity: 1, y: 0, scale: 1, duration: .9, stagger: .08, ease: 'power3.out', clearProps: 'opacity,transform', scrollTrigger: { trigger: gatilho, start: 'top 88%' } });
     });
