@@ -776,8 +776,13 @@
   /* Loja por dentro: cada foto na proporção dela (nada cortado), todas na mesma altura */
   .loja-fotos,.loja-fotos.n3,.loja-fotos.n4{display:flex;flex-wrap:wrap;gap:1rem;grid-template-columns:none}
   .loja-fotos .foto,.loja-fotos .foto:first-child,.loja-fotos.n4 .foto:nth-child(4){flex:var(--ar,1.333) 1 0;min-width:0;aspect-ratio:var(--ar,1.333);grid-row:auto;grid-column:auto}
+  .loja-fotos .foto{position:relative}
+  .loja-fotos .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   @media(max-width:700px){
-    .loja-fotos .foto.paisagem{flex-basis:100%}
+    /* celular: grade simples (o Safari do iPhone não calcula bem a proporção em flex) */
+    .loja-fotos,.loja-fotos.n3,.loja-fotos.n4{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .loja-fotos .foto,.loja-fotos .foto:first-child,.loja-fotos.n4 .foto:nth-child(4){flex:none;aspect-ratio:4/3;grid-column:span 2;grid-row:auto}
+    .loja-fotos .foto.retrato,.loja-fotos.n4 .foto.retrato:nth-child(4){aspect-ratio:3/4;grid-column:span 1}
   }
   /* esconde o botão ▶ nativo do iPhone quando o autoplay é bloqueado (o vídeo começa no primeiro toque) */
   video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
@@ -1041,7 +1046,7 @@ const LOJA = {
   promo: { ativo:true, texto:"Novidades Calvin Klein, Adidas e Ogochi na loja", chamada:"Ver vitrine", link:"#vitrine" },
 
   // Cupom que aparece uma vez para quem entra pela 1ª vez. CONFIRMAR COM O DONO antes de divulgar.
-  cupom: { ativo:true, titulo:"Ganhe 10% OFF na primeira compra", codigo:"PRIMEIRA10", texto:"Mostre este código no WhatsApp ou na loja. Válido na primeira compra.", depoisDeSegundos:45 },
+  cupom: { ativo:true, titulo:"Ganhe 10% OFF na primeira compra", codigo:"PRIMEIRA10", texto:"Mostre este código no WhatsApp ou na loja. Válido na primeira compra.", depoisDeSegundos:20 },
 
   // Planilha do Google com os produtos (Arquivo > Compartilhar > Publicar na Web > CSV).
   // Cole o link aqui e o site passa a ler os produtos da planilha. Vazio = usa a lista PRODUTOS abaixo.
@@ -2677,7 +2682,7 @@ const INSTAGRAM = {
     $('cupomBtn').href = zap(`Olá, DE men! Quero usar o cupom ${cp.codigo} na minha primeira compra.`);
     // Só aparece depois que a pessoa rolou a página e passou um tempo, e nunca por cima de outra janela.
     let rolou = false;
-    window.addEventListener('scroll', function marca() { if (window.scrollY > window.innerHeight * 2.5) { rolou = true; window.removeEventListener('scroll', marca); } }, { passive: true });
+    window.addEventListener('scroll', function marca() { if (window.scrollY > window.innerHeight * 1.2) { rolou = true; window.removeEventListener('scroll', marca); } }, { passive: true });
     setTimeout(function tentar() {
       const ocupado = abertos.length || $('bot').classList.contains('aberto') || $('buscaTela').classList.contains('aberto') || /^#p\//.test(location.hash) || document.activeElement?.tagName === 'INPUT';
       if (!rolou || ocupado) return setTimeout(tentar, 5000);
