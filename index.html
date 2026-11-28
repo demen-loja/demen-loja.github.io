@@ -97,6 +97,7 @@
   /* Vídeo no topo (gerado no Higgsfield a partir da foto da vitrine) */
   .hero.com-video,.hero.com-video.com-foto{background:var(--preto)}
   .hero-video{position:absolute;top:0;right:0;height:100%;width:min(62%,1000px);object-fit:cover;object-position:center;z-index:0}
+  .hero img.hero-capa{top:106px;height:calc(100% - 106px);object-position:45% top}  /* capa: começa abaixo do menu, rosto sempre visível */
   .hero-veu{position:absolute;inset:0;z-index:1;pointer-events:none;background:
       linear-gradient(90deg,var(--preto) 0%,var(--preto) 38%,rgba(var(--vidro),.6) 52%,rgba(var(--vidro),.15) 75%,rgba(var(--vidro),.1) 100%),
       linear-gradient(180deg,rgba(var(--vidro),.15) 55%,var(--preto) 100%)}
@@ -104,9 +105,10 @@
   .hero.com-video .hero-logo{display:none}
   @media (max-width:860px){
     .hero-video{width:100%;height:100%;inset:0}
+    .hero img.hero-capa{inset:auto 0 0 0;top:106px;width:100%;height:calc(100% - 106px);object-position:46% top}
     .hero-veu{background:linear-gradient(180deg,rgba(var(--vidro),.5) 0%,rgba(var(--vidro),.72) 45%,var(--preto) 100%)}
   }
-  @media (prefers-reduced-motion:reduce){.hero-video{display:none}.hero.com-video{background:var(--hero-img) right center/auto 100% no-repeat,var(--preto)}}
+  @media (prefers-reduced-motion:reduce){video.hero-video{display:none}.hero.com-video{background:var(--hero-img) right center/auto 100% no-repeat,var(--preto)}}
 
 
   /* Faixa "Em movimento": 3 vídeos curtos (tocam só quando aparecem na tela) */
@@ -782,9 +784,9 @@
   .loja-fotos .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   @media(max-width:700px){
     /* celular: grade simples (o Safari do iPhone não calcula bem a proporção em flex) */
-    .loja-fotos,.loja-fotos.n3,.loja-fotos.n4{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-    .loja-fotos .foto,.loja-fotos .foto:first-child,.loja-fotos.n4 .foto:nth-child(4){flex:none;aspect-ratio:4/3;grid-column:span 2;grid-row:auto}
-    .loja-fotos .foto.retrato,.loja-fotos.n4 .foto.retrato:nth-child(4){aspect-ratio:3/4;grid-column:span 1}
+    .loja-fotos,.loja-fotos.n3,.loja-fotos.n4{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:12px}
+    .loja-fotos .foto,.loja-fotos .foto:first-child,.loja-fotos.n4 .foto:nth-child(4){flex:none;display:block;aspect-ratio:auto;height:0;padding-top:75%;overflow:hidden;grid-column:span 2;grid-row:auto}
+    .loja-fotos .foto.retrato,.loja-fotos.n4 .foto.retrato:nth-child(4){padding-top:133%;grid-column:span 1}
   }
   /* esconde o botão ▶ nativo do iPhone quando o autoplay é bloqueado (o vídeo começa no primeiro toque) */
   video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
@@ -811,6 +813,7 @@
     background:radial-gradient(circle,rgba(200,180,138,.13),transparent 62%);left:var(--mx,72%);top:var(--my,42%);transform:translate(-50%,-50%);transition:left .6s ease-out,top .6s ease-out}
   .hero .wrap{position:relative;z-index:1}
   .hero-3d{position:relative;width:100%;max-width:520px;aspect-ratio:1/1;justify-self:center;align-self:center}
+  @media(min-width:861px){.hero-3d{max-width:300px;justify-self:end;align-self:center;margin-right:-4%;margin-top:6rem}}  /* ao lado do modelo da capa, sem cobrir a roupa */
   .hero-3d canvas{position:absolute;inset:0;width:100% !important;height:100% !important;display:block;cursor:grab;touch-action:pan-y}
   .hero-3d canvas:active{cursor:grabbing}
   .hero-3d .hero-logo{position:absolute;inset:0;margin:auto !important;width:78% !important}
@@ -1250,7 +1253,7 @@ const INSTAGRAM = {
 
 <main>
   <section class="hero com-video" id="inicio">
-    <video class="hero-video" src="img/topo-jaqueta.mp4" poster="img/topo-jaqueta-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <img class="hero-video hero-capa" src="img/capa.jpg" srcset="img/capa-celular.jpg 1000w, img/capa.jpg 1490w" sizes="(max-width:860px) 100vw, 62vw" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
     <div class="hero-veu" aria-hidden="true"></div>
     <canvas id="particulas"></canvas><div class="brilho"></div>
     <div class="wrap">
@@ -3079,7 +3082,7 @@ const INSTAGRAM = {
   (() => {
     const c = navigator.connection; const lenta = c && (c.saveData || /(^|-)2g|3g/.test(c.effectiveType || ''));
     if (!lenta) return;
-    document.querySelectorAll('.hero-video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.removeAttribute('src'); v.load(); v.style.display = 'none'; });
+    document.querySelectorAll('video.hero-video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.removeAttribute('src'); v.load(); v.style.display = 'none'; });
   })();
 
   /* ---- intro ---- */
@@ -3692,6 +3695,33 @@ if (sb) {
   const { data: { session } } = await sb.auth.getSession();
   usuario = session ? session.user : null; carrega();
 }
+</script>
+<script>
+/* Capa com profundidade (efeito 3D): aproximação lenta + mouse/inclinação + rolagem */
+(() => {
+  const img = document.querySelector('.hero-capa'); if (!img) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const hero = img.closest('.hero');
+  let ax = 0, ay = 0, x = 0, y = 0, visivel = true;
+  img.style.willChange = 'transform'; img.style.transformOrigin = '50% 25%';
+  addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; ax = e.clientX / innerWidth - .5; ay = e.clientY / innerHeight - .5; }, { passive: true });
+  if ('DeviceOrientationEvent' in window && matchMedia('(hover: none)').matches) {
+    // no iPhone a permissão é pedida no 1º toque (mesma do logo 3D)
+    addEventListener('deviceorientation', e => { if (e.gamma == null) return; ax = Math.max(-1, Math.min(1, e.gamma / 30)) * .5; ay = Math.max(-1, Math.min(1, ((e.beta || 45) - 45) / 30)) * .5; });
+  }
+  new IntersectionObserver(([en]) => visivel = en.isIntersecting).observe(hero);
+  const t0 = performance.now();
+  (function anda(agora) {
+    if (visivel && !document.hidden) {
+      x += (ax - x) * .06; y += (ay - y) * .06;
+      const t = (agora - t0) / 1000, w = img.clientWidth, h = img.clientHeight;
+      const rol = Math.min(1, Math.max(0, scrollY / hero.offsetHeight));
+      const esc = 1.08 + Math.sin(t * .2) * .03 + rol * .1;
+      img.style.transform = `translate3d(${(-x * w * .04).toFixed(1)}px, ${(-y * h * .03 + rol * h * .06).toFixed(1)}px, 0) scale(${esc.toFixed(4)})`;
+    }
+    requestAnimationFrame(anda);
+  })(t0);
+})();
 </script>
 <script>
 /* Esqueleto de carregamento: o brilho some de cada foto assim que ela carrega */
